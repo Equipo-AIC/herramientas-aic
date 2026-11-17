@@ -6,8 +6,8 @@
 <title>Public-AIC</title>
 <style>
 /* Public-AIC: encabezado institucional compacto · editor en pestañas a la izquierda · selector de diseño y pieza a la derecha */
-:root{--bg:#EDF0F5;--panel:#FFFFFF;--panel-2:#F6F8FB;--fg:#0B1B38;--muted:#5E6E8C;--line:#DCE2EC;--field:#FFFFFF;--brand:#01163A;--brand-2:#0C2A5B;--accent:#FCBF00;--focus:#2C5BD6;
-  --sel:#E8EEF8;--warn-bg:#FFF3D1;--warn-fg:#5E4500;--ok:#1E7A4C;--shadow:0 1px 2px rgba(1,22,58,.06),0 8px 24px rgba(1,22,58,.06);
+:root{--bg:#EDF0F5;--panel:#FFFFFF;--panel-2:#F6F8FB;--fg:#0B1B38;--muted:#5E6E8C;--line:#DCE2EC;--field:#FFFFFF;--brand:#142866;--brand-2:#1D377C;--accent:#FCBF00;--focus:#2C5BD6;
+  --sel:#E8EEF8;--warn-bg:#FFF3D1;--warn-fg:#5E4500;--ok:#1E7A4C;--shadow:0 1px 2px rgba(20,40,102,.06),0 8px 24px rgba(20,40,102,.06);
   --ui:"Montserrat",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;color-scheme:light}
 [hidden]{display:none!important}
 html,body{background:var(--bg)}
@@ -52,7 +52,7 @@ button,input,select,textarea{font:inherit}
 .tabs{display:flex;gap:4px;padding:6px;border-bottom:1px solid var(--line);background:var(--panel-2);border-radius:14px 14px 0 0;overflow-x:auto}
 .tab{flex:1 1 0;min-width:max-content;display:flex;align-items:center;justify-content:center;gap:10px;border:0;background:none;border-radius:9px;padding:11px 14px;font-size:14px;font-weight:600;color:var(--muted);cursor:pointer}
 .tab .n{width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font-size:12px;font-weight:700;background:var(--line);color:var(--fg)}
-.tab[aria-selected="true"]{background:var(--panel);color:var(--fg);box-shadow:0 1px 3px rgba(1,22,58,.12)}
+.tab[aria-selected="true"]{background:var(--panel);color:var(--fg);box-shadow:0 1px 3px rgba(20,40,102,.12)}
 .tab[aria-selected="true"] .n{background:var(--brand);color:var(--accent)}
 .tab .done{width:8px;height:8px;border-radius:50%;background:var(--ok);display:none}
 .tab.ok .done{display:block}
@@ -138,7 +138,7 @@ textarea{resize:vertical;min-height:54px;line-height:1.4}
 .designs .dz .sg{position:absolute;top:-9px;right:8px;margin:0;box-shadow:0 0 0 2px var(--panel)}
 .designs .dz[aria-pressed="true"] .sg{background:#DDF1E5}
 .dz[aria-pressed="true"] .sg{background:#fff}
-.stage{width:100%;aspect-ratio:4/5;max-width:100%;border-radius:6px;overflow:hidden;position:relative;background:#01163A;box-shadow:0 16px 40px rgba(1,22,58,.24);touch-action:none}
+.stage{width:100%;aspect-ratio:4/5;max-width:100%;border-radius:6px;overflow:hidden;position:relative;background:#142866;box-shadow:0 16px 40px rgba(20,40,102,.24);touch-action:none}
 .stage.pan{cursor:grab}.stage.pan.drag{cursor:grabbing}
 .stage .pz{position:absolute;left:0;top:0;transform-origin:0 0}
 .tip{font-size:12px;color:var(--muted);text-align:center;margin-top:-6px}
@@ -153,7 +153,7 @@ textarea{resize:vertical;min-height:54px;line-height:1.4}
 .dl .msg{font-size:13px;color:var(--muted);flex:1 1 140px}
 .foot-note{margin-top:22px;font-size:12px;color:var(--muted);line-height:1.5;text-align:center}
 /* ---- Compacto y con secciones diferenciadas ---- */
-:root{--sec:#F4F6FA;--sec-line:#E2E7F0;--hd:#01163A;--fieldbg:#FFFFFF}
+:root{--sec:#F4F6FA;--sec-line:#E2E7F0;--hd:#142866;--fieldbg:#FFFFFF}
 .wrap{padding-block:16px 32px}
 .work{gap:20px}
 .top .in{padding-block:8px;min-height:38px}
@@ -164,7 +164,7 @@ textarea{resize:vertical;min-height:54px;line-height:1.4}
 .panel{padding:12px 12px 14px;background:var(--sec);border-radius:0 0 14px 14px;display:flex;flex-direction:column;gap:10px}
 .grp+.grp{margin-top:0;padding-top:0;border-top:0}
 .grp{background:var(--panel);border:1px solid var(--sec-line);border-radius:11px;padding:0 14px 14px;overflow:hidden}
-.grp>h3{margin:0 -14px 12px;padding:8px 14px;font-size:11px;letter-spacing:.13em;color:var(--hd);background:linear-gradient(90deg,rgba(1,22,58,.07),rgba(1,22,58,0));border-bottom:1px solid var(--sec-line);display:flex;align-items:center;gap:8px}
+.grp>h3{margin:0 -14px 12px;padding:8px 14px;font-size:11px;letter-spacing:.13em;color:var(--hd);background:linear-gradient(90deg,rgba(20,40,102,.07),rgba(20,40,102,0));border-bottom:1px solid var(--sec-line);display:flex;align-items:center;gap:8px}
 .grp>h3::before{content:"";width:4px;height:13px;border-radius:2px;background:var(--accent);flex:none}
 .rows{gap:9px 12px}
 .f{gap:4px}
@@ -201,12 +201,12 @@ textarea{min-height:40px}
 .dl .btn.primary{padding:11px 18px}
 #tipoSel+#tipo{margin-top:6px}
 /* ===== Interfaz v3: tres niveles de contraste y menú con riel ===== */
-:root{--bg:#DCE2EB;--panel:#FFFFFF;--panel-2:#F2F5F9;--sec:#E9EEF4;--sec-line:#C9D2DF;--line:#C9D2DF;--fieldbg:#F7F9FC;--field:#F7F9FC;--hd:#01163A;--muted:#55657F;--sel:#E3EBF8}
+:root{--bg:#DCE2EB;--panel:#FFFFFF;--panel-2:#F2F5F9;--sec:#E9EEF4;--sec-line:#C9D2DF;--line:#C9D2DF;--fieldbg:#F7F9FC;--field:#F7F9FC;--hd:#142866;--muted:#55657F;--sel:#E3EBF8}
 html,body{background:var(--bg)}
 .wrap{padding-block:14px 20px}
 .work{grid-template-columns:minmax(0,1fr) auto;gap:18px;align-items:start}
 /* editor: barra de formato arriba, riel de pasos a la izquierda, contenido a la derecha */
-.editor{display:grid;grid-template-columns:96px minmax(0,1fr);grid-template-rows:auto 1fr;border:0;overflow:hidden;box-shadow:0 1px 2px rgba(1,22,58,.08),0 10px 28px rgba(1,22,58,.10)}
+.editor{display:grid;grid-template-columns:96px minmax(0,1fr);grid-template-rows:auto 1fr;border:0;overflow:hidden;box-shadow:0 1px 2px rgba(20,40,102,.08),0 10px 28px rgba(20,40,102,.10)}
 .ehd{grid-column:1/-1;display:grid;grid-template-columns:auto minmax(0,1fr);justify-items:start;align-items:center;gap:8px 12px;padding:10px 12px;background:var(--panel);border-bottom:1px solid var(--line)}
 .ehl{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);padding-left:4px}
 .fmts{display:inline-flex;gap:3px;padding:3px;background:var(--panel-2);border:1px solid var(--line);border-radius:10px}
@@ -229,7 +229,7 @@ html,body{background:var(--bg)}
 .tab .done{position:absolute;top:8px;right:10px}
 form{grid-column:2;grid-row:2;min-width:0}
 .panel{background:var(--sec);border-radius:0;padding:12px;gap:10px}
-.grp{background:var(--panel);border:1px solid #D3DAE5;border-radius:10px;box-shadow:0 1px 2px rgba(1,22,58,.06)}
+.grp{background:var(--panel);border:1px solid #D3DAE5;border-radius:10px;box-shadow:0 1px 2px rgba(20,40,102,.06)}
 .grp>h3{background:#F0F3F8;color:var(--hd);border-bottom:1px solid #DDE3EC}
 input[type=text],input[type=date],input[type=time],textarea,select{background:var(--fieldbg);border:1px solid #BFC9D8}
 input:hover,textarea:hover,select:hover{border-color:#9AA8BF}
@@ -251,7 +251,7 @@ input:hover,textarea:hover,select:hover{border-color:#9AA8BF}
 /* ===== Ronda 13 · base mobile-first. La pieza se ve en el teléfono a ~37 % (1080 px → ~400 px).
    Escala: titular 58–68 · nombre 40–44 · cargo 28–30 · datos 30–32 · etiquetas 22–24 · nada bajo 22 px.
    Grises sólo oscuros (≥ 7:1 sobre blanco) para información; el amarillo, sólo en elementos. ===== */
-.pz{--navy:#01163A;--navy-2:#0C2A5B;--navy-3:#0A2452;--yellow:#FCBF00;--white:#FFFFFF;--mist:#D3DCEB;--ink:#01163A;--ink-2:#2B3A57;--ink-3:#46567A;--tint:#E9EEF6;--paper:#F4F6FA;--line:#CDD5E2;--etica:#111111;
+.pz{--navy:#142866;--navy-2:#1B3374;--navy-3:#1D377C;--yellow:#FCBF00;--white:#FFFFFF;--mist:#D3DCEB;--ink:#142866;--ink-2:#2B3A57;--ink-3:#46567A;--tint:#E9EEF6;--paper:#F4F6FA;--line:#CDD5E2;--etica:#111111;
   width:1080px;height:1350px;position:relative;overflow:hidden;font-family:"Montserrat",Arial,sans-serif;-webkit-font-smoothing:antialiased;box-sizing:border-box;text-rendering:geometricPrecision}
 .pz *{box-sizing:border-box;margin:0;padding:0}
 .pz svg{display:block}
@@ -313,7 +313,7 @@ input:hover,textarea:hover,select:hover{border-color:#9AA8BF}
 .pz.ch .lab{display:flex;align-items:center;gap:12px;font-size:24px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;line-height:1.2;margin-bottom:12px;color:var(--ink-3)}
 .pz.ch .lab::before{content:"";width:12px;height:12px;background:var(--yellow);flex:none}
 /* retrato circular: tamaño contenido, admite fotos carnet, chicas o de distinta procedencia */
-.pz.ch .av{position:relative;flex:none;width:var(--av,220px);height:var(--av,220px);border-radius:50%;background:var(--tint);box-shadow:0 0 0 8px var(--white),0 16px 36px rgba(1,22,58,.20)}
+.pz.ch .av{position:relative;flex:none;width:var(--av,220px);height:var(--av,220px);border-radius:50%;background:var(--tint);box-shadow:0 0 0 8px var(--white),0 16px 36px rgba(20,40,102,.20)}
 .pz.ch .av .ph{inset:0;border-radius:50%;background:var(--tint)}
 .pz.ch .av .ph.ini{background:linear-gradient(160deg,var(--navy-2),var(--navy))}
 .pz.ch .av .ph.ini span{font-size:calc(var(--av,220px)*.32)}
@@ -326,7 +326,7 @@ input:hover,textarea:hover,select:hover{border-color:#9AA8BF}
 .pz.ch.two .sr b.nm{font-size:40px}
 .pz.ch.two .sr .r{font-size:29px}
 /* calendario */
-.pz.ch .cal{position:absolute;width:200px;height:222px;border-radius:20px;background:var(--white);box-shadow:0 20px 44px rgba(1,22,58,.22),0 0 0 1.5px rgba(1,22,58,.08);display:flex;flex-direction:column;flex:none;z-index:3}
+.pz.ch .cal{position:absolute;width:200px;height:222px;border-radius:20px;background:var(--white);box-shadow:0 20px 44px rgba(20,40,102,.22),0 0 0 1.5px rgba(20,40,102,.08);display:flex;flex-direction:column;flex:none;z-index:3}
 .pz.ch .cal .mh{height:64px;padding-top:8px;border-radius:20px 20px 0 0;background:var(--navy);color:var(--white);display:grid;place-items:center;font-size:22px;font-weight:800;letter-spacing:.12em}
 .pz.ch .cal .day{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding-bottom:6px}
 .pz.ch .cal .d{font-size:96px;font-weight:800;line-height:.92;letter-spacing:-.04em;color:var(--ink)}
@@ -360,7 +360,7 @@ input:hover,textarea:hover,select:hover{border-color:#9AA8BF}
 .pz.dM .tp>.ph{left:400px;right:0;top:0;bottom:0;background:var(--navy-2)}
 /* con foto: bajo la columna va la actividad; la placa del expositor se monta sobre el borde inferior de la foto y crece hacia abajo, nunca sobre el rostro */
 .pz.dM .mid{flex:none;display:flex;position:relative;z-index:2;padding:0 48px 0 400px}
-.pz.dM .plate{flex:1;min-width:0;margin-top:-96px;background:var(--white);padding:28px 36px 30px 32px;box-shadow:0 20px 44px rgba(1,22,58,.18);display:flex;gap:20px;align-items:flex-start}
+.pz.dM .plate{flex:1;min-width:0;margin-top:-96px;background:var(--white);padding:28px 36px 30px 32px;box-shadow:0 20px 44px rgba(20,40,102,.18);display:flex;gap:20px;align-items:flex-start}
 .pz.dM .plate>i{width:16px;height:16px;background:var(--yellow);flex:none;margin-top:15px}
 .pz.dM .plate>div{min-width:0}
 .pz.dM .plate b.nm{font-size:44px}
@@ -484,7 +484,7 @@ input:hover,textarea:hover,select:hover{border-color:#9AA8BF}
 .pz.dC.two .bd>.ph.ph2{left:542px;top:0;bottom:0;width:538px}
 .pz.dC .bd .ph.ini{display:flex;align-items:flex-end;justify-content:flex-end;padding:0 40px 30px 0}
 .pz.dC .bd .ph.ini span{font-size:200px;line-height:1;color:rgba(255,255,255,.12)}
-.pz.dC .bd .tg{position:absolute;inset:0;background:linear-gradient(180deg,rgba(1,22,58,.55) 0px,rgba(1,22,58,0) 250px);pointer-events:none}
+.pz.dC .bd .tg{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,40,102,.55) 0px,rgba(20,40,102,0) 250px);pointer-events:none}
 .pz.dC .bd .mk{position:absolute;width:820px;left:-160px;top:-60px}
 .pz.dC .bd .mk .br{fill:none;stroke:rgba(255,255,255,.12);stroke-width:2}
 .pz.dC .bd .mk .dt{fill:rgba(255,255,255,.05)}
@@ -682,7 +682,7 @@ input:hover,textarea:hover,select:hover{border-color:#9AA8BF}
 
 /* ===== Foto con calendario · ronda 18: degradado azul superior y expositores alineados con su foto ===== */
 .pz.dC .bd.gr>.ph,.pz.dC.two .bd.gr>.ph.p1,.pz.dC.two .bd.gr>.ph.ph2{top:150px}
-.pz.dC .bd.gr .tg{display:block;background:linear-gradient(180deg,var(--navy) 0px,var(--navy) 150px,rgba(1,22,58,.88) 205px,rgba(1,22,58,.5) 265px,rgba(1,22,58,.16) 330px,rgba(1,22,58,0) 380px)}
+.pz.dC .bd.gr .tg{display:block;background:linear-gradient(180deg,var(--navy) 0px,var(--navy) 150px,rgba(20,40,102,.88) 205px,rgba(20,40,102,.5) 265px,rgba(20,40,102,.16) 330px,rgba(20,40,102,0) 380px)}
 .pz.dC .bd.gr~.logo{top:48px;width:224px}
 .pz.dC .kq.gk{position:absolute;right:72px;top:66px;z-index:3;flex-direction:row-reverse;text-align:right;color:var(--white)}
 .pz.dC .kq.gk .o{color:var(--mist);justify-content:flex-end}
@@ -691,10 +691,123 @@ input:hover,textarea:hover,select:hover{border-color:#9AA8BF}
 .pz.dC .who.two>div{border-left:0;padding:0 46px;text-align:center}
 .pz.dC.tight .who.two{padding-top:26px}
 
+
+/* ===== ronda 19 ===== */
+/* Diseño mixto con dos expositores: un solo grupo, juntos y sin divisor, centrado en la columna */
+.pz.dR .sc.duo>.lab{margin-top:auto;margin-bottom:22px;align-self:center}
+.pz.dR .sc.duo>.lab::before{display:none}
+.pz.dR .sc.duo>.sk{flex:none;padding:10px 8px}
+.pz.dR .sc.duo>.sk+.sk{border-top:0;margin-top:34px}
+.pz.dR .sc.duo>.sk+.go{margin-top:auto}
+.pz.dR .sc.duo>.sk:last-of-type{margin-bottom:0}
+.pz.dR .sc .sk .tx{margin-top:20px}
+.pz.dR .sc.duo>.sk:last-child{margin-bottom:auto}
+/* Diseño panorámico con foto a todo el ancho: franja azul sólida arriba (sin degradado) con logo y actividad; fotos lado a lado sin separación */
+.pz.dC .bd.gr .tg{display:none}
+.pz.dC .bd.gr>.ph,.pz.dC.two .bd.gr>.ph.p1,.pz.dC.two .bd.gr>.ph.ph2{top:236px}
+.pz.dC.two .bd>.ph.p1{width:540px}
+.pz.dC.two .bd>.ph.ph2{left:540px;width:540px}
+.pz.dC .bd.gr~.logo{top:34px;width:196px}
+.pz.dC .kq.gk{top:auto;bottom:auto;top:84px}
+.pz.dC .who.two{grid-template-columns:540px 540px;column-gap:0}
+/* Fotos pequeñas: textura de líneas AIC sobre el fondo y retrato único más grande */
+.pz.dV{background:var(--paper)}
+.pz.dV .topo path{fill:none;stroke:#C3CEDD;stroke-width:1.6}
+.pz.dV{--av:310px}
+.pz.dV:not(.two) .sr b.nm{font-size:46px}
+.pz.dV:not(.two) .sr .r{font-size:29px}
+.pz.dV .vh,.pz.dV .sp,.pz.dV .vi,.pz.dV .pf{position:relative;z-index:1}
+
+
+/* =================== AIC CLÁSICO (L) · pocos elementos, letra grande =================== */
+.pz.dL{background:var(--white);color:var(--ink)}
+.pz.dL .lh{flex:none;display:flex;align-items:flex-start;justify-content:space-between;gap:30px;padding-right:72px}
+.pz.dL .lb{width:316px;height:256px;background:var(--navy);display:grid;place-items:center;flex:none}
+.pz.dL .lb img{width:232px;display:block}
+.pz.dL .lk{display:flex;align-items:center;gap:14px;margin-top:64px;padding:14px 28px 14px 18px;border-radius:999px;background:var(--navy);color:var(--white);font-size:26px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;line-height:1.2;max-width:560px}
+.pz.dL .lk .ic{width:38px;height:38px;color:var(--white)}
+.pz.dL .lm{flex:1 1 auto;min-height:0;display:flex;gap:44px;padding:52px 72px 48px;overflow:hidden}
+.pz.dL .lt{flex:1 1 auto;min-width:0;display:flex;flex-direction:column}
+.pz.dL h1{font-size:72px;line-height:1.04;color:var(--navy)}
+.pz.dL .lu{display:block;width:120px;height:7px;background:var(--yellow);margin:30px 0 0;flex:none}
+.pz.dL .ld{display:flex;flex-direction:column;margin-top:auto}
+.pz.dL .lrow{display:flex;border-top:2px solid var(--navy);padding:20px 0}
+.pz.dL .lrow:last-of-type{border-bottom:2px solid var(--navy)}
+.pz.dL .lrow.pair>.lr+.lr{border-left:2px solid var(--line);padding-left:26px;margin-left:26px}
+.pz.dL .lrow.pair>.lr:first-child{flex:1 1 auto}
+.pz.dL .lr{display:flex;align-items:center;gap:20px;min-width:0}
+.pz.dL .lr>.ic{width:64px;height:64px;border-radius:12px;background:var(--navy);color:var(--white);padding:15px}
+.pz.dL .lr b{display:block;font-size:28px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;line-height:1.15;color:var(--navy)}
+.pz.dL .lr span{display:block;font-size:33px;font-weight:500;line-height:1.22;color:var(--ink)}
+.pz.dL .la{margin-top:20px;font-size:29px;font-weight:500;line-height:1.3;color:var(--ink-2);text-wrap:balance}
+.pz.dL .lg{flex:none;display:flex;align-items:center;justify-content:space-between;gap:30px;margin-top:26px}
+.pz.dL .lv{padding-left:18px;border-left:6px solid var(--yellow);line-height:1.1}
+.pz.dL .lv span{display:block;font-size:22px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
+.pz.dL .lv b{display:block;margin-top:4px;font-size:38px;font-weight:800;color:var(--navy)}
+.pz.dL .ls{flex:none;width:392px;display:flex;flex-direction:column;justify-content:flex-end}
+.pz.dL .lc2{display:flex;flex-direction:column;min-width:0}
+.pz.dL .lp{position:relative;height:430px;border-radius:14px 14px 0 0;overflow:hidden;background:var(--tint)}
+.pz.dL .lp .ph{inset:0}
+.pz.dL .ln{background:var(--navy);color:var(--white);padding:26px 26px 30px;text-align:center;border-radius:0 0 14px 14px}
+.pz.dL .lc2>.ln:first-child{border-radius:14px}
+.pz.dL .ln b.nm{font-size:38px}
+.pz.dL .ln .r{margin-top:10px;font-size:27px;color:var(--mist)}
+.pz.dL .lbtn{margin-top:26px;height:88px;padding:0 44px;border-radius:14px;background:var(--navy);color:var(--white);display:grid;place-items:center;font-size:34px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;flex:none}
+.pz.dL .lf{flex:none;height:112px;background:var(--navy);color:var(--white);display:flex;align-items:center;padding:0 72px;font-size:32px;font-weight:500}
+.pz.dL .lf b{font-weight:800;margin-right:6px}
+.pz.dL .ph.ini span{font-size:120px}
+.pz.dL .ltt{flex:none;padding:46px 72px 0}
+.pz.dL .lm.one{padding-top:34px}
+.pz.dL .lm.one .ln{padding:22px 22px 26px}
+.pz.dL .lm.one .ln b.nm{font-size:36px}
+.pz.dL .lm.one .ln .r{font-size:26px}
+.pz.dL .lm.one .ld{margin-top:0;justify-content:flex-end;flex:1 1 auto}
+.pz.dL .lm.one .ls{justify-content:flex-start}
+.pz.dL .lm.one .lc2{flex:1 1 auto;min-height:0}
+.pz.dL .lm.one .lp{height:auto;flex:1 1 auto;min-height:0}
+.pz.dL .lm.one .lrow.pair{flex-direction:column}
+.pz.dL .lm.one .lrow.pair>.lr+.lr{border-left:0;margin-left:0;padding-left:0;margin-top:16px}
+.pz.dL.two .lm{padding-top:46px}
+.pz.dL .ls.two .lp{height:220px}
+.pz.dL.tight .ls.two .lp{height:176px}
+.pz.dL.tight.two .lm{padding-top:34px}
+.pz.dL.tight .ls.two{margin-top:22px}
+.pz.dL.tight.two .lu{margin-top:20px}
+.pz.dL.tight.two .ld{padding-top:20px}
+.pz.dL.tight.two .lrow{padding:12px 0}
+.pz.dL.tight .lg{margin-top:18px}
+.pz.dL.xt .ls.two .lp{height:140px}
+.pz.dL.xt .lb{height:206px}
+.pz.dL.xt .lb img{width:206px}
+.pz.dL.xt .lk{margin-top:44px}
+.pz.dL.tight .ltt{padding-top:36px}
+.pz.dL.tight .lm.one{padding-top:26px}
+
+/* dos expositores: título a todo el ancho, dos fichas iguales (foto arriba, nombre abajo) y datos debajo */
+.pz.dL .ls.two{width:auto;flex-direction:row;justify-content:flex-start;gap:28px;margin-top:34px}
+.pz.dL .ls.two .lc2{flex:1 1 0}
+.pz.dL .ls.two .lp{height:250px}
+.pz.dL .ls.two .ln{padding:20px 22px 24px}
+.pz.dL .ls.two .ln b.nm{font-size:32px}
+.pz.dL .ls.two .ln .r{font-size:24px}
+.pz.dL.two .ld{margin-top:auto;padding-top:28px}
+.pz.dL.two .lrow{padding:16px 0}
+.pz.dL.two .lr>.ic{width:56px;height:56px;padding:13px}
+.pz.dL.two .lr span{font-size:30px}
+.pz.dL.two .lr b{font-size:26px}
+.pz.dL.two .la{margin-top:14px;font-size:27px}
+.pz.dL.two .lg .lbtn{margin-top:0}
+.pz.dL.tight .lm{padding:38px 72px 34px}
+.pz.dL.tight .lrow{padding:14px 0}
+.pz.dL.tight .lp{height:370px}
+.pz.dL.tight .ls.two .lp{height:206px}
+.pz.dL.tight .lb{height:230px}
+.pz.dL.tight .lk{margin-top:52px}
+
 /* =================== FRASE DESTACADA (O) =================== */
 .pz.dO{--etica:#FFFFFF;background:var(--navy);color:var(--white)}
 .pz.dO .ph{inset:0}
-.pz.dO .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(1,22,58,.55) 0px,rgba(1,22,58,0) 260px),linear-gradient(180deg,rgba(1,22,58,0) var(--g0,520px),rgba(1,22,58,.86) var(--g1,820px),var(--navy) var(--g2,1000px))}
+.pz.dO .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,40,102,.55) 0px,rgba(20,40,102,0) 260px),linear-gradient(180deg,rgba(20,40,102,0) var(--g0,520px),rgba(20,40,102,.86) var(--g1,820px),var(--navy) var(--g2,1000px))}
 .pz.dO .qbg{position:absolute;right:-30px;top:-230px;font-size:1100px;font-weight:800;line-height:1;color:var(--navy-2);pointer-events:none}
 .pz.dO .logo{left:74px;top:62px;width:190px}
 .pz.dO .main{position:absolute;left:80px;right:80px;bottom:56px;display:flex;flex-direction:column}
@@ -735,14 +848,14 @@ input:hover,textarea:hover,select:hover{border-color:#9AA8BF}
 .pz.dP .bd p{text-indent:1.2em}
 .pz.dP .bd p:first-child,.pz.dP .bd p.cont{text-indent:0}
 .pz.dP .sig{margin-top:20px;text-align:right;line-height:1.28;font-family:"Caladea",Georgia,serif}
-.pz.dP .sig b{display:block;font-size:27px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#01163A}
+.pz.dP .sig b{display:block;font-size:27px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#142866}
 .pz.dP .sig span{display:block;margin-top:4px;font-size:24px;font-style:italic;text-wrap:balance}
 .pz.dP .sig em{display:block;margin-top:2px;font-size:22px;font-style:italic;color:#2B3A57}
-.pz.dP .more{margin-top:18px;text-align:right;font:700 22px/1.2 "Montserrat",Arial,sans-serif;color:#01163A}
+.pz.dP .more{margin-top:18px;text-align:right;font:700 22px/1.2 "Montserrat",Arial,sans-serif;color:#142866}
 .pz.dP .brand{position:absolute;left:56px;right:56px;bottom:0;height:136px;display:flex;align-items:center;justify-content:space-between;gap:30px;font:500 26px/1.3 "Montserrat",Arial,sans-serif;color:#2B3A57;text-align:right}
 .pz.dP .brand img{width:150px;display:block}
-.pz.dP .brand b{color:#01163A;font-weight:700}
-.pz.dP .pgn{margin-top:18px;text-align:right;font:700 22px/1.2 "Montserrat",Arial,sans-serif;letter-spacing:.06em;color:#01163A}
+.pz.dP .brand b{color:#142866;font-weight:700}
+.pz.dP .pgn{margin-top:18px;text-align:right;font:700 22px/1.2 "Montserrat",Arial,sans-serif;letter-spacing:.06em;color:#142866}
 .pz.dP .pgn:empty{display:none}
 /* Institucional AIC: papel blanco, membrete azul, título con serifa, firma en el pie */
 /* Institucional AIC: hoja blanca con membrete sobrio (logo, sección y filete azul), título sans, cuerpo con serifa y firma al pie */
@@ -780,8 +893,8 @@ body[data-fmt="col"] .pv{width:clamp(520px,50vw,800px)}
 body[data-fmt="col"] .stage{width:100%;height:auto;aspect-ratio:auto;background:transparent;box-shadow:none;border-radius:0;overflow:visible;touch-action:auto}
 @media (max-width:980px){body[data-fmt="col"] .pv{width:auto}}
 .stage .doc{position:absolute;left:0;top:0;transform-origin:0 0}
-.stage .doc .pg{box-shadow:0 2px 4px rgba(1,22,58,.10),0 14px 34px rgba(1,22,58,.16)}
-.doc{--ink:#141A26;--navy:#01163A;--soft:#4A5568;--rule:#C9D2DF;width:1056px;font-family:"Caladea",Georgia,"Times New Roman",serif;color:var(--ink);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+.stage .doc .pg{box-shadow:0 2px 4px rgba(20,40,102,.10),0 14px 34px rgba(20,40,102,.16)}
+.doc{--ink:#141A26;--navy:#142866;--soft:#4A5568;--rule:#C9D2DF;width:1056px;font-family:"Caladea",Georgia,"Times New Roman",serif;color:var(--ink);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 .doc *{box-sizing:border-box;margin:0;padding:0}
 .doc .pg{width:1056px;height:816px;background:#fff;position:relative;overflow:hidden;display:flex;flex-direction:column;padding:36px 60px 24px}
 .doc .pg+.pg{margin-top:28px}
@@ -823,7 +936,7 @@ body[data-fmt="col"] .stage{width:100%;height:auto;aspect-ratio:auto;background:
 .stage .pzs{position:absolute;left:0;top:0;transform-origin:0 0}
 .stage .pzs>.pz{position:relative}
 body[data-multi="1"] .stage{background:transparent;box-shadow:none;border-radius:0;overflow:visible;aspect-ratio:auto}
-body[data-multi="1"] .stage .pzs>.pz{box-shadow:0 16px 40px rgba(1,22,58,.24)}
+body[data-multi="1"] .stage .pzs>.pz{box-shadow:0 16px 40px rgba(20,40,102,.24)}
 #printDoc{display:none}
 @media print{
   @page{size:11in 8.5in;margin:0}
@@ -862,12 +975,13 @@ body[data-multi="1"] .stage .pzs>.pz{box-shadow:0 16px 40px rgba(1,22,58,.24)}
       </div>
       <span class="ehl" id="varL">Variante</span>
       <div class="designs" id="variants" role="group" aria-label="Variante">
-        <button type="button" class="dz" data-d="M" data-fmt="charlas" aria-pressed="false"><svg viewBox="0 0 64 80" aria-hidden="true"><rect width="64" height="80" fill="#fff"/><rect width="24" height="46" fill="#01163A"/><rect x="24" width="40" height="46" fill="#9AA7C0"/><circle cx="45" cy="16" r="7" fill="#C9D1E0"/><path d="M34 46c1-13 21-13 22 0z" fill="#56657F"/><rect x="4" y="22" width="10" height="13" fill="#fff"/><rect x="4" y="37" width="12" height="2" fill="#FCBF00"/><rect x="24" y="41" width="34" height="9" fill="#fff"/><rect x="27" y="43.5" width="18" height="2" fill="#01163A"/><rect x="4" y="55" width="44" height="3.4" fill="#01163A"/><rect x="4" y="60" width="34" height="3.4" fill="#01163A"/><rect y="71" width="64" height="9" fill="#01163A"/></svg><b>Fecha destacada</b><em class="sg">Sugerida</em></button>
-        <button type="button" class="dz" data-d="R" data-fmt="charlas" aria-pressed="false"><svg viewBox="0 0 64 80" aria-hidden="true"><rect width="64" height="80" fill="#F4F6FA"/><rect x="35" width="29" height="70" fill="#01163A"/><rect x="35" width="29" height="44" fill="#9AA7C0"/><circle cx="49.5" cy="16" r="6.5" fill="#C9D1E0"/><path d="M39 44c1-12 20-12 21 0z" fill="#56657F"/><rect x="38" y="47" width="6" height="1.4" fill="#FCBF00"/><rect x="38" y="51" width="18" height="2.6" fill="#fff"/><rect x="38" y="56" width="21" height="1.6" fill="#9AA7C0"/><rect x="38" y="59.5" width="15" height="1.6" fill="#9AA7C0"/><rect x="4" y="5" width="11" height="4" fill="#01163A"/><rect x="4" y="22" width="27" height="3.4" fill="#01163A"/><rect x="4" y="27" width="25" height="3.4" fill="#01163A"/><rect x="4" y="32" width="27" height="3.4" fill="#01163A"/><rect x="4" y="37" width="17" height="3.4" fill="#01163A"/><rect x="4" y="50" width="24" height=".6" fill="#C9D2DF"/><rect x="4" y="53" width="20" height="1.8" fill="#40516F"/><rect x="4" y="57" width="14" height="1.8" fill="#40516F"/><rect x="4" y="61" width="22" height="1.8" fill="#40516F"/></svg><b>Foto protagonista</b><em class="sg">Sugerida</em></button>
-        <button type="button" class="dz" data-d="V" data-fmt="charlas" aria-pressed="false"><svg viewBox="0 0 64 80" aria-hidden="true"><rect width="64" height="80" fill="#fff"/><rect width="64" height="29" fill="#01163A"/><rect x="5" y="5" width="11" height="4" fill="#fff"/><rect x="5" y="15" width="46" height="3.4" fill="#fff"/><rect x="5" y="20" width="32" height="3.4" fill="#fff"/><circle cx="13" cy="39" r="7.5" fill="#9AA7C0"/><circle cx="18.5" cy="44" r="1.6" fill="#FCBF00"/><rect x="25" y="34.5" width="1.2" height="9" fill="#FCBF00"/><rect x="28" y="36" width="22" height="2.6" fill="#01163A"/><rect x="28" y="40.5" width="26" height="1.6" fill="#56657F"/><circle cx="13" cy="57" r="7.5" fill="#9AA7C0"/><circle cx="18.5" cy="62" r="1.6" fill="#FCBF00"/><rect x="25" y="52.5" width="1.2" height="9" fill="#FCBF00"/><rect x="28" y="54" width="20" height="2.6" fill="#01163A"/><rect x="28" y="58.5" width="24" height="1.6" fill="#56657F"/><rect x="5" y="72" width="54" height=".6" fill="#C9D2DF"/></svg><b>Retratos</b><em class="sg">Sugerida</em></button>
-        <button type="button" class="dz" data-d="C" data-fmt="charlas" aria-pressed="false"><svg viewBox="0 0 64 80" aria-hidden="true"><rect width="64" height="80" fill="#fff"/><path d="M0 0H64V27L51 40H0z" fill="#9AA7C0"/><circle cx="34" cy="14" r="6.5" fill="#C9D1E0"/><path d="M22 40c1-9 6-13 12-13s11 4 12 13z" fill="#C9D1E0"/><line x1="51" y1="40" x2="64" y2="27" stroke="#FCBF00" stroke-width="1.6"/><rect x="5" y="34" width="12" height="13" rx="2" fill="#fff" stroke="#01163A" stroke-width=".8"/><rect x="5" y="34" width="12" height="4" fill="#01163A"/><rect x="21" y="43" width="22" height="2.6" fill="#01163A"/><rect x="21" y="47" width="16" height="1.6" fill="#56657F"/><rect x="5" y="55" width="40" height="3.4" fill="#01163A"/><rect x="5" y="60" width="30" height="3.4" fill="#01163A"/><rect x="5" y="72" width="54" height=".6" fill="#C9D2DF"/></svg><b>Foto con calendario</b><em class="sg">Sugerida</em></button>
-        <button type="button" class="dz" data-d="P" data-fmt="carta" aria-pressed="false" hidden><svg viewBox="0 0 64 80" aria-hidden="true"><rect width="64" height="80" fill="#E4E9F0"/><rect x="5" y="5" width="54" height="61" fill="#fff"/><rect x="18" y="9" width="28" height="3" fill="#141A26"/><rect x="9" y="15" width="46" height=".8" fill="#141A26"/><rect x="9" y="16.6" width="46" height=".8" fill="#141A26"/><rect x="9" y="21" width="36" height="3" fill="#0B1220"/><g fill="#9AA6B8"><rect x="9" y="28" width="46" height="1.6"/><rect x="9" y="32" width="46" height="1.6"/><rect x="9" y="36" width="46" height="1.6"/><rect x="9" y="40" width="46" height="1.6"/><rect x="9" y="44" width="46" height="1.6"/><rect x="9" y="48" width="30" height="1.6"/></g><rect x="37" y="55" width="18" height="2" fill="#01163A"/><rect x="43" y="59" width="12" height="1.4" fill="#9AA6B8"/><rect x="5" y="71" width="12" height="4" fill="#01163A"/></svg><b>Recorte de prensa</b></button>
-        <button type="button" class="dz" data-d="A" data-fmt="carta" aria-pressed="false" hidden><svg viewBox="0 0 64 80" aria-hidden="true"><rect width="64" height="80" fill="#01163A"/><circle cx="58" cy="6" r="9" fill="none" stroke="#3A4C70" stroke-width=".8"/><rect x="6" y="6" width="12" height="4" fill="#fff"/><rect x="6" y="17" width="4" height="1.2" fill="#FCBF00"/><rect x="6" y="21" width="44" height="3.6" fill="#fff"/><rect x="6" y="26.5" width="32" height="3.6" fill="#fff"/><circle cx="10" cy="35" r="4" fill="#9AA7C0"/><rect x="17" y="33" width="20" height="2" fill="#fff"/><rect x="17" y="36.4" width="14" height="1.4" fill="#9AA7C0"/><rect x="6" y="43" width="52" height="31" fill="#fff"/><circle cx="12" cy="43" r="3" fill="#FCBF00"/><g fill="#9AA6B8"><rect x="10" y="49" width="44" height="1.4"/><rect x="10" y="53" width="44" height="1.4"/><rect x="10" y="57" width="44" height="1.4"/><rect x="10" y="61" width="44" height="1.4"/><rect x="10" y="65" width="28" height="1.4"/></g></svg><b>Institucional AIC</b></button>
+        <button type="button" class="dz" data-d="M" data-fmt="charlas" aria-pressed="false"><svg viewBox="0 0 64 80" aria-hidden="true"><rect width="64" height="80" fill="#fff"/><rect width="24" height="46" fill="#142866"/><rect x="24" width="40" height="46" fill="#9AA7C0"/><circle cx="45" cy="16" r="7" fill="#C9D1E0"/><path d="M34 46c1-13 21-13 22 0z" fill="#56657F"/><rect x="4" y="22" width="10" height="13" fill="#fff"/><rect x="4" y="37" width="12" height="2" fill="#FCBF00"/><rect x="24" y="41" width="34" height="9" fill="#fff"/><rect x="27" y="43.5" width="18" height="2" fill="#142866"/><rect x="4" y="55" width="44" height="3.4" fill="#142866"/><rect x="4" y="60" width="34" height="3.4" fill="#142866"/><rect y="71" width="64" height="9" fill="#142866"/></svg><b>Diseño modular</b><em class="sg">Sugerida</em></button>
+        <button type="button" class="dz" data-d="R" data-fmt="charlas" aria-pressed="false"><svg viewBox="0 0 64 80" aria-hidden="true"><rect width="64" height="80" fill="#F4F6FA"/><rect x="35" width="29" height="70" fill="#142866"/><rect x="35" width="29" height="44" fill="#9AA7C0"/><circle cx="49.5" cy="16" r="6.5" fill="#C9D1E0"/><path d="M39 44c1-12 20-12 21 0z" fill="#56657F"/><rect x="38" y="47" width="6" height="1.4" fill="#FCBF00"/><rect x="38" y="51" width="18" height="2.6" fill="#fff"/><rect x="38" y="56" width="21" height="1.6" fill="#9AA7C0"/><rect x="38" y="59.5" width="15" height="1.6" fill="#9AA7C0"/><rect x="4" y="5" width="11" height="4" fill="#142866"/><rect x="4" y="22" width="27" height="3.4" fill="#142866"/><rect x="4" y="27" width="25" height="3.4" fill="#142866"/><rect x="4" y="32" width="27" height="3.4" fill="#142866"/><rect x="4" y="37" width="17" height="3.4" fill="#142866"/><rect x="4" y="50" width="24" height=".6" fill="#C9D2DF"/><rect x="4" y="53" width="20" height="1.8" fill="#40516F"/><rect x="4" y="57" width="14" height="1.8" fill="#40516F"/><rect x="4" y="61" width="22" height="1.8" fill="#40516F"/></svg><b>Diseño mixto</b><em class="sg">Sugerida</em></button>
+        <button type="button" class="dz" data-d="V" data-fmt="charlas" aria-pressed="false"><svg viewBox="0 0 64 80" aria-hidden="true"><rect width="64" height="80" fill="#fff"/><rect width="64" height="29" fill="#142866"/><rect x="5" y="5" width="11" height="4" fill="#fff"/><rect x="5" y="15" width="46" height="3.4" fill="#fff"/><rect x="5" y="20" width="32" height="3.4" fill="#fff"/><circle cx="13" cy="39" r="7.5" fill="#9AA7C0"/><circle cx="18.5" cy="44" r="1.6" fill="#FCBF00"/><rect x="25" y="34.5" width="1.2" height="9" fill="#FCBF00"/><rect x="28" y="36" width="22" height="2.6" fill="#142866"/><rect x="28" y="40.5" width="26" height="1.6" fill="#56657F"/><circle cx="13" cy="57" r="7.5" fill="#9AA7C0"/><circle cx="18.5" cy="62" r="1.6" fill="#FCBF00"/><rect x="25" y="52.5" width="1.2" height="9" fill="#FCBF00"/><rect x="28" y="54" width="20" height="2.6" fill="#142866"/><rect x="28" y="58.5" width="24" height="1.6" fill="#56657F"/><rect x="5" y="72" width="54" height=".6" fill="#C9D2DF"/></svg><b>Fotos pequeñas y doble expositor</b><em class="sg">Sugerida</em></button>
+        <button type="button" class="dz" data-d="C" data-fmt="charlas" aria-pressed="false"><svg viewBox="0 0 64 80" aria-hidden="true"><rect width="64" height="80" fill="#fff"/><path d="M0 0H64V27L51 40H0z" fill="#9AA7C0"/><circle cx="34" cy="14" r="6.5" fill="#C9D1E0"/><path d="M22 40c1-9 6-13 12-13s11 4 12 13z" fill="#C9D1E0"/><line x1="51" y1="40" x2="64" y2="27" stroke="#FCBF00" stroke-width="1.6"/><rect x="5" y="34" width="12" height="13" rx="2" fill="#fff" stroke="#142866" stroke-width=".8"/><rect x="5" y="34" width="12" height="4" fill="#142866"/><rect x="21" y="43" width="22" height="2.6" fill="#142866"/><rect x="21" y="47" width="16" height="1.6" fill="#56657F"/><rect x="5" y="55" width="40" height="3.4" fill="#142866"/><rect x="5" y="60" width="30" height="3.4" fill="#142866"/><rect x="5" y="72" width="54" height=".6" fill="#C9D2DF"/></svg><b>Diseño panorámico</b><em class="sg">Sugerida</em></button>
+        <button type="button" class="dz" data-d="L" data-fmt="charlas" aria-pressed="false"><svg viewBox="0 0 64 80" aria-hidden="true"><rect width="64" height="80" fill="#fff"/><rect width="22" height="20" fill="#142866"/><rect x="5" y="7" width="12" height="5" fill="#fff"/><rect x="42" y="7" width="17" height="5" rx="2.5" fill="#142866"/><rect x="5" y="26" width="30" height="4" fill="#142866"/><rect x="5" y="32" width="26" height="4" fill="#142866"/><rect x="5" y="38" width="20" height="4" fill="#142866"/><rect x="5" y="47" width="5" height="5" rx="1" fill="#142866"/><rect x="12" y="48" width="16" height="2.4" fill="#40516F"/><rect x="5" y="55" width="5" height="5" rx="1" fill="#142866"/><rect x="12" y="56" width="14" height="2.4" fill="#40516F"/><rect x="39" y="25" width="20" height="22" rx="2" fill="#9AA7C0"/><circle cx="49" cy="33" r="4" fill="#C9D1E0"/><path d="M42 47c1-7 13-7 14 0z" fill="#56657F"/><rect x="39" y="47" width="20" height="11" fill="#142866"/><rect x="39" y="61" width="20" height="5" rx="1.5" fill="#142866"/><rect y="72" width="64" height="8" fill="#142866"/></svg><b>AIC clásico</b><em class="sg">Sugerida</em></button>
+        <button type="button" class="dz" data-d="P" data-fmt="carta" aria-pressed="false" hidden><svg viewBox="0 0 64 80" aria-hidden="true"><rect width="64" height="80" fill="#E4E9F0"/><rect x="5" y="5" width="54" height="61" fill="#fff"/><rect x="18" y="9" width="28" height="3" fill="#141A26"/><rect x="9" y="15" width="46" height=".8" fill="#141A26"/><rect x="9" y="16.6" width="46" height=".8" fill="#141A26"/><rect x="9" y="21" width="36" height="3" fill="#0B1220"/><g fill="#9AA6B8"><rect x="9" y="28" width="46" height="1.6"/><rect x="9" y="32" width="46" height="1.6"/><rect x="9" y="36" width="46" height="1.6"/><rect x="9" y="40" width="46" height="1.6"/><rect x="9" y="44" width="46" height="1.6"/><rect x="9" y="48" width="30" height="1.6"/></g><rect x="37" y="55" width="18" height="2" fill="#142866"/><rect x="43" y="59" width="12" height="1.4" fill="#9AA6B8"/><rect x="5" y="71" width="12" height="4" fill="#142866"/></svg><b>Recorte de prensa</b></button>
+        <button type="button" class="dz" data-d="A" data-fmt="carta" aria-pressed="false" hidden><svg viewBox="0 0 64 80" aria-hidden="true"><rect width="64" height="80" fill="#142866"/><circle cx="58" cy="6" r="9" fill="none" stroke="#3A4C70" stroke-width=".8"/><rect x="6" y="6" width="12" height="4" fill="#fff"/><rect x="6" y="17" width="4" height="1.2" fill="#FCBF00"/><rect x="6" y="21" width="44" height="3.6" fill="#fff"/><rect x="6" y="26.5" width="32" height="3.6" fill="#fff"/><circle cx="10" cy="35" r="4" fill="#9AA7C0"/><rect x="17" y="33" width="20" height="2" fill="#fff"/><rect x="17" y="36.4" width="14" height="1.4" fill="#9AA7C0"/><rect x="6" y="43" width="52" height="31" fill="#fff"/><circle cx="12" cy="43" r="3" fill="#FCBF00"/><g fill="#9AA6B8"><rect x="10" y="49" width="44" height="1.4"/><rect x="10" y="53" width="44" height="1.4"/><rect x="10" y="57" width="44" height="1.4"/><rect x="10" y="61" width="44" height="1.4"/><rect x="10" y="65" width="28" height="1.4"/></g></svg><b>Institucional AIC</b></button>
       </div>
       <p class="fhint" id="fmtHint"></p>
       </div>
@@ -1055,7 +1169,7 @@ window.aicActivityIcon=function(tipo,manual){
   return"spark";
 };
 
-/* Public-AIC · motor de diseños: Charlas (Fecha destacada, Foto protagonista, Retratos, Foto con calendario), Frase destacada, Cartas y Columna */
+/* Public-AIC · motor de diseños: Charlas (Diseño modular, Diseño mixto, Fotos pequeñas y doble expositor, Diseño panorámico, AIC clásico), Frase destacada, Cartas y Columna */
 (function(){
 const esc=s=>String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const br=s=>esc(s).replace(/\n/g,"<br>");
@@ -1151,7 +1265,7 @@ function buildR(d,di,logoNavy,act){
 function buildV(d,di,logo,act){
   const ppl=people(d),info=infoList(d,di,{date:false,time:!di});
   /* el calendario va en la cabecera, arriba a la derecha; abajo sólo queda una línea de datos */
-  return `<div class="vh${ppl.length?"":" full"}"><div class="emb">${MARK}</div><div class="logo"><img alt="AIC" src="${logo}"></div>${calHTML(di,d)}${kq(d,act)}<h1>${br(d.titulo)}</h1></div>
+  return `<svg class="abs topo" viewBox="0 0 1080 1350" preserveAspectRatio="none"><path d="${TOPO}"/></svg><div class="vh${ppl.length?"":" full"}"><div class="emb">${MARK}</div><div class="logo"><img alt="AIC" src="${logo}"></div>${calHTML(di,d)}${kq(d,act)}<h1>${br(d.titulo)}</h1></div>
   <div class="sp">${ppl.map(n=>srow(d,n,true,2,d.two?3:4)).join("")}</div>${info.length?`<div class="vi">${infoHTML(info)}</div>`:""}${pfHTML(d)}`;
 }
 
@@ -1170,6 +1284,29 @@ function buildC(d,di,logo,act,logoNavy){
   const B2=tb?B.replace('<div class="bd','<div class="bd gr'):B,gk=tb?kq(d,act).replace('class="kq"','class="kq gk"'):"";
   return `${B2}${cut}<div class="logo"><img alt="AIC" src="${logo}"></div>${gk}${inb?"":w}${calHTML(di,d)}
   <div class="main">${tb?"":kq(d,act)}<h1>${br(d.titulo)}</h1>${infoHTML(infoList(d,di,{date:false,time:!di}))}</div>${pfHTML(d)}`;
+}
+
+/* ---------- AIC CLÁSICO: estilo de las convocatorias anteriores, pocos elementos y letra grande ---------- */
+function buildL(d,di,logo,act){
+  const cell=(ic,a,b)=>`<div class="lr">${I(ic)}<div>${a?`<b>${a}</b>`:""}${b?`<span>${b}</span>`:""}</div></div>`;
+  const dd=di?(di.plazo?cell("flag","Hasta el "+esc(di.wd.toLowerCase()),esc(di.long.replace(/^\S+\s/,""))):cell("calendar",esc(di.wd),esc(di.long.replace(/^\S+\s/,"")))):"";
+  const hh=d.hora&&!(di&&di.plazo)?cell("clock","",esc(horaTxt(d.hora))):"";
+  const row1=dd||hh?`<div class="lrow${dd&&hh?" pair":""}">${dd}${hh}</div>`:"";
+  const row2=d.lugar?`<div class="lrow">${cell("pin","",esc(d.lugar))}</div>`:"";
+  const aud=d.publico?`<p class="la">${br(d.publico)}</p>`:"";
+  const pill=d.tipo?`<div class="lk">${I(act)}<span>${esc(d.tipo)}</span></div>`:"";
+  const btn=d.cta?`<div class="lbtn">Inscribirse</div>`:"";
+  const price=hasPrice(d)?`<div class="lv"><span>Valor inscripción</span><b>${esc(d.precio)}</b></div>`:"";
+  const usePh=d.two?hasPh(d.photo+d.photo2):hasPh(d.photo);
+  const card=n=>{const [nm,c]=who(d,n);if(!(nm||c||(usePh&&!d.two)))return "";
+    return `<div class="lc2">${usePh?`<div class="lp">${n===2?slot(d.photo2,d.photo2Fx,d.fxk,"ph2",d.nombre2):slot(d.photo,d.photoFx,d.fxk,"p1",d.nombre)}</div>`:""}<div class="ln" data-nl="${d.two?2:3}" data-rl="4">${nmr(nm,c)}</div></div>`;};
+  const org=d.organiza?`<div class="lf"><span><b>Organiza:</b> ${orgTxt(d)}</span></div>`:"";
+  const data=`<div class="ld">${row1}${row2}${aud}</div>`;
+  const foot=price||btn?`<div class="lg">${price}${btn}</div>`:"";
+  const head=`<div class="lh"><div class="lb"><img alt="AIC" src="${logo}"></div>${pill}</div>`;
+  if(d.two)return `${head}<div class="lm"><div class="lt"><h1>${br(d.titulo)}</h1><i class="lu"></i><div class="ls two">${card(1)}${card(2)}</div>${data}${foot}</div></div>${org}`;
+  /* un expositor: título a todo el ancho; abajo, datos a la izquierda y ficha con foto a la derecha (la foto es la zona elástica) */
+  return `${head}<div class="ltt"><h1>${br(d.titulo)}</h1><i class="lu"></i></div><div class="lm one"><div class="lt">${data}${price?`<div class="lg">${price}</div>`:""}</div><div class="ls">${card(1)}${btn}</div></div>${org}`;
 }
 /* ---------- FRASE DESTACADA ---------- */
 function pubDate(iso){const m=/^(\d{4})-(\d{2})-(\d{2})$/.exec(iso||"");if(!m)return iso||"";return `${+m[3]} de ${MESES[+m[2]-1]} de ${m[1]}`;}
@@ -1258,10 +1395,10 @@ function fitRoles(el){
 /* ---------- Charlas: la foto (o el panel gráfico) es la zona elástica ----------
    Orden de ajuste: título dentro de su rango → versión compacta (menos aire, retratos algo menores)
    → se omite la línea de público repetida → si aún no cabe, se avisa. Nunca se superponen bloques. */
-const TITLE_RANGE={M:[56,44],R:[54,42],V:[60,44],C:[54,42]};
+const TITLE_RANGE={M:[56,44],R:[54,42],V:[60,44],C:[54,42],L:[68,50]};
 function fitCharla(el,d,des){
   const q=s=>el.querySelector(s),over=e=>!!e&&e.scrollHeight>e.clientHeight+1,h1=q("h1");
-  const R0=des==="C"&&d.two?[50,40]:des==="V"&&d.two?[56,42]:des==="M"&&q(".blk")?[58,44]:TITLE_RANGE[des];
+  const R0=des==="L"&&d.two?[60,44]:des==="C"&&d.two?[50,40]:des==="V"&&d.two?[56,42]:des==="M"&&q(".blk")?[58,44]:TITLE_RANGE[des];
   /* Barlow Condensed es más angosta: el título puede ser algo mayor con el mismo ancho */
   const R=d.font==="barlow"||d.font==="aic"?R0.map(v=>Math.round(v*1.1/2)*2):R0;
   let ok=()=>true;
@@ -1272,13 +1409,16 @@ function fitCharla(el,d,des){
     /* columna izquierda: el bloque del título baja hasta abajo; debe quedar aire bajo el logo */
     const lc=q(".lc"),ph=q(".sc>.ph"),arch=q(".sc>.arch"),free=()=>lc.children[1].offsetTop-lc.children[0].offsetHeight;
     ok=()=>free()>=20&&lc.scrollHeight<=lc.clientHeight+4&&!over(q(".sc"))&&[...el.querySelectorAll(".sc .sk")].every(s=>!over(s))&&(!ph||ph.offsetHeight>=470)&&(!arch||arch.offsetHeight>=280);
+  }else if(des==="L"){
+    /* AIC clásico: todo debe caber en la zona central; los datos no bajan de su tamaño */
+    const lm=q(".lm"),lp=q(".lm.one .lp");ok=()=>lm.scrollHeight<=lm.clientHeight+4&&[...el.querySelectorAll(".lm>*")].every(x=>x.scrollHeight<=x.clientHeight+4)&&(!lp||lp.offsetHeight>=250);
   }else if(des==="V"){
     /* el bloque de expositores se centra: se compara su alto natural con el disponible (scrollHeight no ve el desborde hacia arriba) */
     const sp=q(".sp"),nat=()=>{const cs=getComputedStyle(sp),k=[...sp.children];if(!k.length)return 0;return k.reduce((a,c)=>a+c.offsetHeight,0)+(k.length-1)*parseFloat(cs.rowGap||0)+parseFloat(cs.paddingTop)+parseFloat(cs.paddingBottom);};
     const vh=q(".vh"),lg=vh.querySelector(".logo"),fl=vh.querySelector(".kq")||vh.querySelector("h1");
     ok=()=>nat()<=sp.clientHeight+1&&(!vh.classList.contains("full")||!fl||fl.offsetTop-(lg.offsetTop+lg.offsetHeight)>=24);
   }else{
-    const bd=q(".bd"),wi=q(".who.inb"),tbar=q(".bd.gr"),min=tbar?(d.two?510:560):(hasPh(d.photo)?500:380);
+    const bd=q(".bd"),wi=q(".who.inb"),tbar=q(".bd.gr"),min=tbar?(d.two?570:610):(hasPh(d.photo)?500:380);
     if(wi)el.classList.add("inb");if(tbar)el.classList.add("hastb");
     ok=()=>bd.offsetHeight>=min&&(!wi||wi.offsetTop>=280);
   }
@@ -1289,7 +1429,8 @@ function fitCharla(el,d,des){
     if(mid&&pl&&k&&mid.offsetHeight>=130){mid.prepend(k);k.classList.add("kl");if(k.offsetHeight>mid.offsetHeight-24){q(".main").prepend(k);k.classList.remove("kl");}}}
   let fs=fitT(),dropAud=false;
   if(!ok()){el.classList.add("tight");fitRoles(el);fs=fitT();}
-  if(!ok()){const a=q(".info .a");if(a){a.remove();dropAud=true;fs=fitT();}}
+  if(!ok()){const a=q(".info .a")||q(".la");if(a){a.remove();dropAud=true;fs=fitT();}}
+  if(!ok()&&des==="L"){el.classList.add("xt");fitRoles(el);fs=fitT();}
   const fits=ok();
   /* acabados que dependen de las medidas finales */
   if(des==="M"){const inn=q(".blk .in"),emb=q(".blk .emb");
@@ -1371,12 +1512,12 @@ function render(el,d,logo,logoNavy){
   if(d.diseno==="P"||d.diseno==="A")return buildCarta(el,d,logo,logoNavy);
   if(d.diseno==="K"){el.style.removeProperty("--g0");return buildDoc(el,d);}
   /* «Datos en ficha» (I) se retiró: un borrador antiguo con ese diseño se abre en Fecha destacada */
-  const des=["M","R","O","C","V"].includes(d.diseno)?d.diseno:(d.diseno==="E"?"O":"M");
+  const des=["M","R","O","C","V","L"].includes(d.diseno)?d.diseno:(d.diseno==="E"?"O":"M");
   if(des!=="O"&&d.dos&&(d.nombre2||d.photo2)){d=Object.assign({},d,{two:true});if(!d.photo&&d.photo2)d.photo=" ";}
   const di=dateInfo(d),act=aicActivityIcon(d.tipo,d.icono),ico=d.iconos!==false;
   el.className="pz d"+des+(d.font==="barlow"?" ffb":d.font==="aic"?" ffa":"")+(des!=="O"?" ch":"")+(d.two?" two":"")+(d.photo?" photo":" nophoto")+(d.nombre?"":" noplate")+(ico?"":" noic")+(di?" hasdate":" nodate");
   ["--g0","--g1","--g2","--T","--B","--bfs","--blh","--ct","--pw"].forEach(k=>el.style.removeProperty(k));
-  el.innerHTML=des==="M"?buildM(d,di,logo,act):des==="R"?buildR(d,di,logoNavy,act):des==="O"?buildO(d,logo):des==="V"?buildV(d,di,logo,act):buildC(d,di,logo,act,logoNavy);
+  el.innerHTML=des==="M"?buildM(d,di,logo,act):des==="R"?buildR(d,di,logoNavy,act):des==="O"?buildO(d,logo):des==="V"?buildV(d,di,logo,act):des==="L"?buildL(d,di,logo,act):buildC(d,di,logo,act,logoNavy);
   fitRoles(el);
   let res;
   if(des==="O"){
@@ -1388,9 +1529,9 @@ function render(el,d,logo,logoNavy){
   return res;
 }
 window.renderPoster=render;window.posterPlace=placePhoto;window.posterPhotoBox=el=>el.querySelector(".ph");
-window.POSTER_PHOTO_BOX={M:[680,750],R:[488,700],V:[256,256],O:[1080,1350],C:[1080,620],K:[170,226]};
-window.POSTER_PHOTO_BOX2={M:[176,176],R:[196,196],V:[200,200],C:[538,500]};
-window.POSTER_FRAME_DEFAULT={M:{fx:.5,fy:.2,z:1},R:{fx:.5,fy:.15,z:1},V:{fx:.5,fy:.22,z:1},O:{fx:.5,fy:.18,z:1},C:{fx:.5,fy:.12,z:1},K:{fx:.5,fy:.2,z:1},A:{fx:.5,fy:.15,z:1},P:{fx:.5,fy:.15,z:1}};
+window.POSTER_PHOTO_BOX={L:[372,440],M:[680,750],R:[488,700],V:[256,256],O:[1080,1350],C:[1080,620],K:[170,226]};
+window.POSTER_PHOTO_BOX2={L:[190,190],M:[176,176],R:[196,196],V:[200,200],C:[538,500]};
+window.POSTER_FRAME_DEFAULT={L:{fx:.5,fy:.15,z:1},M:{fx:.5,fy:.2,z:1},R:{fx:.5,fy:.15,z:1},V:{fx:.5,fy:.22,z:1},O:{fx:.5,fy:.18,z:1},C:{fx:.5,fy:.12,z:1},K:{fx:.5,fy:.2,z:1},A:{fx:.5,fy:.15,z:1},P:{fx:.5,fy:.15,z:1}};
 })();
 
 </script>
@@ -1405,7 +1546,7 @@ const FIELDS=["cuerpo","institucion","tipo","icono","comite","organiza","titulo"
 const $=id=>document.getElementById(id);
 const KEY="public-aic-v4";
 const DEF=()=>JSON.parse(JSON.stringify(POSTER_FRAME_DEFAULT));
-const DESIGNS=["M","R","V","C","O","K","P","A"];
+const DESIGNS=["M","R","V","C","L","O","K","P","A"];
 const FMT=k=>k==="O"?"edit":k==="K"?"col":(k==="P"||k==="A")?"carta":"charlas";
 const TIPOS={charlas:["Charla técnica","Seminario","Conversatorio","Webinar","Taller","Almuerzo AIC","Desayuno AIC","Cena AIC"],corp:["Almuerzo AIC","Desayuno AIC","Cena AIC"],edit:["Columna de opinión","Carta al director","Entrevista","Artículo"],col:["Columna de opinión","Carta al director","Artículo de opinión"],carta:["Carta al director","Columna de opinión","Opinión"]};
 const FXDEF={blue:80,gray:100,yellow:75};
@@ -1417,7 +1558,7 @@ const curPhoto2=()=>st.usePhoto&&st.photo2?st.photo2:"";
 const curFx=()=>curPhoto()&&st.trat!=="color"&&st.tr[st.trat]?st.tr[st.trat]:"";
 
 /* ---- Variante sugerida: según cuántos expositores hay y qué fotos llegaron (proporción y resolución) ---- */
-const VN={M:"Fecha destacada",R:"Foto protagonista",V:"Retratos",C:"Foto con calendario"};
+const VN={M:"Diseño modular",R:"Diseño mixto",V:"Fotos pequeñas y doble expositor",C:"Diseño panorámico",L:"AIC clásico"};
 function photoKind(w,h){if(!w||!h)return null;const r=w/h,s=Math.min(w,h);return {r,low:s<620,horiz:r>=1.25,vert:r<.9};}
 function suggest(){
   const two=st.dos,p1=st.usePhoto&&st.photo?photoKind(st.photoW,st.photoH):null,p2=two&&st.usePhoto&&st.photo2?photoKind(st.photo2W,st.photo2H):null;
@@ -1475,7 +1616,7 @@ function render(){
   $("zoom2Row").hidden=!(two&&d.photo2);$("trBoth").textContent=two?"· se aplica a ambas fotos":"";if(two)$("zoom2").value=st.frames2[st.diseno].z||1;
   $("mPhoto").disabled=!hasP;press("mPhoto",hasP&&st.usePhoto);press("mNo",!(hasP&&st.usePhoto));
   {const FD={charlas:"<b>Charlas:</b> convocatorias a charlas técnicas, seminarios, webinars, almuerzos, desayunos y actividades de comités.",edit:"<b>Frase destacada:</b> difunde en redes una idea o cita de un socio, con su foto de fondo. Para publicar el texto completo usa Carta al director.",carta:"<b>Carta al director:</b> publica en redes una carta o columna aparecida en un medio, con su texto completo.",col:"<b>Columna PDF:</b> documento carta horizontal con la columna completa, para enviar a medios o socios."},
-    VD={M:"Fecha destacada: el día en grande; con dos expositores, sus retratos van en fila a todo el ancho.",R:"Foto protagonista: columna derecha reservada al expositor; luce con un retrato vertical o cuadrado de buena calidad.",V:"Retratos: fotos circulares de tamaño contenido; resuelve fotos tipo carnet, chicas o de distinto origen, y dos expositores.",C:"Foto con calendario: franja fotográfica amplia, ideal para fotos horizontales; una foto vertical se enmarca a la derecha.",P:"Recorte de prensa: sobrio, como la página del diario.",A:"Institucional AIC: papel con membrete AIC, título y firma destacados."};
+    VD={M:"Diseño modular: la fecha en grande en una columna azul; con dos expositores, sus retratos van en fila a todo el ancho.",R:"Diseño mixto: columna derecha reservada al expositor; luce con un retrato vertical o cuadrado de buena calidad.",V:"Fotos pequeñas y doble expositor: retratos circulares de tamaño contenido; resuelve fotos tipo carnet, chicas o de distinto origen.",C:"Diseño panorámico: franja fotográfica amplia con calendario; ideal para fotos horizontales o dos expositores lado a lado.",L:"AIC clásico: el estilo de las convocatorias anteriores, con pocos elementos y letra grande para leer en el teléfono.",P:"Recorte de prensa: sobrio, como la página del diario.",A:"Institucional AIC: papel con membrete AIC, título y firma destacados."};
     const sg=F==="charlas"?suggest():null;
     document.querySelectorAll(".dz").forEach(b=>b.classList.toggle("sug",!!sg&&b.dataset.d===sg.d));
     $("fmtHint").innerHTML=FD[F]+(VD[st.diseno]?" "+VD[st.diseno]:"")+(sg&&sg.d!==st.diseno?` <b>Sugerida para este material: ${sg.n}</b> (${sg.why}).`:"");}
@@ -1499,7 +1640,7 @@ function render(){
     else if(state.pages>1)al.push(`La columna ocupa ${state.pages} páginas: en la primera caben cerca de ${state.cap1} palabras y el texto tiene ${state.total}. Si debe ir en una sola, acórtala.`);}
   /* se mide el recuadro real; en un retrato circular (pequeño) se tolera más ampliación */
   const boxOf=(sel,def)=>{const b=poster.querySelector(sel);return b&&!b.classList.contains("ini")&&b.clientWidth?[b.clientWidth,b.clientHeight,b.closest(".av")?1.6:1.35]:def;};
-  const soft=F==="charlas"&&!["V"].includes(st.diseno)?" Prueba la variante «Retratos», que usa la foto en tamaño contenido.":"";
+  const soft=F==="charlas"&&!["V"].includes(st.diseno)?" Prueba la variante «Fotos pequeñas y doble expositor», que usa la foto en tamaño contenido.":"";
   if(d.photo&&st.photoW&&POSTER_PHOTO_BOX[st.diseno]&&F!=="carta"){const [W,H,lim]=boxOf(".ph:not(.ph2)",POSTER_PHOTO_BOX[st.diseno]),z=st.frames[st.diseno].z||1,need=Math.max(W/st.photoW,H/st.photoH)*z;
     if(need>(st.diseno==="K"?.75:(lim||1.35)))al.push(`La foto (${st.photoW} × ${st.photoH} px) es chica para este encuadre y se verá blanda.${soft||" Usa una de mayor resolución o reduce el acercamiento."}`);}
   if(d.dos&&d.photo2&&st.photo2W&&POSTER_PHOTO_BOX2[st.diseno]){const [W,H,lim]=boxOf(".ph.ph2",POSTER_PHOTO_BOX2[st.diseno]),z=st.frames2[st.diseno].z||1,need=Math.max(W/st.photo2W,H/st.photo2H)*z;
@@ -1541,9 +1682,9 @@ $("comite").addEventListener("change",()=>{const o=$("comite").options[$("comite
 
 /* ---- Tratamientos de foto: mismo tamaño y resolución, solo cambia el color ---- */
 const RAMPS={
-  blue:{lo:.03,hi:.97,g:.85,stops:[[0,"#01163A"],[.28,"#123C86"],[.55,"#2F6BD0"],[.8,"#9DBEF0"],[1,"#F5F9FF"]]},
+  blue:{lo:.03,hi:.97,g:.85,stops:[[0,"#142866"],[.28,"#123C86"],[.55,"#2F6BD0"],[.8,"#9DBEF0"],[1,"#F5F9FF"]]},
   gray:{lo:.02,hi:.98,g:.95,contrast:1.12,stops:[[0,"#000000"],[1,"#FFFFFF"]]},
-  yellow:{lo:.03,hi:.97,g:.9,stops:[[0,"#01163A"],[.25,"#1E2B4A"],[.55,"#8A7A55"],[.8,"#F3C64A"],[1,"#FFF8E2"]]}
+  yellow:{lo:.03,hi:.97,g:.9,stops:[[0,"#142866"],[.25,"#1E2B4A"],[.55,"#8A7A55"],[.8,"#F3C64A"],[1,"#FFF8E2"]]}
 };
 const hex=h=>[1,3,5].map(i=>parseInt(h.substr(i,2),16));
 function lut(r){const t=new Uint8ClampedArray(256*3),S=r.stops.map(([p,c])=>[p,hex(c)]);

@@ -130,6 +130,14 @@ textarea{resize:vertical;min-height:54px;line-height:1.4}
 .dz svg{width:100%;height:auto;aspect-ratio:4/5;border-radius:6px;display:block}
 .dz b{font-size:11.5px;font-weight:700;text-align:center;line-height:1.2}
 .dz[aria-pressed="true"]{border-color:var(--focus);background:var(--sel)}
+.dz .sg{display:none;margin-left:2px;padding:2px 7px;border-radius:999px;background:#DDF1E5;color:#1E6A43;font-size:10px;font-style:normal;font-weight:700;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+.dz.sug .sg{display:inline-block}
+.designs:not([hidden]){display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));justify-self:stretch;max-width:640px}
+.designs .dz{min-width:0}
+.designs .dz{position:relative}
+.designs .dz .sg{position:absolute;top:-9px;right:8px;margin:0;box-shadow:0 0 0 2px var(--panel)}
+.designs .dz[aria-pressed="true"] .sg{background:#DDF1E5}
+.dz[aria-pressed="true"] .sg{background:#fff}
 .stage{width:100%;aspect-ratio:4/5;max-width:100%;border-radius:6px;overflow:hidden;position:relative;background:#01163A;box-shadow:0 16px 40px rgba(1,22,58,.24);touch-action:none}
 .stage.pan{cursor:grab}.stage.pan.drag{cursor:grabbing}
 .stage .pz{position:absolute;left:0;top:0;transform-origin:0 0}
@@ -283,218 +291,227 @@ input:hover,textarea:hover,select:hover{border-color:#9AA8BF}
 .pz .info .k{font-weight:800}
 .pz .info .a{flex-basis:100%;font-size:28px;font-weight:500}
 
-/* =================== FECHA DESTACADA (M) =================== */
+/* =================== CHARLAS · sistema de composición v15 ===================
+   Criterio: el texto se mide primero y la zona fotográfica es la que cede (es elástica, con un mínimo sano).
+   Margen lateral 72 px. Con dos expositores, cada uno recibe el mismo espacio y su nombre usa todo el ancho posible.
+   Tipos de foto: rectángulo grande sólo donde la foto lo soporta; retrato circular donde la foto es carnet, chica o dispar. */
+.pz.ch{display:flex;flex-direction:column}
+.pz.ch .info{display:flex;flex-wrap:wrap;gap:14px 40px}
+.pz.ch .info>span{display:flex;align-items:flex-start;gap:14px;font-size:32px;font-weight:600;line-height:1.25;min-width:0}
+.pz.ch .info>span>span{min-width:0;text-wrap:balance}
+.pz.ch .info .ic{width:36px;height:36px;color:var(--navy);margin-top:1px}
+.pz.ch .info .k{font-weight:800}
+.pz.ch .info .a{flex-basis:100%;font-size:28px;font-weight:500;color:var(--ink-2)}
+.pz.ch .info .a .ic{width:34px;height:34px;margin-top:0}
+/* actividad (tipo + comité) */
+.pz.ch .kq{display:flex;align-items:center;gap:18px;min-width:0}
+.pz.ch .kq>.ic{width:58px;height:58px;border-radius:50%;padding:15px;background:var(--navy);color:var(--yellow)}
+.pz.ch .kq>.sq{display:none;width:16px;height:16px;background:var(--yellow);flex:none}
+.pz.ch.noic .kq>.sq{display:block}
+.pz.ch .kq b{display:block;font-size:26px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;line-height:1.2}
+.pz.ch .kq .o{display:flex;align-items:center;margin-top:5px;font-size:26px;font-weight:600;line-height:1.25;color:var(--ink-2)}
+.pz.ch .lab{display:flex;align-items:center;gap:12px;font-size:24px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;line-height:1.2;margin-bottom:12px;color:var(--ink-3)}
+.pz.ch .lab::before{content:"";width:12px;height:12px;background:var(--yellow);flex:none}
+/* retrato circular: tamaño contenido, admite fotos carnet, chicas o de distinta procedencia */
+.pz.ch .av{position:relative;flex:none;width:var(--av,220px);height:var(--av,220px);border-radius:50%;background:var(--tint);box-shadow:0 0 0 8px var(--white),0 16px 36px rgba(1,22,58,.20)}
+.pz.ch .av .ph{inset:0;border-radius:50%;background:var(--tint)}
+.pz.ch .av .ph.ini{background:linear-gradient(160deg,var(--navy-2),var(--navy))}
+.pz.ch .av .ph.ini span{font-size:calc(var(--av,220px)*.32)}
+.pz.ch .av::after{content:"";position:absolute;right:3%;bottom:5%;width:16%;height:16%;border-radius:50%;background:var(--yellow);box-shadow:0 0 0 6px var(--white);z-index:1}
+/* fila de expositor: retrato + nombre con barra amarilla; el texto usa todo el ancho libre */
+.pz.ch .sr{display:flex;align-items:center;gap:40px;min-width:0}
+.pz.ch .sr .tx{flex:1;min-width:0;padding-left:28px;border-left:6px solid var(--yellow)}
+.pz.ch .sr b.nm{font-size:44px}
+.pz.ch .sr .r{margin-top:8px;font-size:30px;color:var(--ink-2)}
+.pz.ch.two .sr b.nm{font-size:40px}
+.pz.ch.two .sr .r{font-size:29px}
+/* calendario */
+.pz.ch .cal{position:absolute;width:200px;height:222px;border-radius:20px;background:var(--white);box-shadow:0 20px 44px rgba(1,22,58,.22),0 0 0 1.5px rgba(1,22,58,.08);display:flex;flex-direction:column;flex:none;z-index:3}
+.pz.ch .cal .mh{height:64px;padding-top:8px;border-radius:20px 20px 0 0;background:var(--navy);color:var(--white);display:grid;place-items:center;font-size:22px;font-weight:800;letter-spacing:.12em}
+.pz.ch .cal .day{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding-bottom:6px}
+.pz.ch .cal .d{font-size:96px;font-weight:800;line-height:.92;letter-spacing:-.04em;color:var(--ink)}
+.pz.ch .cal .w{margin-top:8px;font-size:22px;font-weight:800;letter-spacing:.1em;color:var(--ink-2)}
+.pz.ch .cal .ring{position:absolute;top:-11px;width:14px;height:26px;border-radius:7px;background:var(--yellow);box-shadow:0 0 0 4px var(--white)}
+/* pie: valor o público + llamado */
+.pz.ch .pf{flex:none;height:150px;margin:0 72px;border-top:1.5px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:30px}
+.pz.ch .pf .aud{color:var(--ink-2)}.pz.ch .pf .aud .ic{color:var(--navy)}
+.pz.ch .pf .fp span{color:var(--ink-3)}
+.pz.ch .pf .cta{margin-left:auto}.pz.ch .pf .cta i{background:var(--navy);color:var(--yellow)}
+.pz.ch.tight .pf{height:132px}
+
+/* =================== FECHA DESTACADA (M) · la fecha manda =================== */
 .pz.dM{background:var(--white);color:var(--ink)}
-.pz.dM .dots{position:absolute;left:0;right:0;top:var(--B,800px);bottom:150px;background-image:radial-gradient(circle,#DFE5EF 1.8px,transparent 2.1px);background-size:26px 26px;background-position:13px 13px}
-.pz.dM .col{position:absolute;left:0;top:0;width:400px;height:var(--B,800px);background:linear-gradient(165deg,var(--navy-3) 0%,var(--navy) 58%);color:var(--white)}
-.pz.dM .logo{left:58px;top:58px;width:190px}
-.pz.dM .date{position:absolute;left:62px;right:34px;bottom:56px}
+.pz.dM .tp{position:relative;flex:1 1 auto;min-height:0}
+.pz.dM .col{position:absolute;left:0;top:0;bottom:0;width:400px;background:linear-gradient(165deg,var(--navy-3) 0%,var(--navy) 58%);color:var(--white);z-index:1;display:flex;flex-direction:column;padding:58px 34px 50px 62px;overflow:hidden}
+.pz.dM .logo{position:relative;width:180px;flex:none;margin-left:-4px}
+.pz.dM .date{margin-top:auto;padding-top:30px}
 .pz.dM .date .wd{display:flex;align-items:center;gap:12px;font-size:26px;font-weight:700;letter-spacing:.14em;color:var(--mist)}
 .pz.dM .date .wd .ic{width:32px;height:32px;color:var(--yellow)}
 .pz.dM .date .d{display:block;margin-top:14px;margin-left:-10px;font-size:232px;font-weight:800;line-height:.8;letter-spacing:-.05em}
 .pz.dM .date .m{display:block;margin-top:22px;font-size:36px;font-weight:800;letter-spacing:.14em;color:var(--yellow)}
-.pz.dM .date .t{display:flex;align-items:center;gap:14px;margin-top:26px;padding-top:24px;border-top:1px solid rgba(255,255,255,.25);font-size:36px;font-weight:700}
-.pz.dM .date .t .ic{width:34px;height:34px;color:var(--yellow)}
-.pz.dM .ph{left:400px;top:0;width:680px;height:800px;background:var(--navy-2)}
-.pz.dM.two .ph.p1{left:400px;width:338px}
-.pz.dM.two .ph.ph2{left:742px;top:0;width:338px;height:800px}
-.pz.dM .chip{position:absolute;left:400px;top:60px;background:var(--white);padding:20px 32px 20px 24px;display:flex;align-items:center;gap:18px;max-width:640px}
-.pz.dM .chip .ic{width:40px;height:40px;color:var(--navy)}
-.pz.dM .chip b,.pz.dM .kk b{display:block;font-size:26px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;line-height:1.2}
-.pz.dM .chip .o,.pz.dM .kk .o{margin-top:4px;font-size:25px;font-weight:600;color:var(--ink-2)}
-.pz.dM .plate{position:absolute;left:400px;bottom:518px;max-width:660px;background:var(--white);padding:26px 36px 28px 30px;box-shadow:0 20px 44px rgba(1,22,58,.18);display:flex;gap:20px;align-items:flex-start}
-.pz.dM .plate>i,.pz .plate .pc>i{width:16px;height:16px;background:var(--yellow);flex:none;margin-top:14px}
+.pz.dM .date .t{display:flex;align-items:flex-start;gap:14px;font-weight:700;line-height:1.25}
+.pz.dM .date .t{margin-top:26px;padding-top:24px;border-top:1px solid rgba(255,255,255,.25);font-size:36px}
+.pz.dM .date>.t:first-child{margin-top:0;padding-top:0;border-top:0}
+.pz.dM.tight .col{padding:50px 34px 42px 62px}
+.pz.dM.tight .logo{width:160px}
+.pz.dM.tight .date .d{font-size:196px}
+.pz.dM.tight .date .t{margin-top:20px;padding-top:18px}
+.pz.dM .date .t .ic{width:34px;height:34px;color:var(--yellow);margin-top:1px}
+.pz.dM .tp>.ph{left:400px;right:0;top:0;bottom:0;background:var(--navy-2)}
+/* con foto: bajo la columna va la actividad; la placa del expositor se monta sobre el borde inferior de la foto y crece hacia abajo, nunca sobre el rostro */
+.pz.dM .mid{flex:none;display:flex;position:relative;z-index:2;padding:0 48px 0 400px}
+.pz.dM .plate{flex:1;min-width:0;margin-top:-96px;background:var(--white);padding:28px 36px 30px 32px;box-shadow:0 20px 44px rgba(1,22,58,.18);display:flex;gap:20px;align-items:flex-start}
+.pz.dM .plate>i{width:16px;height:16px;background:var(--yellow);flex:none;margin-top:15px}
+.pz.dM .plate>div{min-width:0}
 .pz.dM .plate b.nm{font-size:44px}
-.pz.dM .plate .r{margin-top:8px;font-size:32px;color:var(--ink-2)}
-.pz .plate.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:34px;align-items:start}
-.pz .plate.two .pc{display:flex;gap:14px;align-items:flex-start;min-width:0;position:relative}
-.pz .plate.two .pc+.pc::before{content:"";position:absolute;left:-17px;top:2px;bottom:2px;width:1px;background:var(--line)}
-.pz.dM .plate.two{left:400px;right:24px;max-width:none;padding:24px 26px 26px 24px}
-.pz.dM .plate.two b.nm{font-size:36px}
-.pz.dM .plate.two .r{font-size:28px}
-.pz.dM .main{position:absolute;left:64px;right:64px;top:868px;bottom:178px;display:flex;flex-direction:column}
-.pz.dM.noplate .main{top:850px}
+.pz.dM .plate .r{margin-top:8px;font-size:30px;color:var(--ink-2)}
+.pz.dM .main{flex:none;padding:38px 64px 40px}
+.pz.dM .main .kq{margin-bottom:22px}
+.pz.dM .mid>.kq.kl{position:absolute;left:64px;top:34px;width:300px;flex-direction:column;align-items:flex-start;gap:14px}
+.pz.dM .mid>.kq.kl>.sq{margin-top:6px}
+.pz.dM .main .info,.pz.dM .blk .info{margin-top:22px}
+.pz.dM .main .info>span{font-size:30px}
+.pz.dM .blk .info>span{font-size:28px}
+.pz.dM .blk .info .a{font-size:27px}
+.pz.dM.tight .main{padding:28px 64px 30px}
 .pz.dM h1{font-size:62px}
-.pz.dM .main .info{margin-top:22px}
-.pz.dM .main .info>span{color:var(--ink-2)}
-.pz.dM .band{position:absolute;left:0;right:0;bottom:0;height:150px;background:var(--navy);color:var(--white);padding:0 64px;display:flex;align-items:center;justify-content:space-between;gap:30px}
+.pz.dM .au{display:flex;align-items:flex-start;gap:14px;margin-top:20px;font-size:28px;font-weight:500;line-height:1.28;color:var(--ink-2)}
+.pz.dM .au .ic{width:34px;height:34px;color:var(--navy)}
+.pz.dM .band{flex:none;height:150px;background:var(--navy);color:var(--white);padding:0 64px;display:flex;align-items:center;justify-content:space-between;gap:30px}
 .pz.dM .band .aud{color:var(--mist)}
-.pz.dM .band .aud .ic,.pz.dM .band .cta i{color:var(--navy)}
 .pz.dM .band .aud .ic{color:var(--yellow)}
-.pz.dM .band .cta i{background:var(--yellow)}
+.pz.dM .band .cta i{background:var(--yellow);color:var(--navy)}
 .pz.dM .band .fp span{color:var(--mist)}
-/* sin foto: la zona del título mide --B y cede espacio a los expositores si hace falta */
-.pz.dM .blk{position:absolute;left:400px;top:0;width:680px;height:var(--B,900px);background-color:var(--tint);background-image:radial-gradient(circle,#C9D3E3 1.9px,transparent 2.2px);background-size:26px 26px;background-position:13px 13px;overflow:hidden}
+.pz.dM.tight .band{height:132px}
+/* sin foto o con dos expositores: panel del título a la derecha y expositores en filas a todo el ancho */
+.pz.dM .blk{position:absolute;left:400px;right:0;top:0;bottom:0;background-color:var(--tint);background-image:radial-gradient(circle,#C9D3E3 1.9px,transparent 2.2px);background-size:26px 26px;background-position:13px 13px;overflow:hidden}
 .pz.dM .blk .emb{position:absolute;width:520px;right:-150px;top:-110px}
 .pz.dM .blk .emb .br{fill:var(--tint);stroke:var(--navy);stroke-width:2.4;stroke-opacity:.16}
 .pz.dM .blk .emb .dt{fill:var(--yellow)}
-.pz.dM .blk .in{position:absolute;left:60px;right:56px;bottom:60px}
-.pz.dM .kk{display:flex;align-items:center;gap:16px}
-.pz.dM .kk .ic{width:60px;height:60px;border-radius:50%;background:var(--navy);color:var(--yellow);padding:15px}
-.pz.dM .blk h1{margin-top:26px;font-size:66px}
-.pz.dM.nophoto .main{top:calc(var(--B,900px) + 6px);bottom:150px;flex-direction:row;align-items:center;justify-content:space-between;gap:40px}
-.pz.dM .spk{display:flex;gap:18px;align-items:flex-start;min-width:0;flex:1 1 auto}
-.pz.dM .spk>.ic{width:60px;height:60px;border-radius:50%;background:var(--navy);color:var(--yellow);padding:15px}
-.pz.dM .spk b.nm{font-size:42px}
-.pz.dM .spk .r{margin-top:6px;font-size:30px;color:var(--ink-2)}
-.pz.dM .spk.two .sp+.sp{margin-top:14px;padding-top:14px;border-top:1px solid var(--line)}
-.pz.dM .spk.two b.nm{font-size:34px}
-.pz.dM .spk.two .r{font-size:27px}
-.pz.dM.nophoto .main .info{margin-top:0;flex-direction:column;gap:14px;flex:0 1 auto;max-width:400px}
+.pz.dM .blk .in{position:absolute;left:56px;right:52px;bottom:52px}
+.pz.dM .blk h1{margin-top:24px;font-size:64px}
+.pz.dM .sp{flex:none;padding:44px 64px 46px;display:flex;flex-direction:column;gap:30px}
+.pz.dM .sp .sr{--av:176px;gap:36px}
+.pz.dM .sp.g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:48px}
+.pz.dM.tight .sp{padding:34px 64px 36px;gap:22px}
+.pz.dM.tight .sp .sr{--av:156px}
 
-/* =================== DATOS EN FICHA (I) =================== */
-.pz.dI{background:var(--white);color:var(--ink);--etica:#FFFFFF}
-.pz.dI .top{position:absolute;left:0;top:0;width:1080px;height:var(--T,760px);background:linear-gradient(160deg,var(--navy-3) 0%,var(--navy) 60%)}
-.pz.dI .ph{right:0;top:0;width:440px;height:calc(var(--T,760px) - 120px);background:var(--navy-2)}
-.pz.dI.two .ph.p1{left:600px;right:auto;width:238px}
-.pz.dI.two .ph.ph2{left:842px;top:0;width:238px;height:calc(var(--T,760px) - 120px)}
-.pz.dI .emb{position:absolute;width:470px;right:-120px;top:-70px}
-.pz.dI .emb .br{fill:none;stroke:rgba(255,255,255,.16);stroke-width:2.4}
-.pz.dI .emb .dt{fill:var(--yellow)}
-.pz.dI .plate{position:absolute;left:576px;right:36px;bottom:calc(1350px - var(--T,760px) + 34px);background:var(--white);padding:24px 28px 26px 24px;box-shadow:0 20px 44px rgba(1,22,58,.24);display:flex;gap:16px;align-items:flex-start}
-.pz.dI .plate>i{width:14px;height:14px;background:var(--yellow);flex:none;margin-top:12px}
-.pz.dI .plate b.nm{font-size:38px}
-.pz.dI .plate .r{margin-top:6px;font-size:30px;color:var(--ink-2)}
-.pz.dI .plate.two{display:grid;left:560px;right:20px;padding:22px 22px 24px 20px;column-gap:28px}
-.pz.dI .plate.two .pc+.pc::before{left:-14px}
-.pz.dI .plate.two b.nm{font-size:30px}
-.pz.dI .plate.two .r{font-size:25px}
-.pz.dI .logo{left:58px;top:52px;width:190px}
-.pz.dI .hd{position:absolute;left:64px;top:236px;width:470px;height:calc(var(--T,760px) - 276px);display:flex;flex-direction:column;justify-content:flex-end;color:var(--white)}
-.pz.dI.two .hd{width:470px}
-.pz.dI.nophoto .hd{width:820px}
-.pz.dI .kick{display:flex;align-items:center;gap:16px}
-.pz.dI .kick .ic{width:54px;height:54px;border-radius:50%;background:rgba(255,255,255,.12);color:var(--yellow);padding:13px}
-.pz.dI .kick .sq{width:14px;height:14px;background:var(--yellow);flex:none}
-.pz.dI .kick b{display:block;font-size:26px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;line-height:1.2}
-.pz.dI .kick .o{margin-top:5px;font-size:25px;font-weight:600;color:var(--mist)}
-.pz.dI h1{margin-top:20px;font-size:62px}
-.pz.dI .dots{position:absolute;left:0;right:0;top:var(--T,760px);bottom:0;background-image:radial-gradient(circle,#E0E6EF 1.8px,transparent 2.1px);background-size:26px 26px;background-position:13px 13px}
-.pz.dI .low{position:absolute;left:64px;right:64px;top:calc(var(--T,760px) + 46px);bottom:190px;display:grid;grid-template-columns:280px minmax(0,1fr);column-gap:46px;align-items:center}
-.pz.dI .low.solo{grid-template-columns:minmax(0,1fr)}
-.pz.dI .datec{width:280px;background:var(--navy);color:var(--white);padding:28px 30px 30px;display:flex;flex-direction:column;gap:14px}
-.pz.dI .datec .wd{display:flex;align-items:center;gap:12px;font-size:24px;font-weight:700;letter-spacing:.12em;color:var(--mist)}
-.pz.dI .datec .wd .ic{width:28px;height:28px;color:var(--yellow)}
-.pz.dI .datec .d{font-size:140px;font-weight:800;line-height:.8;letter-spacing:-.05em;margin-left:-6px}
-.pz.dI .datec .m{font-size:32px;font-weight:800;letter-spacing:.12em;color:var(--yellow)}
-.pz.dI .rows{display:flex;flex-direction:column}
-.pz.dI .row{display:flex;gap:18px;align-items:flex-start;padding:18px 0}
-.pz.dI .row+.row{border-top:1px solid var(--line)}
-.pz.dI .row:first-child{padding-top:0}.pz.dI .row:last-child{padding-bottom:0}
-.pz.dI .row>.ic{width:50px;height:50px;border-radius:50%;background:var(--navy);color:var(--yellow);padding:12px;margin-top:2px}
-.pz.dI .row .lb{display:block;font-size:24px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3);margin-bottom:5px}
-.pz.dI .row .v{display:block;font-size:32px;font-weight:700;line-height:1.22}
-.pz.dI .row .vs{display:block;font-size:28px;font-weight:500;line-height:1.28;color:var(--ink-2)}
-.pz.dI .row b.nm{font-size:32px}
-.pz.dI .row .r{margin-top:4px;font-size:29px;color:var(--ink-2)}
-.pz.dI .row .nm2{margin-top:14px}
-.pz.dI .foot{position:absolute;left:64px;right:64px;bottom:52px;height:110px;display:flex;align-items:center;justify-content:space-between;gap:30px}
-.pz.dI .foot .aud{color:var(--ink-2)}
-.pz.dI .foot .aud .ic{color:var(--navy)}
-.pz.dI .foot .fp span{color:var(--ink-3)}
-.pz.dI .btn{display:flex;align-items:center;gap:20px;min-height:96px;padding:16px 22px 16px 32px;background:var(--navy);color:var(--white);border-radius:14px;font-size:30px;font-weight:800;line-height:1.2;max-width:560px;box-shadow:0 14px 30px rgba(1,22,58,.18);text-wrap:balance;margin-left:auto}
-.pz.dI .btn i{width:54px;height:54px;border-radius:50%;background:var(--yellow);color:var(--navy);display:grid;place-items:center;padding:13px;flex:none}
-
-/* =================== FOTO PROTAGONISTA (R) =================== */
+/* =================== FOTO PROTAGONISTA (R) · columna derecha reservada al expositor =================== */
 .pz.dR{background:var(--paper);color:var(--ink)}
 .pz.dR .topo path{fill:none;stroke:#DFE5EE;stroke-width:1.3}
-.pz.dR .logo{left:74px;top:60px;width:190px}
-.pz.dR .ph{left:450px;top:100px;width:550px;height:640px;clip-path:polygon(130px 0,100% 0,100% 100%,0 100%,0 130px);background:var(--navy-2)}
-.pz.dR .depth{position:absolute;left:476px;top:126px;width:550px;height:640px;clip-path:polygon(130px 0,100% 0,100% 100%,0 100%,0 130px);background:var(--navy)}
-.pz.dR.nophoto .depth{background:#D5DEEC}
-.pz.dR .dot{position:absolute;left:477px;top:127px;width:76px;height:76px;border-radius:50%;background:var(--yellow);box-shadow:0 0 0 9px var(--paper)}
-.pz.dR.two .ph.p1{width:273px}
-.pz.dR.two .ph.ph2{left:727px;top:100px;width:273px;height:640px;clip-path:none}
-.pz.dR .cap{position:absolute;left:0;right:0;bottom:0;padding:130px 20px 22px;background:linear-gradient(0deg,rgba(1,22,58,.95) 0%,rgba(1,22,58,.75) 48%,rgba(1,22,58,0) 100%);color:var(--white);z-index:2}
-.pz.dR .cap b.nm{font-size:32px}
-.pz.dR .cap .r{margin-top:6px;font-size:25px;color:var(--mist)}
-.pz.dR .tag{position:absolute;left:80px;top:262px;max-width:340px;display:flex;align-items:center;gap:16px}
-.pz.dR .tag .ic{width:62px;height:62px;border-radius:50%;background:var(--navy);color:var(--yellow);padding:16px}
-.pz.dR .tag b{display:block;font-size:26px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;line-height:1.22}
-.pz.dR .tag .o{margin-top:5px;font-size:25px;font-weight:600;color:var(--ink-2)}
-.pz.dR .tag.in{position:static;max-width:none;margin-bottom:18px}
-.pz.dR .tag.in .ic{width:50px;height:50px;padding:12px}
-.pz.dR .spk{position:absolute;left:80px;width:344px;bottom:610px}
-.pz.dR .spk .lab{display:block;font-size:24px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin-bottom:12px}
-.pz.dR .spk b.nm{font-size:44px;line-height:1.08}
-.pz.dR .spk .r{margin-top:10px;font-size:30px;color:var(--ink-2)}
-.pz.dR .spk.two .sp+.sp{margin-top:18px;padding-top:16px;border-top:1px solid var(--line)}
-.pz.dR .spk.two b.nm{font-size:32px}
-.pz.dR .spk.two .r{font-size:25px}
-.pz.dR .main{position:absolute;left:80px;right:80px;top:796px;bottom:50px;display:flex;flex-direction:column}
-.pz.dR h1{font-size:58px}
-.pz.dR .info{margin-top:22px}
-.pz.dR .info>span{color:var(--ink)}
-.pz.dR .info .a{color:var(--ink-2)}
-.pz.dR .foot{margin-top:auto;padding-top:22px;border-top:1.5px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:28px}
-.pz.dR .foot .aud{color:var(--ink-2)}
-.pz.dR .foot .aud .ic{color:var(--navy)}
-.pz.dR .foot .fp span{color:var(--ink-3)}
-.pz.dR .foot .cta{margin-left:auto}
-.pz.dR .foot .cta i{background:var(--navy);color:var(--yellow)}
-.pz.dR .arch{position:absolute;left:450px;top:100px;width:550px;height:640px;clip-path:polygon(130px 0,100% 0,100% 100%,0 100%,0 130px);background:linear-gradient(180deg,var(--navy-3) 0%,var(--navy) 70%);overflow:hidden}
+.pz.dR .sc{position:absolute;left:592px;right:0;top:0;bottom:0;background:linear-gradient(180deg,var(--navy-3) 0%,var(--navy) 70%);color:var(--white);display:flex;flex-direction:column;overflow:hidden}
+.pz.dR .sc>.ph{position:relative;flex:1 1 auto;min-height:0;max-height:760px;background:var(--navy-2)}
+.pz.dR .sc .pl{flex:none;position:relative;padding:38px 52px 42px 44px}
+.pz.dR .sc .pl::before{content:"";position:absolute;left:44px;top:0;width:88px;height:8px;background:var(--yellow)}
+.pz.dR .sc .lab{color:var(--mist)}
+.pz.dR .sc b.nm{font-size:42px}
+.pz.dR .sc .r{margin-top:10px;font-size:30px;color:var(--mist)}
+.pz.dR .sc.nopl>.ph,.pz.dR .sc.nopl>.arch{max-height:none}
+.pz.dR .arch{position:relative;flex:1 1 auto;min-height:0;max-height:700px;overflow:hidden}
 .pz.dR .arch .tp path{fill:none;stroke:rgba(255,255,255,.09);stroke-width:1.4}
-.pz.dR .arch .emb{position:absolute;left:96px;top:240px;width:360px}
+.pz.dR .arch .emb{position:absolute;left:70px;bottom:40px;width:340px}
 .pz.dR .arch .emb .br{fill:none;stroke:rgba(255,255,255,.85);stroke-width:4}
 .pz.dR .arch .emb .dt{fill:var(--yellow)}
-/* sin foto, el marco gráfico se angosta y los expositores ganan ancho */
-.pz.dR.nophoto .arch{left:560px;width:440px}
-.pz.dR.nophoto .depth{left:586px;width:440px}
-.pz.dR.nophoto .arch .emb{left:50px;width:320px}
-.pz.dR.nophoto .spk{width:440px}
+/* dos expositores: retratos circulares apilados, mismo peso para ambos */
+.pz.dR .sc.duo{padding:60px 0 0}
+.pz.dR .sc.duo>.sk{margin:0 44px}
+.pz.dR .sc.duo>.lab{margin:0 52px 6px 44px}
+.pz.dR .sc .sk{flex:1 1 0;min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:18px 8px}
+.pz.dR .sc .sk+.sk{border-top:1px solid rgba(255,255,255,.22)}
+.pz.dR .sc .sk .av{--av:196px;box-shadow:0 0 0 7px rgba(255,255,255,.14)}
+.pz.dR .sc .sk .av::after{box-shadow:0 0 0 6px var(--navy)}
+.pz.dR .sc .sk .tx{margin-top:26px;min-width:0;max-width:100%}
+.pz.dR .sc .sk b.nm{font-size:38px}
+.pz.dR .sc .sk .r{font-size:28px}
+.pz.dR .sc.np .sk .tx::before{content:"";display:block;width:64px;height:7px;background:var(--yellow);margin:0 auto 22px}
+.pz.dR.tight .sc .sk .av{--av:160px}
+.pz.dR .lc{position:absolute;left:72px;top:60px;width:476px;bottom:56px;display:flex;flex-direction:column}
+.pz.dR.tight .lc{top:52px;bottom:44px}
+.pz.dR .lc .logo{position:static;width:190px;flex:none}
+.pz.dR .lc .kq{margin-top:auto;padding-top:56px}
+.pz.dR .lc .kq .o{color:var(--ink-2)}
+.pz.dR h1{margin-top:26px;font-size:60px;flex:none}
+.pz.dR .lc .info{flex:none;margin-top:34px;padding-top:30px;border-top:1.5px solid var(--line);flex-direction:column;flex-wrap:nowrap;gap:14px}
+.pz.dR .lc .info>span{font-size:30px}
+.pz.dR .lc .info .a{font-size:27px}
+.pz.dR .lc .pfl{flex:none;margin-top:34px;padding-top:30px;border-top:1.5px solid var(--line)}
+.pz.dR .lc .pfl .fp span{color:var(--ink-3)}
+.pz.dR .lc .pfl .aud{color:var(--ink-2);max-width:none}.pz.dR .lc .pfl .aud .ic{color:var(--navy)}
+.pz.dR .sc .go{flex:none;margin-top:auto;padding:30px 52px 52px 44px}
+.pz.dR .sc .go .cta{justify-content:space-between;text-align:left;max-width:none;width:100%;font-size:30px;color:var(--white)}
+.pz.dR .sc .go .cta i{background:var(--yellow);color:var(--navy)}
+.pz.dR .sc .pl+.go,.pz.dR .sc .sk+.go{border-top:1px solid rgba(255,255,255,.22);margin-left:44px;margin-right:52px;padding-left:0;padding-right:0}
+.pz.dR.tight .sc .go{padding-bottom:42px}
 
-/* =================== FOTO CON CALENDARIO (C) =================== */
+/* =================== RETRATOS (V) · retratos circulares para fotos carnet, chicas o dispares =================== */
+.pz.dV{background:var(--white);color:var(--ink)}
+.pz.dV .vh{--etica:#FFFFFF;flex:none;position:relative;overflow:hidden;background:linear-gradient(160deg,var(--navy-3) 0%,var(--navy) 62%);color:var(--white);padding:60px 72px 58px}
+.pz.dV .vh .emb{position:absolute;width:560px;right:-200px;bottom:-300px}
+.pz.dV .vh .emb .br{fill:none;stroke:rgba(255,255,255,.14);stroke-width:2.4}
+.pz.dV .vh .emb .dt{fill:none;stroke:rgba(255,255,255,.14);stroke-width:2.4}
+.pz.dV .vh .logo{position:relative;width:176px}
+.pz.dV.tight .vh .logo{width:156px}
+.pz.dV .vh .kq{margin-top:52px;max-width:680px}
+.pz.dV .vh .cal{top:60px;right:72px;box-shadow:0 20px 44px rgba(0,0,0,.28),0 0 0 2px rgba(255,255,255,.16)}
+.pz.dV.tight .vh .cal{top:52px}
+.pz.dV .vh .kq>.ic{background:rgba(255,255,255,.12)}
+.pz.dV .vh .kq .o{color:var(--mist)}
+.pz.dV h1{margin-top:24px;font-size:68px}
+.pz.dV .vh .cal+h1{margin-top:84px}
+.pz.dV .vh.full{flex:1 1 auto;display:flex;flex-direction:column}
+.pz.dV .vh.full .kq{margin-top:auto}
+.pz.dV .vh.full .logo+.cal+h1,.pz.dV .vh.full .logo+h1{margin-top:auto}
+.pz.dV .vh.full+.sp{display:none}
+.pz.dV .vh.full~.vi{padding-top:40px}
+.pz.dV .sp{flex:1 1 auto;min-height:0;display:flex;flex-direction:column;justify-content:center;gap:40px;padding:40px 72px}
+.pz.dV.two .sp{gap:32px;padding:36px 72px}
+.pz.dV{--av:280px}
+.pz.dV.two{--av:192px}
+.pz.dV .vi{flex:none;margin:0 72px;padding:0 0 38px}
+.pz.dV .vi .info>span{font-size:31px}
+.pz.dV.tight .vh{padding:52px 72px 46px}
+.pz.dV.tight .vh .kq{margin-top:40px}
+.pz.dV.tight .sp{padding:30px 72px;gap:28px}
+.pz.dV.tight.two{--av:172px}
+.pz.dV.tight .vi{padding-bottom:28px}
+
+/* =================== FOTO CON CALENDARIO (C) · franja fotográfica amplia =================== */
 .pz.dC{background:var(--white);color:var(--ink)}
-.pz.dC .panel{position:absolute;left:0;top:0;width:1080px;height:720px;background:var(--navy);clip-path:polygon(0 0,1080px 0,1080px 500px,860px 720px,0 720px)}
-.pz.dC.two .panel{height:600px;clip-path:polygon(0 0,1080px 0,1080px 380px,860px 600px,0 600px)}
-.pz.dC .ph{inset:0}
-.pz.dC.two .ph.p1{inset:auto;left:0;top:0;width:538px;height:600px}
-.pz.dC.two .ph.ph2{left:542px;top:0;width:538px;height:600px}
-.pz.dC .panel .top{position:absolute;inset:0;background:linear-gradient(180deg,rgba(1,22,58,.5) 0px,rgba(1,22,58,0) 250px)}
-.pz.dC .panel .bot{position:absolute;inset:0;background:linear-gradient(0deg,rgba(1,22,58,.92) 0px,rgba(1,22,58,.55) 200px,rgba(1,22,58,0) 360px)}
-.pz.dC .panel .mk{position:absolute;width:820px;right:-210px;top:-70px}
-.pz.dC .panel .mk .br{fill:none;stroke:rgba(255,255,255,.12);stroke-width:2}
-.pz.dC .panel .mk .dt{fill:rgba(255,255,255,.05)}
-.pz.dC .cut{position:absolute;inset:0;pointer-events:none}
-.pz.dC .logo{left:74px;top:62px;width:190px}
-.pz.dC .who{position:absolute;left:80px;right:180px;bottom:calc(1350px - 690px);color:var(--white)}
-.pz.dC.hasdate .who{left:318px}
-.pz.dC .who .lab{display:flex;align-items:center;gap:12px;font-size:24px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--mist);margin-bottom:10px}
-.pz.dC .who .lab::before{content:"";width:12px;height:12px;background:var(--yellow);flex:none}
+.pz.dC .bd{position:relative;flex:1 1 auto;min-height:0;background:var(--navy);clip-path:polygon(0 0,100% 0,100% calc(100% - 220px),calc(100% - 220px) 100%,0 100%);overflow:hidden}
+.pz.dC .bd>.ph{inset:0}
+.pz.dC .bd.pt>.ph{left:auto;width:var(--pw,540px)}
+.pz.dC .bd.pt>.ph::before{content:"";position:absolute;left:0;top:0;bottom:0;width:8px;background:var(--yellow);z-index:1}
+.pz.dC.two .bd>.ph.p1{inset:auto;left:0;top:0;bottom:0;width:538px}
+.pz.dC.two .bd>.ph.ph2{left:542px;top:0;bottom:0;width:538px}
+.pz.dC .bd .ph.ini{display:flex;align-items:flex-end;justify-content:flex-end;padding:0 40px 30px 0}
+.pz.dC .bd .ph.ini span{font-size:200px;line-height:1;color:rgba(255,255,255,.12)}
+.pz.dC .bd .tg{position:absolute;inset:0;background:linear-gradient(180deg,rgba(1,22,58,.55) 0px,rgba(1,22,58,0) 250px);pointer-events:none}
+.pz.dC .bd .mk{position:absolute;width:820px;left:-160px;top:-60px}
+.pz.dC .bd .mk .br{fill:none;stroke:rgba(255,255,255,.12);stroke-width:2}
+.pz.dC .bd .mk .dt{fill:rgba(255,255,255,.05)}
+.pz.dC .bd.pt .mk{width:760px;left:-260px;top:-40px}
+.pz.dC .cut{position:absolute;left:0;top:0;pointer-events:none;z-index:2}
+.pz.dC .logo{left:72px;top:62px;width:190px;z-index:2}
+.pz.dC .who{flex:none;position:relative;padding:36px 72px 0}
+.pz.dC.hasdate:not(.two) .who{padding-left:312px;min-height:140px}
+.pz.dC .bd .who.inb{position:absolute;left:72px;bottom:58px;right:calc(var(--pw,0px) + 56px);padding:0;min-height:0;color:var(--white);z-index:2}
+.pz.dC.nophoto .bd .who.inb{right:300px}
+.pz.dC .bd .who.inb .lab{color:var(--mist)}
+.pz.dC .bd .who.inb .r{color:var(--mist)}
 .pz.dC .who b.nm{font-size:44px}
-.pz.dC .who .r{margin-top:6px;font-size:31px;color:var(--mist)}
-.pz.dC .cal{position:absolute;left:80px;top:598px;width:200px;height:222px;border-radius:20px;background:var(--white);box-shadow:0 20px 44px rgba(1,22,58,.22),0 0 0 1.5px rgba(1,22,58,.08);display:flex;flex-direction:column}
-.pz.dC .cal .hd{height:64px;padding-top:8px;border-radius:20px 20px 0 0;background:var(--navy);color:var(--white);display:grid;place-items:center;font-size:22px;font-weight:800;letter-spacing:.12em}
-.pz.dC .cal .day{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding-bottom:6px}
-.pz.dC .cal .d{font-size:96px;font-weight:800;line-height:.92;letter-spacing:-.04em;color:var(--ink)}
-.pz.dC .cal .w{margin-top:8px;font-size:20px;font-weight:800;letter-spacing:.12em;color:var(--ink-2)}
-.pz.dC .cal .ring{position:absolute;top:-11px;width:14px;height:26px;border-radius:7px;background:var(--yellow);box-shadow:0 0 0 4px var(--white)}
-.pz.dC .main{position:absolute;left:80px;right:80px;top:868px;bottom:166px;display:flex;flex-direction:column}
-.pz.dC.nodate .main{top:780px}
-.pz.dC .kick{display:flex;align-items:center;flex-wrap:wrap;gap:8px 16px;font-size:26px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;line-height:1.25}
-.pz.dC .kick .dotk{width:16px;height:16px;border-radius:50%;background:var(--yellow);flex:none}
-.pz.dC .kick .ic{width:50px;height:50px;border-radius:50%;background:var(--navy);color:var(--yellow);padding:12px}
-.pz.dC .kick em{font-style:normal;font-weight:600;letter-spacing:.03em;text-transform:none;color:var(--ink-2)}
+.pz.dC .who .r{margin-top:8px;font-size:30px;color:var(--ink-2)}
+.pz.dC .who.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:64px}
+.pz.dC .who.two>div{min-width:0;padding-left:26px;border-left:6px solid var(--yellow)}
+.pz.dC .who.two b.nm{font-size:38px}
+.pz.dC .who.two .r{font-size:28px}
+.pz.dC .cal{left:72px}
+.pz.dC.two .cal,.pz.dC.inb .cal{left:auto;right:72px}
+.pz.dC .main{flex:none;padding:36px 72px 34px}
+.pz.dC.two.hasdate .main,.pz.dC.inb.hasdate .main{padding-right:300px}
 .pz.dC h1{margin-top:20px;font-size:58px}
-.pz.dC .main .info{margin-top:24px}
-.pz.dC .main .info>span{color:var(--ink-2)}
-.pz.dC .foot{position:absolute;left:80px;right:80px;bottom:0;height:150px;border-top:1.5px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:28px}
-.pz.dC .foot .aud{color:var(--ink-2)}
-.pz.dC .foot .aud .ic{color:var(--navy)}
-.pz.dC .foot .fp span{color:var(--ink-3)}
-.pz.dC .foot .cta{margin-left:auto}
-.pz.dC .foot .cta i{background:var(--navy);color:var(--yellow)}
-/* dos expositores: nombres bajo cada foto; el calendario pasa a la derecha, junto al título */
-.pz.dC .who.two{left:80px;right:80px;top:634px;bottom:auto;color:var(--ink)}
-.pz.dC .who.two .g{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:80px}
-.pz.dC .who.two .g>div{position:relative;padding-left:28px;min-width:0}
-.pz.dC .who.two .g>div::before{content:"";position:absolute;left:0;top:13px;width:13px;height:13px;background:var(--yellow)}
-.pz.dC .who.two b.nm{font-size:36px}
-.pz.dC .who.two .r{font-size:28px;color:var(--ink-2)}
-.pz.dC.two .cal{left:auto;right:80px}
-.pz.dC.two.nophoto .panel{height:460px;clip-path:polygon(0 0,1080px 0,1080px 240px,860px 460px,0 460px)}
-.pz.dC.two.nophoto .who.two{top:494px}
-.pz.dC.two.hasdate .main{right:330px}
+.pz.dC .main .info{margin-top:22px}
+.pz.dC.tight .who{padding-top:26px}
+.pz.dC.tight .main{padding-top:26px;padding-bottom:24px}
 
 /* =================== FRASE DESTACADA (O) =================== */
 .pz.dO{--etica:#FFFFFF;background:var(--navy);color:var(--white)}
@@ -665,10 +682,10 @@ body[data-multi="1"] .stage .pzs>.pz{box-shadow:0 16px 40px rgba(1,22,58,.24)}
       </div>
       <span class="ehl" id="varL">Variante</span>
       <div class="designs" id="variants" role="group" aria-label="Variante">
-        <button type="button" class="dz" data-d="M" data-fmt="charlas" aria-pressed="false"><svg viewBox="0 0 64 80" aria-hidden="true"><rect width="64" height="80" fill="#fff"/><rect width="24" height="51" fill="#01163A"/><rect x="24" width="40" height="51" fill="#9AA7C0"/><circle cx="45" cy="17" r="7" fill="#C9D1E0"/><path d="M33 51c1-14 23-14 24 0z" fill="#56657F"/><rect x="4" y="26" width="10" height="13" fill="#fff"/><rect x="4" y="41" width="12" height="2" fill="#FCBF00"/><rect x="24" y="4" width="15" height="5" fill="#fff"/><rect x="24" y="46" width="26" height="8" fill="#fff"/><rect x="4" y="58" width="42" height="3.4" fill="#01163A"/><rect x="4" y="63" width="32" height="3.4" fill="#01163A"/><rect y="72" width="64" height="8" fill="#01163A"/></svg><b>Fecha destacada</b></button>
-        <button type="button" class="dz" data-d="I" data-fmt="charlas" aria-pressed="false"><svg viewBox="0 0 64 80" aria-hidden="true"><rect width="64" height="80" fill="#fff"/><rect width="64" height="38" fill="#01163A"/><rect x="41" width="23" height="31" fill="#9AA7C0"/><circle cx="52" cy="11" r="4.5" fill="#C9D1E0"/><path d="M44 31c1-9 15-9 16 0z" fill="#56657F"/><rect x="38" y="27" width="23" height="7" fill="#fff"/><rect x="4" y="4" width="8" height="3" fill="#fff"/><rect x="4" y="18" width="30" height="3.4" fill="#fff"/><rect x="4" y="23" width="26" height="3.4" fill="#fff"/><rect x="4" y="28" width="20" height="3.4" fill="#fff"/><rect x="4" y="43" width="17" height="17" fill="#01163A"/><rect x="7" y="55" width="8" height="1.6" fill="#FCBF00"/><rect x="4" y="62" width="17" height="5" fill="#E9EEF6"/><rect x="25" y="46" width="22" height="2" fill="#01163A"/><rect x="25" y="53" width="30" height="2" fill="#01163A"/><rect x="38" y="70" width="22" height="6" rx="1.5" fill="#01163A"/></svg><b>Datos en ficha</b></button>
-        <button type="button" class="dz" data-d="R" data-fmt="charlas" aria-pressed="false"><svg viewBox="0 0 64 80" aria-hidden="true"><rect width="64" height="80" fill="#F4F6FA"/><path d="M-2 22c10-6 20 4 30-2s18-10 40-2M-2 34c12-6 22 6 32-1s18-8 36-1" fill="none" stroke="#D9E0EA" stroke-width=".6"/><path d="M27 49V20a16.5 16.5 0 0 1 33 0v29z" fill="#9AA7C0"/><circle cx="44" cy="22" r="5" fill="#C9D1E0"/><path d="M33 49c1-12 21-12 22 0z" fill="#56657F"/><circle cx="27" cy="12" r="3.6" fill="#FCBF00"/><circle cx="8" cy="17" r="3" fill="#01163A"/><rect x="5" y="55" width="42" height="3.4" fill="#01163A"/><rect x="5" y="60" width="32" height="3.4" fill="#01163A"/><rect x="5" y="67" width="26" height="1.8" fill="#40516F"/><rect x="5" y="71" width="20" height="1.8" fill="#40516F"/></svg><b>Foto protagonista</b></button>
-        <button type="button" class="dz" data-d="C" data-fmt="charlas" aria-pressed="false"><svg viewBox="0 0 64 80" aria-hidden="true"><rect width="64" height="80" fill="#fff"/><path d="M0 0H64V30L51 43H0z" fill="#9AA7C0"/><circle cx="34" cy="16" r="7" fill="#C9D1E0"/><path d="M22 43c1-9 6-13 12-13s11 4 12 13z" fill="#C9D1E0"/><line x1="51" y1="43" x2="64" y2="30" stroke="#FCBF00" stroke-width="1.6"/><rect x="5" y="37" width="12" height="13" rx="2" fill="#fff" stroke="#01163A" stroke-width=".8"/><rect x="5" y="37" width="12" height="4" fill="#01163A"/><rect x="5" y="56" width="40" height="3.4" fill="#01163A"/><rect x="5" y="61" width="30" height="3.4" fill="#01163A"/><rect x="5" y="72" width="54" height=".6" fill="#C9D2DF"/></svg><b>Foto con calendario</b></button>
+        <button type="button" class="dz" data-d="M" data-fmt="charlas" aria-pressed="false"><svg viewBox="0 0 64 80" aria-hidden="true"><rect width="64" height="80" fill="#fff"/><rect width="24" height="46" fill="#01163A"/><rect x="24" width="40" height="46" fill="#9AA7C0"/><circle cx="45" cy="16" r="7" fill="#C9D1E0"/><path d="M34 46c1-13 21-13 22 0z" fill="#56657F"/><rect x="4" y="22" width="10" height="13" fill="#fff"/><rect x="4" y="37" width="12" height="2" fill="#FCBF00"/><rect x="24" y="41" width="34" height="9" fill="#fff"/><rect x="27" y="43.5" width="18" height="2" fill="#01163A"/><rect x="4" y="55" width="44" height="3.4" fill="#01163A"/><rect x="4" y="60" width="34" height="3.4" fill="#01163A"/><rect y="71" width="64" height="9" fill="#01163A"/></svg><b>Fecha destacada</b><em class="sg">Sugerida</em></button>
+        <button type="button" class="dz" data-d="R" data-fmt="charlas" aria-pressed="false"><svg viewBox="0 0 64 80" aria-hidden="true"><rect width="64" height="80" fill="#F4F6FA"/><rect x="35" width="29" height="70" fill="#01163A"/><rect x="35" width="29" height="44" fill="#9AA7C0"/><circle cx="49.5" cy="16" r="6.5" fill="#C9D1E0"/><path d="M39 44c1-12 20-12 21 0z" fill="#56657F"/><rect x="38" y="47" width="6" height="1.4" fill="#FCBF00"/><rect x="38" y="51" width="18" height="2.6" fill="#fff"/><rect x="38" y="56" width="21" height="1.6" fill="#9AA7C0"/><rect x="38" y="59.5" width="15" height="1.6" fill="#9AA7C0"/><rect x="4" y="5" width="11" height="4" fill="#01163A"/><rect x="4" y="22" width="27" height="3.4" fill="#01163A"/><rect x="4" y="27" width="25" height="3.4" fill="#01163A"/><rect x="4" y="32" width="27" height="3.4" fill="#01163A"/><rect x="4" y="37" width="17" height="3.4" fill="#01163A"/><rect x="4" y="50" width="24" height=".6" fill="#C9D2DF"/><rect x="4" y="53" width="20" height="1.8" fill="#40516F"/><rect x="4" y="57" width="14" height="1.8" fill="#40516F"/><rect x="4" y="61" width="22" height="1.8" fill="#40516F"/></svg><b>Foto protagonista</b><em class="sg">Sugerida</em></button>
+        <button type="button" class="dz" data-d="V" data-fmt="charlas" aria-pressed="false"><svg viewBox="0 0 64 80" aria-hidden="true"><rect width="64" height="80" fill="#fff"/><rect width="64" height="29" fill="#01163A"/><rect x="5" y="5" width="11" height="4" fill="#fff"/><rect x="5" y="15" width="46" height="3.4" fill="#fff"/><rect x="5" y="20" width="32" height="3.4" fill="#fff"/><circle cx="13" cy="39" r="7.5" fill="#9AA7C0"/><circle cx="18.5" cy="44" r="1.6" fill="#FCBF00"/><rect x="25" y="34.5" width="1.2" height="9" fill="#FCBF00"/><rect x="28" y="36" width="22" height="2.6" fill="#01163A"/><rect x="28" y="40.5" width="26" height="1.6" fill="#56657F"/><circle cx="13" cy="57" r="7.5" fill="#9AA7C0"/><circle cx="18.5" cy="62" r="1.6" fill="#FCBF00"/><rect x="25" y="52.5" width="1.2" height="9" fill="#FCBF00"/><rect x="28" y="54" width="20" height="2.6" fill="#01163A"/><rect x="28" y="58.5" width="24" height="1.6" fill="#56657F"/><rect x="5" y="72" width="54" height=".6" fill="#C9D2DF"/></svg><b>Retratos</b><em class="sg">Sugerida</em></button>
+        <button type="button" class="dz" data-d="C" data-fmt="charlas" aria-pressed="false"><svg viewBox="0 0 64 80" aria-hidden="true"><rect width="64" height="80" fill="#fff"/><path d="M0 0H64V27L51 40H0z" fill="#9AA7C0"/><circle cx="34" cy="14" r="6.5" fill="#C9D1E0"/><path d="M22 40c1-9 6-13 12-13s11 4 12 13z" fill="#C9D1E0"/><line x1="51" y1="40" x2="64" y2="27" stroke="#FCBF00" stroke-width="1.6"/><rect x="5" y="34" width="12" height="13" rx="2" fill="#fff" stroke="#01163A" stroke-width=".8"/><rect x="5" y="34" width="12" height="4" fill="#01163A"/><rect x="21" y="43" width="22" height="2.6" fill="#01163A"/><rect x="21" y="47" width="16" height="1.6" fill="#56657F"/><rect x="5" y="55" width="40" height="3.4" fill="#01163A"/><rect x="5" y="60" width="30" height="3.4" fill="#01163A"/><rect x="5" y="72" width="54" height=".6" fill="#C9D2DF"/></svg><b>Foto con calendario</b><em class="sg">Sugerida</em></button>
         <button type="button" class="dz" data-d="P" data-fmt="carta" aria-pressed="false" hidden><svg viewBox="0 0 64 80" aria-hidden="true"><rect width="64" height="80" fill="#E4E9F0"/><rect x="5" y="5" width="54" height="61" fill="#fff"/><rect x="18" y="9" width="28" height="3" fill="#141A26"/><rect x="9" y="15" width="46" height=".8" fill="#141A26"/><rect x="9" y="16.6" width="46" height=".8" fill="#141A26"/><rect x="9" y="21" width="36" height="3" fill="#0B1220"/><g fill="#9AA6B8"><rect x="9" y="28" width="46" height="1.6"/><rect x="9" y="32" width="46" height="1.6"/><rect x="9" y="36" width="46" height="1.6"/><rect x="9" y="40" width="46" height="1.6"/><rect x="9" y="44" width="46" height="1.6"/><rect x="9" y="48" width="30" height="1.6"/></g><rect x="37" y="55" width="18" height="2" fill="#01163A"/><rect x="43" y="59" width="12" height="1.4" fill="#9AA6B8"/><rect x="5" y="71" width="12" height="4" fill="#01163A"/></svg><b>Recorte de prensa</b></button>
         <button type="button" class="dz" data-d="A" data-fmt="carta" aria-pressed="false" hidden><svg viewBox="0 0 64 80" aria-hidden="true"><rect width="64" height="80" fill="#01163A"/><circle cx="58" cy="6" r="9" fill="none" stroke="#3A4C70" stroke-width=".8"/><rect x="6" y="6" width="12" height="4" fill="#fff"/><rect x="6" y="17" width="4" height="1.2" fill="#FCBF00"/><rect x="6" y="21" width="44" height="3.6" fill="#fff"/><rect x="6" y="26.5" width="32" height="3.6" fill="#fff"/><circle cx="10" cy="35" r="4" fill="#9AA7C0"/><rect x="17" y="33" width="20" height="2" fill="#fff"/><rect x="17" y="36.4" width="14" height="1.4" fill="#9AA7C0"/><rect x="6" y="43" width="52" height="31" fill="#fff"/><circle cx="12" cy="43" r="3" fill="#FCBF00"/><g fill="#9AA6B8"><rect x="10" y="49" width="44" height="1.4"/><rect x="10" y="53" width="44" height="1.4"/><rect x="10" y="57" width="44" height="1.4"/><rect x="10" y="61" width="44" height="1.4"/><rect x="10" y="65" width="28" height="1.4"/></g></svg><b>Institucional AIC</b></button>
       </div>
@@ -726,7 +743,7 @@ body[data-multi="1"] .stage .pzs>.pz{box-shadow:0 16px 40px rgba(1,22,58,.24)}
 
         <div class="panel" role="tabpanel" id="p-ex" aria-labelledby="tab-ex" hidden>
           <div class="grp" data-show="charlas" style="padding-top:4px;padding-bottom:4px">
-            <div class="opt"><div class="t"><b id="cantT">Cantidad de expositores</b><span>Con dos, la foto se divide y cada nombre queda junto a su retrato.</span></div>
+            <div class="opt"><div class="t"><b id="cantT">Cantidad de expositores</b><span>Con dos, cada uno tiene su retrato y su nombre con el mismo peso; el diseño se reorganiza solo.</span></div>
               <div class="seg" role="group" aria-label="Cantidad de expositores"><button type="button" id="n1" aria-pressed="true">Uno</button><button type="button" id="n2" aria-pressed="false">Dos</button></div></div>
           </div>
           <div class="grp"><h3 id="ex1h" data-l-charlas="Expositor" data-l-corp="Invitado" data-l-edit="Autor" data-l-col="Autor">Expositor</h3>
@@ -856,7 +873,7 @@ window.aicActivityIcon=function(tipo,manual){
   return"spark";
 };
 
-/* Public-AIC · motor de diseños: Módulos, Módulos Info, Relieve, Editorial y Corporativo */
+/* Public-AIC · motor de diseños: Charlas (Fecha destacada, Foto protagonista, Retratos, Foto con calendario), Frase destacada, Cartas y Columna */
 (function(){
 const esc=s=>String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const br=s=>esc(s).replace(/\n/g,"<br>");
@@ -893,67 +910,82 @@ const nmr=(n,c)=>`${n?`<b class="nm">${esc(n)}</b>`:""}${c?`<span class="r">${br
 const kickIn=d=>`${d.tipo?`<b>${esc(d.tipo)}</b>`:""}${d.organiza?`<span class="o org">${orgTxt(d)}</span>`:""}`;
 const pcN=(n,c)=>`<div class="pc"><i></i><div>${nmr(n,c)}</div></div>`;
 const plateN=d=>d.two?`<div class="plate two">${pcN(d.nombre,d.cargo)}${pcN(d.nombre2,d.cargo2)}</div>`:d.nombre?`<div class="plate"><i></i><div>${nmr(d.nombre,d.cargo)}</div></div>`:"";
-const audLine=d=>hasPrice(d)&&d.publico?`<span class="a">${I("users")}${br(d.publico)}</span>`:"";
+const audLine=d=>hasPrice(d)&&d.publico?`<span class="a">${I("users")}<span>${br(d.publico)}</span></span>`:"";
+
+/* ---------- CHARLAS · sistema v15: piezas compartidas ---------- */
+const kq=(d,act)=>(d.tipo||d.organiza)?`<div class="kq">${I(act)}<i class="sq"></i><div>${kickIn(d)}</div></div>`:"";
+const hasPh=s=>!!(s&&s.trim());
+const avatar=(d,n)=>`<div class="av">${n===2?slot(d.photo2,d.photo2Fx,d.fxk,"ph2",d.nombre2):slot(d.photo,d.photoFx,d.fxk,"p1",d.nombre)}</div>`;
+const who=(d,n)=>n===2?[d.nombre2,d.cargo2]:[d.nombre,d.cargo];
+const people=d=>d.two?[1,2]:((d.nombre||d.cargo)?[1]:[]);
+/* fila: retrato circular (si corresponde) + nombre y cargo a todo el ancho que queda */
+const srow=(d,n,av,nl,rl)=>{const [nm,c]=who(d,n);return (nm||c||av)?`<div class="sr" data-nl="${nl||2}" data-rl="${rl||3}">${av?avatar(d,n):""}<div class="tx">${nmr(nm,c)}</div></div>`:"";};
+const calHTML=di=>di?`<div class="cal"><i class="ring" style="left:46px"></i><i class="ring" style="left:138px"></i><div class="mh">${di.month}</div><div class="day"><span class="d">${di.num}</span><span class="w">${di.wd}</span></div></div>`:"";
+const pfHTML=d=>hasFoot(d)?`<div class="pf">${footLeft(d)}${ctaHTML(d)}</div>`:"";
+/* lista de datos: o.date incluye la fecha larga; un plazo siempre se dice con su fecha */
+function infoList(d,di,o){
+  const a=[],T=s=>`<span>${s}</span>`;
+  if(di&&(o.date||di.plazo))a.push(`<span class="k">${I(di.plazo?"flag":"calendar")}${T(esc(di.plazo?di.until:di.long))}</span>`);
+  if(o.time!==false&&d.hora&&!(di&&di.plazo))a.push(`<span>${I("clock")}${T(esc(horaTxt(d.hora)))}</span>`);
+  if(o.place!==false&&d.lugar)a.push(`<span>${I("pin")}${T(esc(d.lugar))}</span>`);
+  if(audLine(d))a.push(audLine(d));
+  return a;
+}
+const infoHTML=a=>a.length?`<div class="info">${a.join("")}</div>`:"";
 
 /* ---------- FECHA DESTACADA ---------- */
 function buildM(d,di,logo,act){
-  const date=di?`<div class="date"><div class="wd">${I(di.plazo?"flag":"calendar")}${di.plazo?"HASTA EL "+di.wd:di.wd}</div><span class="d">${di.num}</span><span class="m">${di.month}</span>${d.hora&&!di.plazo?`<div class="t">${I("clock")}${esc(horaTxt(d.hora))}</div>`:""}</div>`:"";
+  const usePh=hasPh(d.photo)&&!d.two;
+  const date=`<div class="date">${di?`<div class="wd">${I(di.plazo?"flag":"calendar")}${di.plazo?"HASTA EL "+di.wd:di.wd}</div><span class="d">${di.num}</span><span class="m">${di.month}</span>`:""}${d.hora&&!(di&&di.plazo)?`<div class="t">${I("clock")}<span>${esc(horaTxt(d.hora))}</span></div>`:""}</div>`;
   const col=`<div class="col"><div class="logo"><img alt="AIC" src="${logo}"></div>${date}</div>`;
-  const info=[];
-  if(!di&&d.hora)info.push(`<span>${I("clock")}${esc(horaTxt(d.hora))}</span>`);
-  if(d.lugar)info.push(`<span>${I("pin")}${esc(d.lugar)}</span>`);
-  if(audLine(d))info.push(audLine(d));
-  const infoH=info.length?`<div class="info">${info.join("")}</div>`:"";
+  const au=infoHTML(infoList(d,di,{date:false,time:false}));
   const band=hasFoot(d)?`<div class="band">${footLeft(d)}${ctaHTML(d)}</div>`:"";
-  if(d.photo){
-    const chip=(d.tipo||d.organiza)?`<div class="chip">${I(act)}<div>${kickIn(d)}</div></div>`:"";
-    return `<div class="dots"></div>${col}${d.two?twoPh(d):photoHTML(d)}${chip}${plateN(d)}<div class="main"><h1>${br(d.titulo)}</h1>${infoH}</div>${band}`;
+  if(usePh){
+    const plate=(d.nombre||d.cargo)?`<div class="plate" data-nl="2" data-rl="4"><i></i><div>${nmr(d.nombre,d.cargo)}</div></div>`:"";
+    return `<div class="tp">${col}${photoHTML(d)}</div>${plate?`<div class="mid">${plate}</div>`:""}<div class="main">${kq(d,act)}<h1>${br(d.titulo)}</h1>${au}</div>${band}`;
   }
-  const kk=(d.tipo||d.organiza)?`<div class="kk">${I(act)}<div>${kickIn(d)}</div></div>`:"";
-  const spk=d.two?`<div class="spk two">${I("mic")}<div><div class="sp">${nmr(d.nombre,d.cargo)}</div><div class="sp">${nmr(d.nombre2,d.cargo2)}</div></div></div>`:d.nombre?`<div class="spk">${I("mic")}<div>${nmr(d.nombre,d.cargo)}</div></div>`:"<div></div>";
-  return `<div class="dots"></div>${col}<div class="blk"><div class="emb">${MARK}</div><div class="in">${kk}<h1>${br(d.titulo)}</h1></div></div>
-  <div class="main">${spk}${infoH}</div>${band}`;
+  const av=d.two&&hasPh(d.photo+d.photo2);
+  const ppl=people(d),sp=ppl.length?`<div class="sp${!av&&d.two?" g2":""}">${ppl.map(n=>srow(d,n,av,2,av?3:4)).join("")}</div>`:"";
+  return `<div class="tp">${col}<div class="blk"><div class="emb">${MARK}</div><div class="in">${kq(d,act)}<h1>${br(d.titulo)}</h1>${au}</div></div></div>${sp}${band}`;
 }
 
 /* ---------- FOTO PROTAGONISTA ---------- */
 function buildR(d,di,logoNavy,act){
-  const data=[];
-  if(di)data.push(di.plazo?`<span class="k">${I("flag")}${esc(di.until)}</span>`:`<span class="k">${I("calendar")}${esc(di.long)}</span>`);
-  if(d.hora&&!(di&&di.plazo))data.push(`<span>${I("clock")}${esc(horaTxt(d.hora))}</span>`);
-  if(d.lugar)data.push(`<span>${I("pin")}${esc(d.lugar)}</span>`);
-  if(audLine(d))data.push(audLine(d));
-  const tag=(d.tipo||d.organiza)?`<div class="tag">${I(act)}<div>${kickIn(d)}</div></div>`:"";
-  const spk=d.two?(d.photo?"":`<div class="spk two"><span class="lab">Exponen</span><div class="sp">${nmr(d.nombre,d.cargo)}</div><div class="sp">${nmr(d.nombre2,d.cargo2)}</div></div>`):d.nombre?`<div class="spk"><span class="lab">Expone</span>${nmr(d.nombre,d.cargo)}</div>`:"";
-  const foot=hasFoot(d)?`<div class="foot">${footLeft(d)}${ctaHTML(d)}</div>`:"";
-  const capH=(n,c)=>n?`<div class="cap">${nmr(n,c)}</div>`:"";
-  const art=d.photo&&d.two?`<div class="depth"></div>${twoPh(d).replace(/<\/div>(?=<div class="ph ph2)/,capH(d.nombre,d.cargo)+"</div>").replace(/<\/div>$/,capH(d.nombre2,d.cargo2)+"</div>")}<div class="dot"></div>`:d.photo?`<div class="depth"></div>${photoHTML(d)}<div class="dot"></div>`:`<div class="depth"></div><div class="arch"><svg class="abs tp" viewBox="440 100 560 720" preserveAspectRatio="none"><path d="${TOPO}"/></svg><div class="emb">${MARK}</div></div>`;
-  return `<svg class="abs topo" viewBox="0 0 1080 1350"><path d="${TOPO}"/></svg>
-  <div class="logo"><img alt="AIC" src="${logoNavy}"></div>${art}${tag}${spk}
-  <div class="main"><h1>${br(d.titulo)}</h1>${data.length?`<div class="info">${data.join("")}</div>`:""}${foot}</div>`;
+  let sc;
+  if(d.two){
+    const av=hasPh(d.photo+d.photo2);
+    const sk=n=>{const [nm,c]=who(d,n);return `<div class="sk" data-nl="3" data-rl="4">${av?avatar(d,n):""}<div class="tx">${nmr(nm,c)}</div></div>`;};
+    sc=`<div class="sc duo${av?"":" np"}"><span class="lab">Exponen</span>${sk(1)}${sk(2)}</div>`;
+  }else{
+    const pl=(d.nombre||d.cargo)?`<div class="pl" data-nl="3" data-rl="5"><span class="lab">${esc(d.rotulo||"Expone")}</span>${nmr(d.nombre,d.cargo)}</div>`:"";
+    sc=`<div class="sc${pl?"":" nopl"}">${hasPh(d.photo)?photoHTML(d):`<div class="arch"><svg class="abs tp" viewBox="440 100 560 720" preserveAspectRatio="none"><path d="${TOPO}"/></svg><div class="emb">${MARK}</div></div>`}${pl}</div>`;
+  }
+  const go=d.cta?`<div class="go">${ctaHTML(d)}</div>`:"",left=hasPrice(d)||d.publico?`<div class="pfl">${footLeft(d)}</div>`:"";
+  return `<svg class="abs topo" viewBox="0 0 1080 1350"><path d="${TOPO}"/></svg>${sc.replace(/<\/div>$/,go+"</div>")}
+  <div class="lc"><div class="logo"><img alt="AIC" src="${logoNavy}"></div>${kq(d,act)}<h1>${br(d.titulo)}</h1>${infoHTML(infoList(d,di,{date:true}))}${left}</div>`;
 }
 
-/* ---------- DATOS EN FICHA ---------- */
-function buildI(d,di,logo,act,ico){
-  const kick=(d.tipo||d.organiza)?`<div class="kick">${ico?I(act):`<i class="sq"></i>`}<div>${kickIn(d)}</div></div>`:"";
-  const plate=d.photo?plateN(d):"";
-  const art=d.photo?(d.two?twoPh(d):photoHTML(d)):`<div class="emb">${MARK}</div>`;
-  const date=di?`<div class="datec"><div class="wd">${I(di.plazo?"flag":"calendar")}${di.plazo?"HASTA EL "+di.wd:di.wd}</div><span class="d">${di.num}</span><span class="m">${di.month}</span></div>`:"";
-  const row=(ic,lab,inner)=>`<div class="row">${I(ic)}<div><span class="lb">${lab}</span>${inner}</div></div>`;
-  const rows=[];
-  if(d.hora&&!(di&&di.plazo))rows.push(row("clock","Hora",`<span class="v">${esc(horaTxt(d.hora))}</span>`));
-  if(d.lugar)rows.push(row("pin","Lugar",`<span class="v">${esc(d.lugar)}</span>`));
-  if(!d.photo&&d.two)rows.push(row("mic","Exponen",`${nmr(d.nombre,d.cargo)}<div class="nm2">${nmr(d.nombre2,d.cargo2)}</div>`));
-  else if(!d.photo&&d.nombre)rows.push(row("mic","Expone",nmr(d.nombre,d.cargo)));
-  if(hasPrice(d)&&d.publico)rows.push(row("users","Dirigido a",`<span class="vs">${br(d.publico)}</span>`));
-  const foot=hasFoot(d)?`<div class="foot">${footLeft(d)}${d.cta?`<div class="btn">${esc(d.cta)}<i>${AIC_ICONS.arrow}</i></div>`:""}</div>`:"";
-  return `<div class="top"></div>${art}${plate}
-  <div class="logo"><img alt="AIC" src="${logo}"></div>
-  <div class="hd">${kick}<h1>${br(d.titulo)}</h1></div>
-  <div class="dots"></div>
-  <div class="low${date?"":" solo"}">${date}${rows.length?`<div class="rows">${rows.join("")}</div>`:""}</div>
-  ${foot}`;
+/* ---------- RETRATOS ---------- */
+function buildV(d,di,logo,act){
+  const ppl=people(d),info=infoList(d,di,{date:false});
+  /* el calendario va en la cabecera, arriba a la derecha; abajo sólo queda una línea de datos */
+  return `<div class="vh${ppl.length?"":" full"}"><div class="emb">${MARK}</div><div class="logo"><img alt="AIC" src="${logo}"></div>${calHTML(di)}${kq(d,act)}<h1>${br(d.titulo)}</h1></div>
+  <div class="sp">${ppl.map(n=>srow(d,n,true,2,d.two?3:4)).join("")}</div>${info.length?`<div class="vi">${infoHTML(info)}</div>`:""}${pfHTML(d)}`;
 }
 
+/* ---------- FOTO CON CALENDARIO ---------- */
+function buildC(d,di,logo,act){
+  const ph=hasPh(d.photo)||(d.two&&hasPh(d.photo2));
+  const portrait=!d.two&&ph&&(!d.photoW||!d.photoH||d.photoW/d.photoH<1.25);
+  const band=`<div class="bd${portrait?" pt":""}">${(!ph||portrait)?`<div class="mk">${MARK}</div>`:""}${ph?(d.two?twoPh(d):photoHTML(d)):""}<div class="tg"></div></div>`;
+  const cut=`<svg class="cut" width="1080" height="1350" viewBox="0 0 1080 1350" aria-hidden="true"><line x1="866.4" y1="726.4" x2="1086.4" y2="506.4" stroke="#FCBF00" stroke-width="10"/></svg>`;
+  const inb=!d.two&&(portrait||!ph);
+  const w=d.two?`<div class="who two">${[1,2].map(n=>{const [nm,c]=who(d,n);return `<div data-nl="2" data-rl="4">${nmr(nm,c)}</div>`;}).join("")}</div>`
+    :(d.nombre||d.cargo)?`<div class="who" data-nl="2" data-rl="3"><span class="lab">${esc(d.rotulo||"Expositor invitado")}</span>${nmr(d.nombre,d.cargo)}</div>`:`<div class="who"></div>`;
+  const B=inb?band.replace(/<div class="tg"><\/div><\/div>$/,`<div class="tg"></div>${w.replace('class="who"','class="who inb"')}</div>`):band;
+  return `${B}${cut}<div class="logo"><img alt="AIC" src="${logo}"></div>${inb?"":w}${calHTML(di)}
+  <div class="main">${kq(d,act)}<h1>${br(d.titulo)}</h1>${infoHTML(infoList(d,di,{date:false}))}</div>${pfHTML(d)}`;
+}
 /* ---------- FRASE DESTACADA ---------- */
 function pubDate(iso){const m=/^(\d{4})-(\d{2})-(\d{2})$/.exec(iso||"");if(!m)return iso||"";return `${+m[3]} de ${MESES[+m[2]-1]} de ${m[1]}`;}
 function buildO(d,logo){
@@ -964,24 +996,6 @@ function buildO(d,logo){
   return `${d.photo?`${photoHTML(d)}<div class="shade"></div>`:`<div class="qbg">“</div>`}
   <div class="logo"><img alt="AIC" src="${logo}"></div>
   <div class="main">${kick}<div class="q">“</div><h1>${br(d.titulo)}</h1>${d.extracto?`<p class="ex">${br(d.extracto)}</p>`:""}${au}${foot}</div>`;
-}
-
-/* ---------- FOTO CON CALENDARIO (antes Corporativo) ---------- */
-function buildC(d,di,logo,act,ico){
-  const meta=[];
-  if(di&&di.plazo)meta.push(`<span class="k">${I("flag")}${ico?"":"Plazo: "}${esc(di.until)}</span>`);
-  if(d.hora&&!(di&&di.plazo))meta.push(`<span>${I("clock")}${esc(horaTxt(d.hora))}</span>`);
-  if(d.lugar)meta.push(`<span>${I("pin")}${esc(d.lugar)}</span>`);
-  if(audLine(d))meta.push(audLine(d));
-  const who=d.two?`<div class="who two"><div class="g"><div>${nmr(d.nombre,d.cargo)}</div><div>${nmr(d.nombre2,d.cargo2)}</div></div></div>`:d.nombre?`<div class="who"><span class="lab">${esc(d.rotulo||"Expositor invitado")}</span>${nmr(d.nombre,d.cargo)}</div>`:"";
-  const cal=di?`<div class="cal"><i class="ring" style="left:46px"></i><i class="ring" style="left:138px"></i><div class="hd">${di.month}</div><div class="day"><span class="d">${di.num}</span><span class="w">${di.wd}</span></div></div>`:"";
-  const kick=(d.tipo||d.organiza)?`<div class="kick">${ico?I(act):`<i class="dotk"></i>`}<span>${esc(d.tipo)}</span>${d.organiza?`<em class="org">${orgTxt(d)}</em>`:""}</div>`:"";
-  const foot=hasFoot(d)?`<div class="foot">${footLeft(d)}${ctaHTML(d)}</div>`:"";
-  const y=d.two?(d.photo?-120:-260):0;
-  return `<div class="panel">${d.photo?`${d.two?twoPh(d):photoHTML(d)}<div class="top"></div>`:`<div class="mk">${MARK}</div>`}${d.nombre&&!d.two?`<div class="bot"></div>`:""}</div>
-  <svg class="cut" viewBox="0 0 1080 1350" width="1080" height="1350" aria-hidden="true"><line x1="866.4" y1="${726.4+y}" x2="1086.4" y2="${506.4+y}" stroke="#FCBF00" stroke-width="10"/></svg>
-  <div class="logo"><img alt="AIC" src="${logo}"></div>${who}${cal}
-  <div class="main">${kick}<h1>${br(d.titulo)}</h1>${meta.length?`<div class="info">${meta.join("")}</div>`:""}</div>${foot}`;
 }
 
 function placePhoto(box,img,fr){
@@ -1042,8 +1056,8 @@ function buildDoc(el,d){
 
 /* ---------- Ajuste automático de nombres y cargos (todos los diseños) ----------
    1) líneas equilibradas, 2) si pasa del máximo de líneas la letra baja en pasos de 1 px hasta
-   un mínimo legible en teléfono (nombres 28 px, cargos 24 px), 3) el bloque crece hacia la zona
-   libre de cada diseño, 4) se revisan choques entre bloques. */
+   un mínimo legible en teléfono (nombres 30 px, cargos 26 px). Cada contenedor declara cuántas
+   líneas admite (data-nl / data-rl) según su ancho: así un cargo largo se reparte a lo ancho y no estira la pieza. */
 function fitText(e,maxL,ratio,minPx){
   e.style.fontSize="";const cs=getComputedStyle(e),base=parseFloat(cs.fontSize);
   const lhr=(parseFloat(cs.lineHeight)||base*1.3)/base,min=Math.max(minPx||22,Math.round(base*ratio));
@@ -1052,23 +1066,56 @@ function fitText(e,maxL,ratio,minPx){
   return {lines:lines(),fs,base};
 }
 function fitRoles(el){
-  const two=el.classList.contains("two");
-  el.querySelectorAll("b.nm").forEach(e=>fitText(e,2,.8,28));
-  el.querySelectorAll(".r").forEach(e=>fitText(e,two?4:3,.86,25));
+  const two=el.classList.contains("two"),lim=(e,k,def)=>{const h=e.closest("[data-"+k+"]");return h?+h.getAttribute("data-"+k):def;};
+  el.querySelectorAll("b.nm").forEach(e=>fitText(e,lim(e,"nl",2),.8,30));
+  el.querySelectorAll(".r").forEach(e=>fitText(e,lim(e,"rl",two?4:3),.86,26));
 }
-const boxes=(el,s)=>[...el.querySelectorAll(s)].filter(x=>x.offsetParent!==null).map(x=>x.getBoundingClientRect());
-const hit=(a,b)=>a.left<b.right-1&&b.left<a.right-1&&a.top<b.bottom-1&&b.top<a.bottom-1;
-function collisions(el,des){
-  const pairs={M:[[".plate",".chip"],[".plate",".main h1"]],R:[[".spk",".tag:not(.in)"],[".spk",".main"],[".spk",".logo"]],I:[[".plate",".hd h1"],[".plate",".hd .kick"]],C:[[".who:not(.two)",".cal"],[".who:not(.two)",".logo"],[".who.two .g>div",".main"],[".who.two .g>div",".cal"]]}[des]||[];
-  return pairs.some(([a,b])=>boxes(el,a).some(x=>boxes(el,b).some(y=>hit(x,y))));
+/* ---------- Charlas: la foto (o el panel gráfico) es la zona elástica ----------
+   Orden de ajuste: título dentro de su rango → versión compacta (menos aire, retratos algo menores)
+   → se omite la línea de público repetida → si aún no cabe, se avisa. Nunca se superponen bloques. */
+const TITLE_RANGE={M:[64,48],R:[60,44],V:[68,50],C:[60,46]};
+function fitCharla(el,d,des){
+  const q=s=>el.querySelector(s),over=e=>!!e&&e.scrollHeight>e.clientHeight+1,h1=q("h1");
+  const R=des==="C"&&d.two?[56,44]:des==="V"&&d.two?[64,46]:TITLE_RANGE[des];
+  let ok=()=>true;
+  if(des==="M"){
+    const tp=q(".tp"),inn=q(".blk .in"),min=inn?(d.two?430:470):600;
+    const col=q(".col");ok=()=>tp.offsetHeight>=min&&!over(col)&&(!inn||inn.offsetTop>=44);
+  }else if(des==="R"){
+    /* columna izquierda: el bloque del título baja hasta abajo; debe quedar aire bajo el logo */
+    const lc=q(".lc"),ph=q(".sc>.ph"),arch=q(".sc>.arch"),free=()=>lc.children[1].offsetTop-lc.children[0].offsetHeight;
+    ok=()=>free()>=20&&lc.scrollHeight<=lc.clientHeight+4&&!over(q(".sc"))&&[...el.querySelectorAll(".sc .sk")].every(s=>!over(s))&&(!ph||ph.offsetHeight>=470)&&(!arch||arch.offsetHeight>=280);
+  }else if(des==="V"){
+    /* el bloque de expositores se centra: se compara su alto natural con el disponible (scrollHeight no ve el desborde hacia arriba) */
+    const sp=q(".sp"),nat=()=>{const cs=getComputedStyle(sp),k=[...sp.children];if(!k.length)return 0;return k.reduce((a,c)=>a+c.offsetHeight,0)+(k.length-1)*parseFloat(cs.rowGap||0)+parseFloat(cs.paddingTop)+parseFloat(cs.paddingBottom);};
+    const vh=q(".vh"),lg=vh.querySelector(".logo"),fl=vh.querySelector(".kq")||vh.querySelector("h1");
+    ok=()=>nat()<=sp.clientHeight+1&&(!vh.classList.contains("full")||!fl||fl.offsetTop-(lg.offsetTop+lg.offsetHeight)>=24);
+  }else{
+    const bd=q(".bd"),wi=q(".who.inb"),min=d.two?440:(hasPh(d.photo)?500:380);
+    if(wi)el.classList.add("inb");
+    ok=()=>bd.offsetHeight>=min&&(!wi||wi.offsetTop>=280);
+  }
+  if(des==="C"&&q(".bd.pt"))el.style.setProperty("--pw",Math.min(600,Math.round(q(".bd").offsetHeight*.82))+"px");
+  const fitT=()=>h1?shrink(h1,R[0],R[1],()=>!ok()):0;
+  /* Fecha destacada con foto: si la placa del expositor baja mucho bajo la foto, la actividad ocupa el hueco a su izquierda */
+  if(des==="M"){const mid=q(".mid"),pl=q(".mid .plate"),k=q(".main>.kq");
+    if(mid&&pl&&k&&mid.offsetHeight>=130){mid.prepend(k);k.classList.add("kl");if(k.offsetHeight>mid.offsetHeight-24){q(".main").prepend(k);k.classList.remove("kl");}}}
+  let fs=fitT(),dropAud=false;
+  if(!ok()){el.classList.add("tight");fitRoles(el);fs=fitT();}
+  if(!ok()){const a=q(".info .a");if(a){a.remove();dropAud=true;fs=fitT();}}
+  const fits=ok();
+  /* acabados que dependen de las medidas finales */
+  if(des==="M"){const inn=q(".blk .in"),emb=q(".blk .emb");
+    /* el emblema sólo se muestra completo: se achica según el alto libre sobre el título o se omite */
+    if(inn&&emb){const w=Math.min(520,(inn.offsetTop+70)/.882);if(w<340)emb.style.display="none";else{emb.style.width=w+"px";emb.style.right=Math.round(-150*w/520)+"px";}}}
+  if(des==="C"){
+    const H=q(".bd").offsetHeight,ln=q(".cut line");
+    if(ln){ln.setAttribute("y1",H+6.4);ln.setAttribute("y2",H-213.6);}
+    if(q(".bd.pt"))el.style.setProperty("--pw",Math.min(600,Math.round(H*.82))+"px");
+    const cal=q(".cal");if(cal)cal.style.top=(d.two||q(".who.inb")?q(".main").offsetTop+36:H-120)+"px";
+  }
+  return {fits,titleSize:fs,clash:false,dropAud};
 }
-/* Foto con calendario y dos expositores: el bloque principal empieza bajo los nombres y el calendario lo acompaña a la derecha */
-function layoutC2(el,g){
-  g=g||40;const who=el.querySelector(".who.two"),main=el.querySelector(".main");if(!who||!main)return;
-  const top=Math.max(el.classList.contains("nophoto")?600:760,who.offsetTop+who.offsetHeight+g);main.style.top=top+"px";
-  const cal=el.querySelector(".cal");if(cal)cal.style.top=(top+14)+"px";
-}
-
 /* ---------- CARTAS AL DIRECTOR · texto legible en el teléfono; si no cabe, sigue en otra imagen ---------- */
 const secName=t=>!t||/^carta/i.test(t)?"Cartas al Director":t;
 function titleLines(h1,max,min,maxL){let fs=max;const set=v=>{h1.style.fontSize=v+"px";};set(fs);const lh=()=>parseFloat(getComputedStyle(h1).lineHeight)||fs*1.1;while(h1.offsetHeight>lh()*maxL+2&&fs>min){fs-=2;set(fs);}return fs;}
@@ -1128,48 +1175,27 @@ function render(el,d,logo,logoNavy){
   if(d.comite&&COMITES[d.comite]&&!d.organiza)d=Object.assign({},d,{organiza:"Comité de "+COMITES[d.comite][0]});
   if(d.diseno==="P"||d.diseno==="A")return buildCarta(el,d,logo,logoNavy);
   if(d.diseno==="K"){el.style.removeProperty("--g0");return buildDoc(el,d);}
-  const des0=["M","R","O","C","I"].includes(d.diseno)?d.diseno:(d.diseno==="E"?"O":"M");
-  if(["M","R","I","C"].includes(des0)&&d.dos&&(d.nombre2||d.photo2)){d=Object.assign({},d,{two:true});if(!d.photo&&d.photo2)d.photo=" ";}
-  const des=des0,di=dateInfo(d),act=aicActivityIcon(d.tipo,d.icono),ico=d.iconos!==false;
-  el.className="pz d"+des+(d.two?" two":"")+(d.photo?" photo":" nophoto")+(d.nombre?"":" noplate")+(ico?"":" noic")+(di?" hasdate":" nodate");
-  ["--g0","--g1","--g2","--T","--B","--bfs","--blh","--ct"].forEach(k=>el.style.removeProperty(k));
-  el.innerHTML=des==="M"?buildM(d,di,logo,act):des==="R"?buildR(d,di,logoNavy,act):des==="O"?buildO(d,logo):des==="I"?buildI(d,di,logo,act,ico):buildC(d,di,logo,act,ico);
+  /* «Datos en ficha» (I) se retiró: un borrador antiguo con ese diseño se abre en Fecha destacada */
+  const des=["M","R","O","C","V"].includes(d.diseno)?d.diseno:(d.diseno==="E"?"O":"M");
+  if(des!=="O"&&d.dos&&(d.nombre2||d.photo2)){d=Object.assign({},d,{two:true});if(!d.photo&&d.photo2)d.photo=" ";}
+  const di=dateInfo(d),act=aicActivityIcon(d.tipo,d.icono),ico=d.iconos!==false;
+  el.className="pz d"+des+(des!=="O"?" ch":"")+(d.two?" two":"")+(d.photo?" photo":" nophoto")+(d.nombre?"":" noplate")+(ico?"":" noic")+(di?" hasdate":" nodate");
+  ["--g0","--g1","--g2","--T","--B","--bfs","--blh","--ct","--pw"].forEach(k=>el.style.removeProperty(k));
+  el.innerHTML=des==="M"?buildM(d,di,logo,act):des==="R"?buildR(d,di,logoNavy,act):des==="O"?buildO(d,logo):des==="V"?buildV(d,di,logo,act):buildC(d,di,logo,act);
   fitRoles(el);
-  if(des==="C"&&d.two)layoutC2(el);
-  const main=el.querySelector(".main")||el.querySelector(".low"),mainOver=()=>main.scrollHeight>main.clientHeight+3||main.scrollWidth>main.clientWidth+1;
-  let fs,ok;
-  if(des==="M"&&!d.photo){
-    const h1=el.querySelector(".blk h1"),inn=el.querySelector(".blk .in");
-    for(const B of [900,860,820,780]){el.style.setProperty("--B",B+"px");fs=shrink(h1,66,50,()=>inn.offsetTop<330);ok=inn.offsetTop>=330&&!mainOver();if(ok)break;}
-  }else if(des==="O"){
-    const h1=main.querySelector("h1"),lim=d.photo?560:300,over=()=>main.offsetTop<lim;
-    fs=shrink(h1,d.photo?66:76,50,over);ok=!over();
+  let res;
+  if(des==="O"){
+    const main=el.querySelector(".main"),h1=main.querySelector("h1"),lim=d.photo?560:300,over=()=>main.offsetTop<lim;
+    const fs=shrink(h1,d.photo?66:76,50,over);res={fits:!over(),titleSize:fs,clash:false,dropAud:false};
     if(d.photo){const t=main.offsetTop;el.style.setProperty("--g0",(t-300)+"px");el.style.setProperty("--g1",(t+20)+"px");el.style.setProperty("--g2",(t+200)+"px");}
-  }else if(des==="I"){
-    const h1=el.querySelector(".hd h1"),hd=el.querySelector(".hd"),low=el.querySelector(".low"),hdOver=()=>hd.firstElementChild.offsetTop<0;
-    for(const T of d.photo?[760,720,680,640,600]:[680,640,600,560,520,480]){el.style.setProperty("--T",T+"px");fs=shrink(h1,d.photo?62:72,46,hdOver);ok=!hdOver()&&!(low.scrollHeight>low.clientHeight+1);if(ok)break;}
-  }else{
-    const h1=main.querySelector("h1"),R={M:[62,48],R:[58,46],C:d.two?[54,42]:[58,44]}[des];
-    fs=shrink(h1,R[0],R[1],mainOver);ok=!mainOver();
-  }
-  /* Calendario con dos expositores: si aún no cabe, cargos más compactos y menos aire */
-  if(!ok&&des==="C"&&d.two){
-    el.querySelectorAll(".who.two .r").forEach(e=>fitText(e,3,.82,24));layoutC2(el,26);
-    const h1=main.querySelector("h1");fs=shrink(h1,54,42,mainOver);ok=!mainOver();
-  }
-  /* último recurso: el público ya no se repite en la línea de datos (queda fuera para no apretar la pieza) */
-  let dropAud=false;
-  if(!ok&&des!=="O"){const a=el.querySelector(".info .a, .rows .row:last-child .vs");if(a){(a.closest(".row")||a).remove();dropAud=true;const h1=el.querySelector(".blk h1")||el.querySelector(".hd h1")||main.querySelector("h1");if(h1&&des!=="I"&&!(des==="M"&&!d.photo)){const R={M:[62,48],R:[58,46],C:d.two?[54,42]:[58,44]}[des];fs=shrink(h1,R[0],R[1],mainOver);}ok=!mainOver()&&!(des==="I"&&el.querySelector(".low").scrollHeight>el.querySelector(".low").clientHeight+1);}}
-  /* Foto protagonista: si los expositores no caben junto a la etiqueta, la etiqueta baja sobre el título */
-  if(des==="R"&&collisions(el,des)){const tag=el.querySelector(".tag");if(tag){tag.classList.add("in");main.prepend(tag);const h1=main.querySelector("h1");fs=shrink(h1,58,44,mainOver);ok=!mainOver();}}
-  const clash=collisions(el,des);if(clash)ok=false;
+  }else res=fitCharla(el,d,des);
   el.querySelectorAll(".ph").forEach(box=>{const img=box.querySelector("img");if(!img)return;const fr=(box.classList.contains("ph2")?d.frame2:d.frame)||{},go=()=>placePhoto(box,img,fr);img.complete?go():img.addEventListener("load",go,{once:true});});
-  return {fits:ok,titleSize:fs,clash,dropAud};
+  return res;
 }
 window.renderPoster=render;window.posterPlace=placePhoto;window.posterPhotoBox=el=>el.querySelector(".ph");
-window.POSTER_PHOTO_BOX2={M:[338,800],I:[238,640],R:[273,640],C:[538,600]};
-window.POSTER_PHOTO_BOX={M:[680,800],R:[550,640],O:[1080,1350],C:[1080,720],I:[440,640],K:[170,226]};
-window.POSTER_FRAME_DEFAULT={M:{fx:.5,fy:.2,z:1},R:{fx:.5,fy:.15,z:1},O:{fx:.5,fy:.18,z:1},C:{fx:.5,fy:.15,z:1},I:{fx:.5,fy:.12,z:1},K:{fx:.5,fy:.2,z:1},A:{fx:.5,fy:.15,z:1},P:{fx:.5,fy:.15,z:1}};
+window.POSTER_PHOTO_BOX={M:[680,750],R:[488,700],V:[256,256],O:[1080,1350],C:[1080,620],K:[170,226]};
+window.POSTER_PHOTO_BOX2={M:[176,176],R:[196,196],V:[200,200],C:[538,500]};
+window.POSTER_FRAME_DEFAULT={M:{fx:.5,fy:.2,z:1},R:{fx:.5,fy:.15,z:1},V:{fx:.5,fy:.22,z:1},O:{fx:.5,fy:.18,z:1},C:{fx:.5,fy:.2,z:1},K:{fx:.5,fy:.2,z:1},A:{fx:.5,fy:.15,z:1},P:{fx:.5,fy:.15,z:1}};
 })();
 
 </script>
@@ -1184,7 +1210,7 @@ const FIELDS=["cuerpo","institucion","tipo","icono","comite","organiza","titulo"
 const $=id=>document.getElementById(id);
 const KEY="public-aic-v4";
 const DEF=()=>JSON.parse(JSON.stringify(POSTER_FRAME_DEFAULT));
-const DESIGNS=["M","I","R","C","O","K","P","A"];
+const DESIGNS=["M","R","V","C","O","K","P","A"];
 const FMT=k=>k==="O"?"edit":k==="K"?"col":(k==="P"||k==="A")?"carta":"charlas";
 const TIPOS={charlas:["Charla técnica","Seminario","Conversatorio","Webinar","Taller","Almuerzo AIC","Desayuno AIC","Cena AIC"],corp:["Almuerzo AIC","Desayuno AIC","Cena AIC"],edit:["Columna de opinión","Carta al director","Entrevista","Artículo"],col:["Columna de opinión","Carta al director","Artículo de opinión"],carta:["Carta al director","Columna de opinión","Opinión"]};
 const FXDEF={blue:80,gray:100,yellow:75};
@@ -1195,6 +1221,21 @@ const curPhoto=()=>st.usePhoto&&st.photo?st.photo:"";
 const curPhoto2=()=>st.usePhoto&&st.photo2?st.photo2:"";
 const curFx=()=>curPhoto()&&st.trat!=="color"&&st.tr[st.trat]?st.tr[st.trat]:"";
 
+/* ---- Variante sugerida: según cuántos expositores hay y qué fotos llegaron (proporción y resolución) ---- */
+const VN={M:"Fecha destacada",R:"Foto protagonista",V:"Retratos",C:"Foto con calendario"};
+function photoKind(w,h){if(!w||!h)return null;const r=w/h,s=Math.min(w,h);return {r,low:s<620,horiz:r>=1.25,vert:r<.9};}
+function suggest(){
+  const two=st.dos,p1=st.usePhoto&&st.photo?photoKind(st.photoW,st.photoH):null,p2=two&&st.usePhoto&&st.photo2?photoKind(st.photo2W,st.photo2H):null;
+  const mk=(d,why)=>({d,n:VN[d],why});
+  if(!p1&&!p2)return mk("M","sin foto, la fecha toma el protagonismo");
+  if(two){const ps=[p1,p2].filter(Boolean);
+    if(ps.length===2&&ps.every(p=>!p.low&&!p.vert))return mk("C","dos fotos horizontales o cuadradas de buena resolución");
+    return mk("V","dos expositores con fotos de distinto tipo o tamaño");}
+  if(p1.low)return mk("V","la foto es chica: en círculo se ve nítida");
+  if(p1.horiz)return mk("C","la foto es horizontal");
+  return mk("R","retrato vertical o cuadrado de buena resolución");
+}
+
 /* ---- Pestañas ---- */
 const tabs=[...document.querySelectorAll(".tab")];
 function showTab(id){tabs.forEach(t=>{const on=t.id===id;t.setAttribute("aria-selected",String(on));$(t.getAttribute("aria-controls")).hidden=!on;});}
@@ -1202,7 +1243,7 @@ tabs.forEach(t=>t.addEventListener("click",()=>showTab(t.id)));
 document.querySelectorAll("[data-go]").forEach(b=>b.addEventListener("click",()=>{showTab(b.dataset.go);document.querySelector(".editor").scrollIntoView({block:"start",behavior:"smooth"});}));
 document.querySelector(".tabs").addEventListener("keydown",e=>{if(!/Arrow(Left|Right)/.test(e.key))return;const i=tabs.findIndex(t=>t.getAttribute("aria-selected")==="true"),n=(i+(e.key==="ArrowRight"?1:-1)+tabs.length)%tabs.length;showTab(tabs[n].id);tabs[n].focus();});
 
-function data(){const d={};FIELDS.forEach(k=>d[k]=$(k).value.trim());d.plazo=$("plazo").checked;d.precioOn=$("precioOn").checked;d.diseno=st.diseno;d.dos=st.dos&&!["edit","col","carta"].includes(FMT(st.diseno));d.photo2=curPhoto2();d.photo2Fx=d.photo2&&st.trat!=="color"?(st.tr2[st.trat]||""):"";d.frame2=st.frames2[st.diseno];d.photo=curPhoto();d.photoFx=curFx();d.fxk=(st.fxk[st.trat]??100)/100;if(FMT(st.diseno)==="edit")d.cta=d.ctaEd||"Lee la columna completa en el link";d.frame=st.frames[st.diseno];d.iconos=st.iconos;return d;}
+function data(){const d={};FIELDS.forEach(k=>d[k]=$(k).value.trim());d.plazo=$("plazo").checked;d.precioOn=$("precioOn").checked;d.diseno=st.diseno;d.dos=st.dos&&!["edit","col","carta"].includes(FMT(st.diseno));d.photo2=curPhoto2();d.photo2Fx=d.photo2&&st.trat!=="color"?(st.tr2[st.trat]||""):"";d.frame2=st.frames2[st.diseno];d.photo=curPhoto();d.photoFx=curFx();d.fxk=(st.fxk[st.trat]??100)/100;if(FMT(st.diseno)==="edit")d.cta=d.ctaEd||"Lee la columna completa en el link";d.frame=st.frames[st.diseno];d.iconos=st.iconos;d.photoW=st.photoW;d.photoH=st.photoH;d.photo2W=st.photo2W;d.photo2H=st.photo2H;return d;}
 function fill(d){FIELDS.forEach(k=>$(k).value=d[k]||(k==="icono"?"auto":""));$("plazo").checked=!!d.plazo;$("precioOn").checked=!!d.precioOn;st.diseno=DESIGNS.includes(d.diseno)?d.diseno:"M";if(FMT(st.diseno)==="charlas")st.lastCharla=st.diseno;if(FMT(st.diseno)==="carta")st.lastCarta=st.diseno;st.fxk=Object.assign({},FXDEF,d.fxk||{});st.dos=!!d.dos;st.photo2=d.photo2||"";st.tr2={};st.photo2W=d.photo2W||0;st.photo2H=d.photo2H||0;st.frames2=Object.assign(DEF(),d.frames2||{});
   st.photo=d.photo||"";st.tr={};st.photoW=d.photoW||0;st.photoH=d.photoH||0;st.usePhoto=d.usePhoto!==false;st.trat=["color","blue","gray","yellow"].includes(d.trat)?d.trat:"color";
   st.iconos=d.iconos!==false;st.ratio=d.ratio===2?2:1;st.frames=Object.assign(DEF(),d.frames||{});
@@ -1239,9 +1280,11 @@ function render(){
   $("zoom2Row").hidden=!(two&&d.photo2);$("trBoth").textContent=two?"· se aplica a ambas fotos":"";if(two)$("zoom2").value=st.frames2[st.diseno].z||1;
   $("mPhoto").disabled=!hasP;press("mPhoto",hasP&&st.usePhoto);press("mNo",!(hasP&&st.usePhoto));
   {const FD={charlas:"<b>Charlas:</b> convocatorias a charlas técnicas, seminarios, webinars, almuerzos, desayunos y actividades de comités.",edit:"<b>Frase destacada:</b> difunde en redes una idea o cita de un socio, con su foto de fondo. Para publicar el texto completo usa Carta al director.",carta:"<b>Carta al director:</b> publica en redes una carta o columna aparecida en un medio, con su texto completo.",col:"<b>Columna PDF:</b> documento carta horizontal con la columna completa, para enviar a medios o socios."},
-    VD={M:"Fecha destacada: la fecha en grande junto a la foto; conviene cuando el día es lo principal.",I:"Datos en ficha: fecha, hora y lugar ordenados; conviene cuando hay varios datos prácticos.",R:"Foto protagonista: retrato enmarcado en grande; conviene con una buena foto.",C:"Foto con calendario: foto amplia arriba y calendario; pensada para almuerzos, desayunos y encuentros.",P:"Recorte de prensa: sobrio, como la página del diario.",A:"Institucional AIC: papel con membrete AIC, título y firma destacados."};
-    $("fmtHint").innerHTML=FD[F]+(VD[st.diseno]?" "+VD[st.diseno]:"");}
-  $("rotuloF").hidden=st.diseno!=="C"||st.dos;
+    VD={M:"Fecha destacada: el día en grande; con dos expositores, sus retratos van en fila a todo el ancho.",R:"Foto protagonista: columna derecha reservada al expositor; luce con un retrato vertical o cuadrado de buena calidad.",V:"Retratos: fotos circulares de tamaño contenido; resuelve fotos tipo carnet, chicas o de distinto origen, y dos expositores.",C:"Foto con calendario: franja fotográfica amplia, ideal para fotos horizontales; una foto vertical se enmarca a la derecha.",P:"Recorte de prensa: sobrio, como la página del diario.",A:"Institucional AIC: papel con membrete AIC, título y firma destacados."};
+    const sg=F==="charlas"?suggest():null;
+    document.querySelectorAll(".dz").forEach(b=>b.classList.toggle("sug",!!sg&&b.dataset.d===sg.d));
+    $("fmtHint").innerHTML=FD[F]+(VD[st.diseno]?" "+VD[st.diseno]:"")+(sg&&sg.d!==st.diseno?` <b>Sugerida para este material: ${sg.n}</b> (${sg.why}).`:"");}
+  $("rotuloF").hidden=!["R","C"].includes(st.diseno)||st.dos;$("rotulo").placeholder=st.diseno==="R"?"Expone":"Expositor invitado";
   $("modeHint").textContent=hasP?"Alterna entre la versión con foto y la versión gráfica sin foto.":"Sin foto cargada se usa la versión gráfica de cada diseño.";
   press("icOn",st.iconos);press("icOff",!st.iconos);press("r1",st.ratio===1);press("r2",st.ratio===2);
   document.querySelectorAll(".sw").forEach(b=>{b.setAttribute("aria-pressed",String(b.dataset.t===st.trat));b.disabled=!hasP;});
@@ -1259,10 +1302,13 @@ function render(){
   const nw=$("cuerpo").value.trim()?$("cuerpo").value.trim().split(/\s+/).length:0;$("cuerpoN").textContent=nw?nw+" palabras":"";
   if(F==="col"){if(!d.cuerpo)al.push("Falta el texto de la columna.");
     else if(state.pages>1)al.push(`La columna ocupa ${state.pages} páginas: en la primera caben cerca de ${state.cap1} palabras y el texto tiene ${state.total}. Si debe ir en una sola, acórtala.`);}
-  if(d.photo&&st.photoW&&POSTER_PHOTO_BOX[st.diseno]&&F!=="carta"){const [W,H]=POSTER_PHOTO_BOX[st.diseno],z=st.frames[st.diseno].z||1,need=Math.max(W/st.photoW,H/st.photoH)*z;
-    if(need>(st.diseno==="K"?.75:1.35))al.push(`La foto (${st.photoW} × ${st.photoH} px) es chica para este encuadre y se verá blanda. Usa una de mayor resolución o reduce el acercamiento.`);}
-  if(d.dos&&d.photo2&&st.photo2W&&POSTER_PHOTO_BOX2[st.diseno]){const [W,H]=POSTER_PHOTO_BOX2[st.diseno],z=st.frames2[st.diseno].z||1,need=Math.max(W/st.photo2W,H/st.photo2H)*z;
-    if(need>1.35)al.push(`La foto del expositor 2 (${st.photo2W} × ${st.photo2H} px) es chica y se verá blanda.`);}
+  /* se mide el recuadro real; en un retrato circular (pequeño) se tolera más ampliación */
+  const boxOf=(sel,def)=>{const b=poster.querySelector(sel);return b&&!b.classList.contains("ini")&&b.clientWidth?[b.clientWidth,b.clientHeight,b.closest(".av")?1.6:1.35]:def;};
+  const soft=F==="charlas"&&!["V"].includes(st.diseno)?" Prueba la variante «Retratos», que usa la foto en tamaño contenido.":"";
+  if(d.photo&&st.photoW&&POSTER_PHOTO_BOX[st.diseno]&&F!=="carta"){const [W,H,lim]=boxOf(".ph:not(.ph2)",POSTER_PHOTO_BOX[st.diseno]),z=st.frames[st.diseno].z||1,need=Math.max(W/st.photoW,H/st.photoH)*z;
+    if(need>(st.diseno==="K"?.75:(lim||1.35)))al.push(`La foto (${st.photoW} × ${st.photoH} px) es chica para este encuadre y se verá blanda.${soft||" Usa una de mayor resolución o reduce el acercamiento."}`);}
+  if(d.dos&&d.photo2&&st.photo2W&&POSTER_PHOTO_BOX2[st.diseno]){const [W,H,lim]=boxOf(".ph.ph2",POSTER_PHOTO_BOX2[st.diseno]),z=st.frames2[st.diseno].z||1,need=Math.max(W/st.photo2W,H/st.photo2H)*z;
+    if(need>(lim||1.35))al.push(`La foto del expositor 2 (${st.photo2W} × ${st.photo2H} px) es chica y se verá blanda.${soft}`);}
   if(d.dos&&d.photo&&!d.photo2)al.push("Falta la foto del expositor 2: se muestran sus iniciales.");
   if(!d.titulo)al.push("Falta el título.");
   $("alerts").hidden=!al.length;$("alerts").innerHTML=al.map(t=>"<div>"+t.replace(/</g,"&lt;")+"</div>").join("");

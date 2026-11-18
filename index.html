@@ -881,6 +881,14 @@ input:hover,textarea:hover,select:hover{border-color:#9AA8BF}
 .pz.ffc h1{line-height:1.08}
 .pz.ffc .lab,.pz.ffc .kq b,.pz.ffc .lk{letter-spacing:.08em}
 
+/* ronda 23 · valor de inscripción ~12 % más grande */
+.pz.ch .fp b{font-size:36px}
+.pz.ch .fp span{font-size:22px}
+.pz.dL .lv b{font-size:40px}
+.pz.dL .lv span{font-size:22px}
+.pz.dL .lact{gap:16px}
+.pz.dL.tight .lact .lv b{font-size:38px}
+
 /* =================== FRASE DESTACADA (O) =================== */
 .pz.dO{--etica:#FFFFFF;background:var(--navy);color:var(--white)}
 .pz.dO .ph{inset:0}
@@ -1505,7 +1513,7 @@ function fitCharla(el,d,des){
   }else if(des==="L"){
     /* AIC clásico: nada puede desbordar; el título empieza donde la foto ya se fundió en blanco */
     const lm=q(".lm"),cols=[...el.querySelectorAll(".lm.one>*,.lm.two>*")];
-    ok=()=>lm.scrollHeight<=lm.clientHeight+3&&cols.every(x=>x.scrollHeight<=x.clientHeight+3)&&(!q(".lsp")||q(".lsp").scrollHeight<=q(".lsp").clientHeight+3);
+    ok=()=>lm.scrollHeight<=lm.clientHeight+3&&cols.every(x=>x.scrollHeight<=x.clientHeight+6)&&(!q(".lsp")||q(".lsp").scrollHeight<=q(".lsp").clientHeight+3);
   }else if(des==="V"){
     /* el bloque de expositores se centra: se compara su alto natural con el disponible (scrollHeight no ve el desborde hacia arriba) */
     const sp=q(".sp"),nat=()=>{const cs=getComputedStyle(sp),k=[...sp.children];if(!k.length)return 0;return k.reduce((a,c)=>a+c.offsetHeight,0)+(k.length-1)*parseFloat(cs.rowGap||0)+parseFloat(cs.paddingTop)+parseFloat(cs.paddingBottom);};

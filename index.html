@@ -387,7 +387,7 @@ input:hover,textarea:hover,select:hover{border-color:#9AA8BF}
 .pz.dM .blk{position:absolute;left:400px;right:0;top:0;bottom:0;background-color:var(--tint);background-image:radial-gradient(circle,#C9D3E3 1.9px,transparent 2.2px);background-size:26px 26px;background-position:13px 13px;overflow:hidden}
 .pz.dM .blk .emb{position:absolute;width:520px;right:-150px;top:-110px}
 .pz.dM .blk .emb .br{fill:var(--tint);stroke:var(--navy);stroke-width:2.4;stroke-opacity:.16}
-.pz.dM .blk .emb .dt{fill:var(--yellow)}
+.pz.dM .blk .emb .dt{fill:none;stroke:var(--navy);stroke-width:2.4;stroke-opacity:.16}
 .pz.dM .blk .in{position:absolute;left:56px;right:52px;bottom:52px}
 .pz.dM .blk h1{margin-top:24px;font-size:64px}
 .pz.dM .sp{flex:none;padding:44px 64px 46px;display:flex;flex-direction:column;gap:30px}
@@ -400,7 +400,7 @@ input:hover,textarea:hover,select:hover{border-color:#9AA8BF}
 .pz.dR{background:var(--paper);color:var(--ink)}
 .pz.dR .topo path{fill:none;stroke:#DFE5EE;stroke-width:1.3}
 .pz.dR .sc{position:absolute;left:592px;right:0;top:0;bottom:0;background:linear-gradient(180deg,var(--navy-3) 0%,var(--navy) 70%);color:var(--white);display:flex;flex-direction:column;overflow:hidden}
-.pz.dR .sc>.ph{position:relative;flex:1 1 auto;min-height:0;max-height:760px;background:var(--navy-2)}
+.pz.dR .sc>.ph{position:relative;flex:1 1 auto;min-height:0;max-height:840px;background:var(--navy-2)}
 .pz.dR .sc .pl{flex:none;position:relative;padding:38px 52px 42px 44px}
 .pz.dR .sc .pl::before{content:"";position:absolute;left:44px;top:0;width:88px;height:8px;background:var(--yellow)}
 .pz.dR .sc .lab{color:var(--mist)}
@@ -805,7 +805,8 @@ input:hover,textarea:hover,select:hover{border-color:#9AA8BF}
 .pz.dL .lcard.nt .ln{display:none}
 .pz.dL .lsp .lcard.nt{flex:none}
 .pz.dL .lsp .lv{flex:none;margin:4px 0 0 2px}
-.pz.dL .lm.one .lt{padding-top:var(--tPad,128px)}
+.pz.dL .lm.one .lt{padding-top:var(--tPad,104px)}
+.pz.dL.tight .lm.one .lt{padding-top:92px}
 .pz.dL .lm.one{grid-template-columns:minmax(0,1fr) 336px}
 .pz.dL .lsp .lcard{--av:276px}
 .pz.dL.tight .lsp .lcard{--av:232px}
@@ -822,6 +823,63 @@ input:hover,textarea:hover,select:hover{border-color:#9AA8BF}
 .pz.dC .who.two .r{color:var(--ink-2)}
 .pz.dC.tight .who.two{padding-top:16px}
 .pz.dC.tight .who.two>div{padding:16px 20px 18px}
+
+
+/* ===== ronda 22 ===== */
+/* AIC clásico, un expositor: la inscripción es un bloque propio a todo el ancho (público · valor · botón) */
+.pz.dL .lm.one{grid-template-rows:minmax(0,1fr) auto}
+.pz.dL .lm.one .lt{grid-row:1;grid-column:1}
+.pz.dL .lm.one .lsp{grid-row:1;grid-column:2}
+.pz.dL .lins{grid-row:2;grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:34px;margin-top:26px;padding-top:24px;border-top:2px solid var(--line)}
+.pz.dL .lins .la{margin:0;flex:1 1 auto;min-width:0;font-size:25px}
+.pz.dL .lpb{flex:none;display:flex;align-items:center;gap:28px}
+.pz.dL .lpb .lv{margin:0}
+.pz.dL .lpb .lbtn{height:78px}
+.pz.dL.tight .lins{margin-top:18px;padding-top:18px}
+/* Panorámico doble: leyenda azul sobre la parte baja de cada foto; sin diagonal para no cortar la leyenda derecha */
+.pz.dC .bd.cap{clip-path:none}
+.pz.dC .bd.cap>.ph{overflow:hidden}
+.pz.dC .bd.cap .cp{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:90px 34px 30px;text-align:center;color:var(--white);background:linear-gradient(0deg,rgba(20,40,102,.96) 0%,rgba(20,40,102,.92) 52%,rgba(20,40,102,0) 100%)}
+.pz.dC .bd.cap .cp::before{content:"";display:block;width:56px;height:6px;background:var(--yellow);margin:0 auto 16px}
+.pz.dC .bd.cap .cp b.nm{font-size:36px}
+.pz.dC .bd.cap .cp .r{margin-top:6px;font-size:25px;color:var(--mist)}
+.pz.dC .bd.cap>.ph.np{background:linear-gradient(170deg,var(--navy-3),var(--navy))}
+.pz.dC .bd.cap>.ph.ph2.np{border-left:2px solid rgba(255,255,255,.14)}
+.pz.dC .bd.cap>.ph.np .cp{background:none;padding-bottom:40px}
+.pz.dC.two .main{padding-top:40px}
+.pz.dC.tight .bd.cap .cp{padding:70px 26px 22px}
+/* Panorámico, un expositor con foto vertical o sin foto: la franja azul no crece de más y el expositor gana presencia */
+.pz.dC.inb .bd{flex:0 0 auto;height:var(--bdH,560px)}
+.pz.dC.inb .main{flex:1 1 auto;display:flex;flex-direction:column;justify-content:center}
+.pz.dC .bd .who.inb{bottom:auto;top:calc(62px + 236px * .854 + 56px);padding-top:30px;border-top:2px solid rgba(255,255,255,.2)}
+.pz.dC .bd .who.inb b.nm{font-size:46px}
+.pz.dC .bd .who.inb .r{font-size:29px;margin-top:10px}
+.pz.dC .bd .who.inb .lab{margin-bottom:14px}
+/* Fotos pequeñas, doble: la parte azul gana alto y el título, aire; la parte blanca usa sólo lo necesario */
+.pz.dV.two .vh{flex:1 1 auto;display:flex;flex-direction:column}
+.pz.dV.two .vh h1{margin-top:auto}
+.pz.dV.two .vh .kq{margin-top:auto}
+.pz.dV.two .vh .kq+h1{margin-top:26px}
+.pz.dV.two .sp{flex:none;padding:40px 72px 34px;gap:30px}
+.pz.dV.two .vh{padding-bottom:56px}
+/* Diseño mixto: columna izquierda de arriba abajo, con la fecha como bloque destacado */
+.pz.dR .lc .kq{margin-top:64px;padding-top:0}
+.pz.dR .lc>.logo+h1{margin-top:64px}
+.pz.dR h1{font-size:60px}
+.pz.dR .lc .dch{flex:none;display:flex;align-items:center;gap:22px;margin-top:40px;padding:20px 28px 20px 24px;background:var(--navy);color:var(--white);border-radius:14px;align-self:flex-start;max-width:100%}
+.pz.dR .lc .dch .dn{font-family:"Montserrat",Arial,sans-serif;font-size:84px;font-weight:800;line-height:.9;letter-spacing:-.04em}
+.pz.dR .lc .dch b{display:block;font-size:24px;font-weight:800;letter-spacing:.12em;color:var(--white)}
+.pz.dR .lc .dch span{display:block;margin-top:6px;font-size:26px;font-weight:600;letter-spacing:.06em;color:var(--mist)}
+.pz.dR .lc .info{margin-top:30px;padding-top:0;border-top:0}
+.pz.dR .lc .pfl{margin-top:auto}
+.pz.dR.tight .lc .kq,.pz.dR.tight .lc>.logo+h1{margin-top:40px}
+.pz.dR.tight .lc .dch{margin-top:28px;padding:14px 22px}
+.pz.dR.tight .lc .dch .dn{font-size:70px}
+/* Tipografía Century Gothic (instalada en el equipo; respaldo con una geométrica equivalente) */
+.pz.ffc:not(.dP),.pz.ffc:not(.dP) *:not(.cal):not(.cal *):not(.dn):not(.bd):not(.bd *){font-family:"Century Gothic","CenturyGothic","URW Gothic","AppleGothic","Avant Garde",Arial,sans-serif}
+.pz.ffc h1,.pz.ffc b.nm,.pz.ffc .kq b,.pz.ffc .fp b,.pz.ffc .date .d,.pz.ffc .lv b,.pz.ffc .lbtn,.pz.ffc .lr b{font-weight:700;letter-spacing:-.01em}
+.pz.ffc h1{line-height:1.08}
+.pz.ffc .lab,.pz.ffc .kq b,.pz.ffc .lk{letter-spacing:.08em}
 
 /* =================== FRASE DESTACADA (O) =================== */
 .pz.dO{--etica:#FFFFFF;background:var(--navy);color:var(--white)}
@@ -1126,8 +1184,8 @@ body[data-multi="1"] .stage .pzs>.pz{box-shadow:0 16px 40px rgba(20,40,102,.24)}
                   <option value="mic">Charla o seminario</option><option value="monitor">Webinar o en línea</option><option value="board">Taller o curso</option>
                   <option value="trophy">Premio o concurso</option><option value="handshake">Encuentro</option><option value="calendar">Calendario</option><option value="spark">General</option>
                 </select></div></div>
-            <div class="opt" data-show="charlas edit carta"><div class="t"><b>Tipografía</b><span>Montserrat, Barlow o AIC (cada texto con la familia y el peso que indica el manual de identidad).</span></div>
-              <div class="seg" role="group" aria-label="Tipografía"><button type="button" id="fM" aria-pressed="true">Montserrat</button><button type="button" id="fB" aria-pressed="false">Barlow</button><button type="button" id="fA" aria-pressed="false">AIC</button></div></div>
+            <div class="opt" data-show="charlas edit carta"><div class="t"><b>Tipografía</b><span>Montserrat, Barlow, AIC (familias y pesos del manual de identidad) o Century Gothic (debe estar instalada en el equipo).</span></div>
+              <div class="seg" role="group" aria-label="Tipografía"><button type="button" id="fM" aria-pressed="true">Montserrat</button><button type="button" id="fB" aria-pressed="false">Barlow</button><button type="button" id="fA" aria-pressed="false">AIC</button><button type="button" id="fC" aria-pressed="false">Century Gothic</button></div></div>
             <div class="opt" data-show="charlas edit carta"><div class="t"><b>Resolución de descarga</b><span>1080 × 1350 es lo que pide LinkedIn.</span></div>
               <div class="seg" role="group" aria-label="Resolución"><button type="button" id="r1" aria-pressed="true">1080 px</button><button type="button" id="r2" aria-pressed="false">2160 px</button></div></div>
           </div>
@@ -1284,8 +1342,12 @@ function buildR(d,di,logoNavy,act){
     sc=`<div class="sc${pl?"":" nopl"}">${hasPh(d.photo)?photoHTML(d):`<div class="arch"><svg class="abs tp" viewBox="440 100 560 720" preserveAspectRatio="none"><path d="${TOPO}"/></svg><div class="emb">${MARK}</div></div>`}${pl}</div>`;
   }
   const go=d.cta?`<div class="go">${ctaHTML(d)}</div>`:"",left=hasPrice(d)?`<div class="pfl">${priceHTML(d)}</div>`:"";
+  /* la fecha deja de ser una línea más: va en un bloque azul con el día en grande y la hora */
+  const t=d.hora&&!(di&&di.plazo)?esc(horaTxt(d.hora)):"";
+  const dt=di?`<div class="dch"><span class="dn">${di.num}</span><div><b>${di.plazo?"HASTA EL "+di.wd:di.wd}</b><span>${di.month}${t?` · ${t}`:""}</span></div></div>`:"";
+  const info=infoList(d,di,{date:false,time:!di});
   return `<svg class="abs topo" viewBox="0 0 1080 1350"><path d="${TOPO}"/></svg>${sc.replace(/<\/div>$/,go+"</div>")}
-  <div class="lc"><div class="logo"><img alt="AIC" src="${logoNavy}"></div>${kq(d,act)}<h1>${br(d.titulo)}</h1>${infoHTML(infoList(d,di,{date:true}))}${left}</div>`;
+  <div class="lc"><div class="logo"><img alt="AIC" src="${logoNavy}"></div>${kq(d,act)}<h1>${br(d.titulo)}</h1>${dt}${infoHTML(info)}${left}</div>`;
 }
 
 /* ---------- RETRATOS ---------- */
@@ -1300,7 +1362,10 @@ function buildV(d,di,logo,act){
 function buildC(d,di,logo,act,logoNavy){
   const ph=hasPh(d.photo)||(d.two&&hasPh(d.photo2));
   const portrait=!d.two&&ph&&(!d.photoW||!d.photoH||d.photoW/d.photoH<1.25);
-  const band=`<div class="bd${portrait?" pt":""}">${(!ph||portrait)?`<div class="mk">${MARK}</div>`:""}${ph?(d.two?twoPh(d):photoHTML(d)):""}<div class="tg"></div></div>`;
+  /* dos expositores: cada foto lleva su leyenda (nombre y cargo) en la parte baja; así foto y cargo son una sola unidad */
+  const capC=n=>{const [nm,c]=who(d,n);return nm||c?`<div class="cp" data-nl="2" data-rl="4">${nmr(nm,c)}</div>`:"";};
+  const two2=d.two?(ph?twoPh(d).replace(/<\/div>(?=<div class="ph ph2)/,capC(1)+"</div>").replace(/<\/div>$/,capC(2)+"</div>"):`<div class="ph p1 np">${capC(1)}</div><div class="ph ph2 np">${capC(2)}</div>`):"";
+  const band=`<div class="bd${portrait?" pt":""}${d.two?" cap":""}">${(!ph||portrait)&&!d.two?`<div class="mk">${MARK}</div>`:""}${d.two?two2:(ph?photoHTML(d):"")}<div class="tg"></div></div>`;
   const cut=`<svg class="cut" width="1080" height="1350" viewBox="0 0 1080 1350" aria-hidden="true"><line x1="866.4" y1="726.4" x2="1086.4" y2="506.4" stroke="#FCBF00" stroke-width="10"/></svg>`;
   const inb=!d.two&&(portrait||!ph),tb=ph&&!inb;
   /* con foto a todo el ancho, el logo va en una franja propia sobre la foto (no encima de ella) y lo acompaña la actividad */
@@ -1309,7 +1374,7 @@ function buildC(d,di,logo,act,logoNavy){
   const B=inb?band.replace(/<div class="tg"><\/div><\/div>$/,`<div class="tg"></div>${w.replace('class="who"','class="who inb"')}</div>`):band;
   /* foto a todo el ancho: el azul de arriba se funde con la foto; ahí van el logo blanco y la actividad */
   const B2=tb?B.replace('<div class="bd','<div class="bd gr'):B,gk=tb?kq(d,act).replace('class="kq"','class="kq gk"'):"";
-  return `${B2}${cut}<div class="logo"><img alt="AIC" src="${logo}"></div>${gk}${inb?"":w}${calHTML(di,d)}
+  return `${B2}${d.two?"":cut}<div class="logo"><img alt="AIC" src="${logo}"></div>${gk}${inb||d.two?"":w}${calHTML(di,d)}
   <div class="main">${tb?"":kq(d,act)}<h1>${br(d.titulo)}</h1>${infoHTML(infoList(d,di,{date:false,time:!di}))}</div>${pfHTML(d)}`;
 }
 
@@ -1333,7 +1398,8 @@ function buildL(d,di,logo,act){
     return `<div class="lcard${h?" h":""}${usePh?" wp":""}${nm||c?"":" nt"}">${usePh?avatar(d,n):""}<div class="ln" data-nl="2" data-rl="4">${nmr(nm,c)}</div></div>`;};
   const org=d.organiza?`<div class="lf"><span><b>Organiza:</b> ${orgTxt(d)}</span></div>`:"";
   if(d.two)return `${bg}${head}<div class="lm two"><div class="lti"><h1>${br(d.titulo)}</h1></div><div class="lcs">${card(1,true)}${card(2,true)}</div><div class="lbo">${data}${price||btn?`<div class="lact">${price}${btn}</div>`:""}</div></div>${org}`;
-  return `${bg}${head}<div class="lm one"><div class="lt"><h1>${br(d.titulo)}</h1><i class="lu"></i>${data}</div><div class="lsp">${card(1,false)}${price}${btn}</div></div>${org}`;
+  const dataN=`<div class="ld">${row1}${row2}</div>`,ins=aud||price||btn?`<div class="lins">${aud?`<p class="la">${br(d.publico)}</p>`:"<span></span>"}<div class="lpb">${price}${btn}</div></div>`:"";
+  return `${bg}${head}<div class="lm one"><div class="lt"><h1>${br(d.titulo)}</h1><i class="lu"></i>${dataN}</div><div class="lsp">${card(1,false)}</div>${ins}</div>${org}`;
 }
 /* ---------- FRASE DESTACADA ---------- */
 function pubDate(iso){const m=/^(\d{4})-(\d{2})-(\d{2})$/.exec(iso||"");if(!m)return iso||"";return `${+m[3]} de ${MESES[+m[2]-1]} de ${m[1]}`;}
@@ -1425,7 +1491,7 @@ function fitRoles(el){
 const TITLE_RANGE={M:[56,44],R:[54,42],V:[60,44],C:[54,42],L:[62,48]};
 function fitCharla(el,d,des){
   const q=s=>el.querySelector(s),over=e=>!!e&&e.scrollHeight>e.clientHeight+1,h1=q("h1");
-  const R0=des==="L"&&d.two?[54,42]:des==="C"&&d.two?[50,40]:des==="V"&&d.two?[56,42]:des==="M"&&q(".blk")?[58,44]:TITLE_RANGE[des];
+  const R0=des==="L"&&d.two?[54,42]:des==="C"&&d.two?[50,40]:des==="V"&&d.two?[62,46]:des==="M"&&q(".blk")?[58,44]:TITLE_RANGE[des];
   /* Barlow Condensed es más angosta: el título puede ser algo mayor con el mismo ancho */
   const R=d.font==="barlow"||d.font==="aic"?R0.map(v=>Math.round(v*1.1/2)*2):R0;
   let ok=()=>true;
@@ -1446,11 +1512,15 @@ function fitCharla(el,d,des){
     const vh=q(".vh"),lg=vh.querySelector(".logo"),fl=vh.querySelector(".kq")||vh.querySelector("h1");
     ok=()=>nat()<=sp.clientHeight+1&&(!vh.classList.contains("full")||!fl||fl.offsetTop-(lg.offsetTop+lg.offsetHeight)>=24);
   }else{
-    const bd=q(".bd"),wi=q(".who.inb"),tbar=q(".bd.gr"),min=tbar?(d.two?570:610):(hasPh(d.photo)?500:380);
+    const bd=q(".bd"),wi=q(".who.inb"),tbar=q(".bd.gr"),min=tbar?(d.two?600:610):(hasPh(d.photo)?480:380);
     if(wi)el.classList.add("inb");if(tbar)el.classList.add("hastb");
-    ok=()=>bd.offsetHeight>=min&&(!wi||wi.offsetTop>=280);
+    const mn=q(".main");
+    /* franja con el expositor: su alto se ajusta al bloque del expositor (sin exceso de azul) */
+    const setB=()=>{if(!wi)return;el.style.setProperty("--bdH",Math.max(hasPh(d.photo)?580:480,wi.offsetTop+wi.offsetHeight+56)+"px");};
+    if(wi)setB();
+    ok=()=>{if(wi){setB();return mn.scrollHeight<=mn.clientHeight+2;}return bd.offsetHeight>=min;};
   }
-  if(des==="C"&&q(".bd.pt"))el.style.setProperty("--pw",Math.min(600,Math.round(q(".bd").offsetHeight*.82))+"px");
+  if(des==="C"&&q(".bd.pt"))el.style.setProperty("--pw",q(".who.inb")?"460px":Math.min(600,Math.round(q(".bd").offsetHeight*.82))+"px");
   const fitT=()=>h1?shrink(h1,R[0],R[1],()=>!ok()):0;
   /* Fecha destacada con foto: si la placa del expositor baja mucho bajo la foto, la actividad ocupa el hueco a su izquierda */
   if(des==="M"){const mid=q(".mid"),pl=q(".mid .plate"),k=q(".main>.kq");
@@ -1468,7 +1538,7 @@ function fitCharla(el,d,des){
   if(des==="C"){
     const bdE=q(".bd"),H=bdE.offsetTop+bdE.offsetHeight,ln=q(".cut line");
     if(ln){ln.setAttribute("y1",H+6.4);ln.setAttribute("y2",H-213.6);}
-    if(q(".bd.pt"))el.style.setProperty("--pw",Math.min(600,Math.round(bdE.offsetHeight*.82))+"px");
+    if(q(".bd.pt")&&!q(".who.inb"))el.style.setProperty("--pw",Math.min(600,Math.round(bdE.offsetHeight*.82))+"px");
     const cal=q(".cal");if(cal)cal.style.top=(d.two||q(".who.inb")?q(".main").offsetTop+36:H-120)+"px";
   }
   return {fits,titleSize:fs,clash:false,dropAud};
@@ -1492,7 +1562,7 @@ function buildCarta(el,d,logo,logoNavy){
   const tplA=(n,last,a,b)=>`<div class="ah"><img alt="AIC" src="${logoNavy}"><div class="sec"><b>${sec}</b>${md?`<span>${md}</span>`:""}</div></div>
     <div class="ab">${n===1?`<h1>${br(d.titulo)}</h1><i class="acc"></i>`:d.titulo?`<div class="rt">${esc(d.titulo)} (continuación)</div>`:""}<div class="bd">${body(a,b)}</div></div>
     <div class="af">${last?`<div class="who">${nmr(d.nombre,d.cargo)}<em>${esc(inst)}</em></div>`:`<div class="who"><span class="nx">Continúa en la siguiente imagen</span></div>`}<div class="pg" data-n="${n}"></div></div>`;
-  const mk=(n,last,a,b)=>{const pg=document.createElement("div");pg.className="pz d"+d.diseno+(d.font==="barlow"?" ffb":d.font==="aic"?" ffa":"")+(n>1?" cont":"");pg.innerHTML=(P?tplP:tplA)(n,last,a,b);el.appendChild(pg);
+  const mk=(n,last,a,b)=>{const pg=document.createElement("div");pg.className="pz d"+d.diseno+(d.font==="barlow"?" ffb":d.font==="aic"?" ffa":d.font==="cg"?" ffc":"")+(n>1?" cont":"");pg.innerHTML=(P?tplP:tplA)(n,last,a,b);el.appendChild(pg);
     if(!P){pg.style.height="auto";const r=pg.querySelector(".af .r");if(r)fitText(r,3,.9,22);const nm=pg.querySelector(".af b.nm");if(nm)fitText(nm,2,.85,26);}
     const h=pg.querySelector("h1");if(h)titleLines(h,P?50:(d.font==="barlow"||d.font==="aic"?52:46),P?40:38,3);return pg;};
   const over=pg=>P?pg.querySelector(".clip").scrollHeight>1350:pg.offsetHeight>1350;
@@ -1544,7 +1614,7 @@ function render(el,d,logo,logoNavy){
   const des=["M","R","O","C","V","L"].includes(d.diseno)?d.diseno:(d.diseno==="E"?"O":"M");
   if(des!=="O"&&d.dos&&(d.nombre2||d.photo2)){d=Object.assign({},d,{two:true});if(!d.photo&&d.photo2)d.photo=" ";}
   const di=dateInfo(d),act=aicActivityIcon(d.tipo,d.icono),ico=d.iconos!==false;
-  el.className="pz d"+des+(d.font==="barlow"?" ffb":d.font==="aic"?" ffa":"")+(des!=="O"?" ch":"")+(d.two?" two":"")+(d.photo?" photo":" nophoto")+(d.nombre?"":" noplate")+(ico?"":" noic")+(di?" hasdate":" nodate");
+  el.className="pz d"+des+(d.font==="barlow"?" ffb":d.font==="aic"?" ffa":d.font==="cg"?" ffc":"")+(des!=="O"?" ch":"")+(d.two?" two":"")+(d.photo?" photo":" nophoto")+(d.nombre?"":" noplate")+(ico?"":" noic")+(di?" hasdate":" nodate");
   ["--g0","--g1","--g2","--T","--B","--bfs","--blh","--ct","--pw","--bgH"].forEach(k=>el.style.removeProperty(k));
   el.innerHTML=des==="M"?buildM(d,di,logo,act):des==="R"?buildR(d,di,logoNavy,act):des==="O"?buildO(d,logo):des==="V"?buildV(d,di,logo,act):des==="L"?buildL(d,di,logo,act):buildC(d,di,logo,act,logoNavy);
   fitRoles(el);
@@ -1611,7 +1681,7 @@ document.querySelector(".tabs").addEventListener("keydown",e=>{if(!/Arrow(Left|R
 function data(){const d={};FIELDS.forEach(k=>d[k]=$(k).value.trim());d.plazo=$("plazo").checked;d.precioOn=$("precioOn").checked;d.diseno=st.diseno;d.dos=st.dos&&!["edit","col","carta"].includes(FMT(st.diseno));d.photo2=curPhoto2();d.photo2Fx=d.photo2&&st.trat!=="color"?(st.tr2[st.trat]||""):"";d.frame2=st.frames2[st.diseno];d.photo=curPhoto();d.photoFx=curFx();d.fxk=(st.fxk[st.trat]??100)/100;if(FMT(st.diseno)==="edit")d.cta=d.ctaEd||"Lee la columna completa en el link";d.frame=st.frames[st.diseno];d.iconos=st.iconos;d.photoW=st.photoW;d.photoH=st.photoH;d.photo2W=st.photo2W;d.photo2H=st.photo2H;d.font=st.font;d.bg=st.bg;d.frameBg=st.framesBg.L;return d;}
 function fill(d){FIELDS.forEach(k=>$(k).value=d[k]||(k==="icono"?"auto":""));$("plazo").checked=!!d.plazo;$("precioOn").checked=!!d.precioOn;st.diseno=DESIGNS.includes(d.diseno)?d.diseno:"M";if(FMT(st.diseno)==="charlas")st.lastCharla=st.diseno;if(FMT(st.diseno)==="carta")st.lastCarta=st.diseno;st.fxk=Object.assign({},FXDEF,d.fxk||{});st.dos=!!d.dos;st.photo2=d.photo2||"";st.tr2={};st.photo2W=d.photo2W||0;st.photo2H=d.photo2H||0;st.frames2=Object.assign(DEF(),d.frames2||{});
   st.photo=d.photo||"";st.tr={};st.photoW=d.photoW||0;st.photoH=d.photoH||0;st.usePhoto=d.usePhoto!==false;st.trat=["color","blue","gray","yellow"].includes(d.trat)?d.trat:"color";
-  st.iconos=d.iconos!==false;st.font=["barlow","aic"].includes(d.font)?d.font:"montserrat";st.ratio=d.ratio===2?2:1;st.frames=Object.assign(DEF(),d.frames||{});
+  st.iconos=d.iconos!==false;st.font=["barlow","aic","cg"].includes(d.font)?d.font:"montserrat";st.ratio=d.ratio===2?2:1;st.frames=Object.assign(DEF(),d.frames||{});
   st.bg=d.bg||"";st.bgW=d.bgW||0;st.bgH=d.bgH||0;st.framesBg={L:Object.assign({fx:.5,fy:.5,z:1},(d.framesBg||{}).L||{})};
   if(st.photo)makeTreatments(1);if(st.photo2)makeTreatments(2);syncPhotoUI();}
 function scale(){const W=poster.offsetWidth||1080,s=stage.clientWidth/W,multi=poster.classList.contains("pzs");document.body.dataset.multi=multi?"1":"";poster.style.transform="scale("+s+")";stage.style.height=(document.body.dataset.fmt==="col"||multi||Math.abs(poster.offsetHeight-1350)>2)?Math.ceil(poster.offsetHeight*s)+"px":"";}
@@ -1652,7 +1722,7 @@ function render(){
     $("fmtHint").innerHTML=FD[F]+(VD[st.diseno]?" "+VD[st.diseno]:"")+(sg&&sg.d!==st.diseno?` <b>Sugerida para este material: ${sg.n}</b> (${sg.why}).`:"");}
   $("bgGrp").hidden=st.diseno!=="L";$("rotuloF").hidden=!["R","C"].includes(st.diseno)||st.dos;$("rotulo").placeholder=st.diseno==="R"?"Expone":"Expositor invitado";
   $("modeHint").textContent=hasP?"Alterna entre la versión con foto y la versión gráfica sin foto.":"Sin foto cargada se usa la versión gráfica de cada diseño.";
-  press("icOn",st.iconos);press("icOff",!st.iconos);press("fM",st.font==="montserrat");press("fB",st.font==="barlow");press("fA",st.font==="aic");press("r1",st.ratio===1);press("r2",st.ratio===2);
+  press("icOn",st.iconos);press("icOff",!st.iconos);press("fM",st.font==="montserrat");press("fB",st.font==="barlow");press("fA",st.font==="aic");press("fC",st.font==="cg");press("r1",st.ratio===1);press("r2",st.ratio===2);
   document.querySelectorAll(".sw").forEach(b=>{b.setAttribute("aria-pressed",String(b.dataset.t===st.trat));b.disabled=!hasP;});
   const fxOn=hasP&&st.usePhoto&&st.trat!=="color";$("fxRow").hidden=!hasP;$("fxk").disabled=!fxOn;$("fxReset").disabled=!fxOn;
   $("fxk").value=st.trat==="color"?0:st.fxk[st.trat];$("fxVal").textContent=st.trat==="color"?"—":st.fxk[st.trat]+" %";
@@ -1702,6 +1772,7 @@ $("r1").addEventListener("click",()=>{st.ratio=1;render();});
 const BARLOW=["400 20px Barlow","500 20px Barlow","600 20px Barlow","700 20px Barlow","800 20px Barlow","600 20px 'Barlow Condensed'","700 20px 'Barlow Condensed'"];
 $("fM").addEventListener("click",()=>{st.font="montserrat";render();});
 $("fB").addEventListener("click",()=>{st.font="barlow";Promise.all(BARLOW.map(f=>document.fonts.load(f))).then(render,render);});
+$("fC").addEventListener("click",()=>{st.font="cg";Promise.all(["400 20px 'Century Gothic'","700 20px 'Century Gothic'"].map(f=>document.fonts.load(f).catch(()=>{}))).then(render,render);});
 $("fA").addEventListener("click",()=>{st.font="aic";Promise.all(BARLOW.map(f=>document.fonts.load(f))).then(render,render);});
 $("r2").addEventListener("click",()=>{st.ratio=2;render();});
 document.querySelectorAll(".sw").forEach(b=>b.addEventListener("click",()=>{st.trat=b.dataset.t;st.usePhoto=true;render();}));
@@ -1862,7 +1933,7 @@ $("btnClear").addEventListener("click",()=>{fill({fxk:st.fxk,diseno:st.diseno,ic
 let saved=null;try{saved=JSON.parse(localStorage.getItem(KEY)||"null");}catch(e){}
 fill(saved&&saved.titulo!==undefined?saved:SAMPLE);
 render();
-Promise.all([...(st.font!=="montserrat"?BARLOW:[]),"700 20px Montserrat","500 20px Montserrat","800 20px Montserrat","400 14px Caladea","italic 400 14px Caladea","700 14px Caladea","italic 700 14px Caladea"].map(f=>document.fonts.load(f))).then(render,render);
+Promise.all([...(st.font==="barlow"||st.font==="aic"?BARLOW:[]),"700 20px Montserrat","500 20px Montserrat","800 20px Montserrat","400 14px Caladea","italic 400 14px Caladea","700 14px Caladea","italic 700 14px Caladea"].map(f=>document.fonts.load(f))).then(render,render);
 window.__test={setBg:(u,w,h)=>{st.bg=u;st.bgW=w;st.bgH=h;st.framesBg={L:{fx:.5,fy:.5,z:1}};syncPhotoUI();render();},setPhoto2:(u,w,h)=>{st.photo2=u;st.tr2={};st.photo2W=w;st.photo2H=h;st.usePhoto=true;st.frames2=DEF();syncPhotoUI();makeTreatments(2);render();},makeBlob,setPhoto:(u,w,h)=>{st.photo=u;st.tr={};st.photoW=w;st.photoH=h;st.usePhoto=true;st.frames=DEF();syncPhotoUI();makeTreatments();render();},
   set:o=>{Object.assign(st,o);render();},state:()=>state,tr:()=>Object.keys(st.tr)};
 })();
